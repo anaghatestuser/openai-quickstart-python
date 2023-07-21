@@ -1,0 +1,166 @@
+2023-07-19 10:39:33,239 - INFO - Logger set up with log level: 20(info)
+2023-07-19 10:39:33,245 - INFO - Log file: logs/langflow.log
+2023-07-19 10:46:18,877 - INFO - Logger set up with log level: 20(info)
+2023-07-19 10:46:18,884 - INFO - Log file: logs/langflow.log
+2023-07-19 10:59:31,613 - ERROR - 1001
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/langflow/api/chat_manager.py", line 163, in handle_websocket
+    json_payload = await websocket.receive_json()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/starlette/websockets.py", line 133, in receive_json
+    self._raise_on_disconnect(message)
+  File "/usr/local/lib/python3.11/site-packages/starlette/websockets.py", line 105, in _raise_on_disconnect
+    raise WebSocketDisconnect(message["code"])
+starlette.websockets.WebSocketDisconnect: 1001
+2023-07-19 10:59:32,002 - ERROR - Cannot call "send" once a close message has been sent.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/langflow/api/chat_manager.py", line 163, in handle_websocket
+    json_payload = await websocket.receive_json()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/starlette/websockets.py", line 133, in receive_json
+    self._raise_on_disconnect(message)
+  File "/usr/local/lib/python3.11/site-packages/starlette/websockets.py", line 105, in _raise_on_disconnect
+    raise WebSocketDisconnect(message["code"])
+starlette.websockets.WebSocketDisconnect: 1001
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/langflow/api/chat_manager.py", line 179, in handle_websocket
+    await self.active_connections[client_id].close(
+  File "/usr/local/lib/python3.11/site-packages/starlette/websockets.py", line 180, in close
+    await self.send(
+  File "/usr/local/lib/python3.11/site-packages/starlette/websockets.py", line 85, in send
+    await self._send(message)
+  File "/usr/local/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 65, in sender
+    await send(message)
+  File "/usr/local/lib/python3.11/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 329, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.close', after sending 'websocket.close'.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/langflow/api/chat_manager.py", line 187, in handle_websocket
+    await connection.close(code=1000, reason="Client disconnected")
+  File "/usr/local/lib/python3.11/site-packages/starlette/websockets.py", line 180, in close
+    await self.send(
+  File "/usr/local/lib/python3.11/site-packages/starlette/websockets.py", line 87, in send
+    raise RuntimeError('Cannot call "send" once a close message has been sent.')
+RuntimeError: Cannot call "send" once a close message has been sent.
+2023-07-19 11:02:21,797 - INFO - Logger set up with log level: 20(info)
+2023-07-19 11:02:21,807 - INFO - Log file: logs/langflow.log
+2023-07-19 11:08:30,959 - ERROR - 1006
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/langflow/api/chat_manager.py", line 163, in handle_websocket
+    json_payload = await websocket.receive_json()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/starlette/websockets.py", line 133, in receive_json
+    self._raise_on_disconnect(message)
+  File "/usr/local/lib/python3.11/site-packages/starlette/websockets.py", line 105, in _raise_on_disconnect
+    raise WebSocketDisconnect(message["code"])
+starlette.websockets.WebSocketDisconnect: 1006
+2023-07-19 11:08:31,179 - ERROR - 1011
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/langflow/api/chat_manager.py", line 163, in handle_websocket
+    json_payload = await websocket.receive_json()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/starlette/websockets.py", line 133, in receive_json
+    self._raise_on_disconnect(message)
+  File "/usr/local/lib/python3.11/site-packages/starlette/websockets.py", line 105, in _raise_on_disconnect
+    raise WebSocketDisconnect(message["code"])
+starlette.websockets.WebSocketDisconnect: 1011
+2023-07-19 11:46:35,039 - ERROR - 1001
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/langflow/api/chat_manager.py", line 163, in handle_websocket
+    json_payload = await websocket.receive_json()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/starlette/websockets.py", line 133, in receive_json
+    self._raise_on_disconnect(message)
+  File "/usr/local/lib/python3.11/site-packages/starlette/websockets.py", line 105, in _raise_on_disconnect
+    raise WebSocketDisconnect(message["code"])
+starlette.websockets.WebSocketDisconnect: 1001
+2023-07-19 11:46:35,334 - ERROR - Cannot call "send" once a close message has been sent.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/langflow/api/chat_manager.py", line 163, in handle_websocket
+    json_payload = await websocket.receive_json()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/starlette/websockets.py", line 133, in receive_json
+    self._raise_on_disconnect(message)
+  File "/usr/local/lib/python3.11/site-packages/starlette/websockets.py", line 105, in _raise_on_disconnect
+    raise WebSocketDisconnect(message["code"])
+starlette.websockets.WebSocketDisconnect: 1001
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/langflow/api/chat_manager.py", line 179, in handle_websocket
+    await self.active_connections[client_id].close(
+  File "/usr/local/lib/python3.11/site-packages/starlette/websockets.py", line 180, in close
+    await self.send(
+  File "/usr/local/lib/python3.11/site-packages/starlette/websockets.py", line 85, in send
+    await self._send(message)
+  File "/usr/local/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 65, in sender
+    await send(message)
+  File "/usr/local/lib/python3.11/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 329, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.close', after sending 'websocket.close'.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/langflow/api/chat_manager.py", line 187, in handle_websocket
+    await connection.close(code=1000, reason="Client disconnected")
+  File "/usr/local/lib/python3.11/site-packages/starlette/websockets.py", line 180, in close
+    await self.send(
+  File "/usr/local/lib/python3.11/site-packages/starlette/websockets.py", line 87, in send
+    raise RuntimeError('Cannot call "send" once a close message has been sent.')
+RuntimeError: Cannot call "send" once a close message has been sent.
+2023-07-19 11:46:43,833 - ERROR - 1001
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/langflow/api/chat_manager.py", line 163, in handle_websocket
+    json_payload = await websocket.receive_json()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/starlette/websockets.py", line 133, in receive_json
+    self._raise_on_disconnect(message)
+  File "/usr/local/lib/python3.11/site-packages/starlette/websockets.py", line 105, in _raise_on_disconnect
+    raise WebSocketDisconnect(message["code"])
+starlette.websockets.WebSocketDisconnect: 1001
+2023-07-19 11:46:43,972 - ERROR - Cannot call "send" once a close message has been sent.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/langflow/api/chat_manager.py", line 163, in handle_websocket
+    json_payload = await websocket.receive_json()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/starlette/websockets.py", line 133, in receive_json
+    self._raise_on_disconnect(message)
+  File "/usr/local/lib/python3.11/site-packages/starlette/websockets.py", line 105, in _raise_on_disconnect
+    raise WebSocketDisconnect(message["code"])
+starlette.websockets.WebSocketDisconnect: 1001
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/langflow/api/chat_manager.py", line 179, in handle_websocket
+    await self.active_connections[client_id].close(
+  File "/usr/local/lib/python3.11/site-packages/starlette/websockets.py", line 180, in close
+    await self.send(
+  File "/usr/local/lib/python3.11/site-packages/starlette/websockets.py", line 85, in send
+    await self._send(message)
+  File "/usr/local/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 65, in sender
+    await send(message)
+  File "/usr/local/lib/python3.11/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 329, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.close', after sending 'websocket.close'.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/langflow/api/chat_manager.py", line 187, in handle_websocket
+    await connection.close(code=1000, reason="Client disconnected")
+  File "/usr/local/lib/python3.11/site-packages/starlette/websockets.py", line 180, in close
+    await self.send(
+  File "/usr/local/lib/python3.11/site-packages/starlette/websockets.py", line 87, in send
+    raise RuntimeError('Cannot call "send" once a close message has been sent.')
+RuntimeError: Cannot call "send" once a close message has been sent.
+2023-07-19 16:41:43,682 - INFO - Logger set up with log level: 20(info)
+2023-07-19 16:41:43,687 - INFO - Log file: logs/langflow.log

@@ -1,0 +1,30 @@
+<!-- form.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>IELTS Question Form</title>
+</head>
+<body>
+    <h1>IELTS Question Form</h1>
+    
+    {% if feedback_message %}
+    <p>{{ feedback_message }}</p>
+    {% endif %}
+    
+    <form action="/generate" method="post">
+        <label for="question">Enter your question:</label><br>
+        <textarea id="question" name="question" rows="4" cols="50"></textarea><br><br>
+        <input type="submit" value="Submit">
+    </form>
+    <br>
+    <hr>
+    
+    <h2>Sample Question and Answers:</h2>
+    <ul style="font-size: large;">
+        <li style="margin-bottom: 10px;"><b>Question:</b> {{ question }}</li>
+        <li style="margin-bottom: 10px;"><b>Supportive Answer:</b> {{ supportive_answer }}</li>
+        <li style="margin-bottom: 10px;"><b>Opposing Answer:</b> {{ opposing_answer }}</li>
+    </ul>
+
+</body>
+</html>

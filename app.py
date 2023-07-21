@@ -4,7 +4,7 @@ from flask import Flask, render_template, request, redirect, url_for
 import string
 import csv
 
-openai.api_key = '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'
+openai.api_key ='OPENAI_API_KEY'
 
 app = Flask(__name__)
 
@@ -20,7 +20,7 @@ def read_csv_examples(file_path):
             examples.append((question, supportive_answer, opposing_answer))
     return examples
 
-csv_file_path = '/Users/perfectly-imperfect/Documents/GitHub/test/openai-quickstart-python/csv/questions.csv'
+csv_file_path = '/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/csv/questions.csv'
 examples = read_csv_examples(csv_file_path)
 
 def extract_complete_answer(text, max_words):
@@ -36,10 +36,12 @@ def extract_complete_answer(text, max_words):
 
 
 def generate_reasons(question):
+    openai.api_key = 'OPENAI_API_KEY'
     supporting_prompt = f"Pretend you are an IELTS Writing examiner who can explain one idea specifically and logically. Show logical progression between sentences. Write one idea to support this argument, using only 200 words and avoiding sophisticated vocabulary.\n\nFor the question: '{question}', provide a supporting reason."
     
     try:
         supporting_response = openai.Completion.create(engine='text-davinci-003', prompt=supporting_prompt, max_tokens=200).choices[0].text.strip()
+        print("Supporting Response:", supporting_response)  # Debug print
         # Use extract_complete_answer function to limit the length of the response
         supporting_response = extract_complete_answer(supporting_response, 100)  
         supporting_response = supporting_response.capitalize()  # Only capitalize the first letter
@@ -51,6 +53,7 @@ def generate_reasons(question):
     
     try:
         opposing_response = openai.Completion.create(engine='text-davinci-003', prompt=opposing_prompt, max_tokens=200).choices[0].text.strip()
+        print("Opposing Response:", opposing_response)  # Debug print
         # Use extract_complete_answer function to limit the length of the response
         opposing_response = extract_complete_answer(opposing_response, 100)  
         opposing_response = opposing_response.capitalize()  # Only capitalize the first letter
@@ -64,6 +67,7 @@ def generate_reasons(question):
     ]
 
     return response
+
 
 
 

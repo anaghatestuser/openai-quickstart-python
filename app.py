@@ -1,4 +1,6 @@
 import os
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
+
 from dotenv import load_dotenv
 
 # Load variables from .env file into the environment

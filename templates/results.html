@@ -1,20 +1,29 @@
+<!-- results.html -->
 <!DOCTYPE html>
 <html>
 <head>
     <title>Results</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
     <style>
-        h2 {
-            font-weight: bold;
+        h1 {
+            font-weight: 900;
             font-size: 20px;
         }
+        h2 {
+            font-weight: bold;
+            font-size: 18px;
+        }
         p {
-            font-size: 15px;
+            font-family: var(--bs-body-font-family);
+            font-size: var(--bs-body-font-size);
         }
         .btn-variation {
             display: inline-block;
             outline: none;
             cursor: pointer;
-            font-size: 14px;
+            font-size: var(--bs-body-font-size);
             line-height: 1;
             border-radius: 500px;
             transition-property: background-color,border-color,color,box-shadow,filter;
@@ -26,10 +35,10 @@
             white-space: normal;
             font-weight: 700;
             text-align: center;
-            padding: 17px 48px;
+            padding: 10px 20px;
             color: #fff;
             background-color: #1ED760;
-            height: 48px;
+            height: 40px;
         }
         .btn-variation:hover {
             transform: scale(1.04);
@@ -38,15 +47,19 @@
     </style>
 </head>
 <body>
-    <h1>For the question "{{ question }}", here are my reasons to support and oppose this argument:</h1>
-    {% for reason in reasons %}
-        <h2>{{ reason['title'] }}</h2>
+    <div class="container p-3">
+    <h2>Here are my reasons to support and oppose:</h2>
+    <h1>"{{ question }}"</h1>
+    <br>
+        {% for reason in reasons %}
+        <p><b>{{ reason['title'] }}</b></p>
         <p>{{ reason['text']|safe }}</p>
     {% endfor %}
-    <p>If you would like me to generate additional supporting and opposing reasons, please let me know. You can also rate the quality of my response and provide feedback to help improve my future responses.</p>
-    
-    <!-- Add this form to ask for a variation of the same question -->
-    <form action="/generate_variation" method="post">
+    <br>
+            <p><b>If you would like me to generate additional supporting and opposing reasons, please let me know.</b>
+
+        <div class="mb-3">
+            <form action="/generate_variation" method="post">
         <input type="hidden" name="question" value="{{ question }}">
         <input type="submit" value="Ask for Variation" class="btn-variation">
     </form>
@@ -54,16 +67,22 @@
     <form action="/" method="get">
         <input type="submit" value="Ask Another Question" class="btn-variation">
     </form>
-    
-    <br>
+			
+        </div>
+
+        <div class="mb-3">
+           <br>
     <hr>
     <h2>Rate the quality of my response</h2>
+    <p><b>You can also rate the quality of my response and provide feedback to help improve my future responses.</b></p>
     <form action="/submit_feedback" method="post">
         <label for="rating">Rating (1-5):</label><br>
         <input type="number" id="rating" name="rating" min="1" max="5"><br>
         <label for="feedback">Feedback:</label><br>
         <textarea id="feedback" name="feedback"></textarea><br>
-        <input type="submit" value="Submit Feedback">
+        <input type="submit" value="Submit Feedback" class="btn-variation">
     </form>
+        </div>
+    </div>
 </body>
 </html>

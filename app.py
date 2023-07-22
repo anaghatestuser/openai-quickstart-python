@@ -1,10 +1,19 @@
+import os
+from dotenv import load_dotenv
+
+# Load variables from .env file into the environment
+load_dotenv()
+
+import nltk
+nltk.download('punkt')  # Add this line to download the 'punkt' resource
+
 import openai
 from flask import Flask, render_template, request, redirect, url_for
 
 import string
 import csv
 
-openai.api_key ='OPENAI_API_KEY'
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 app = Flask(__name__)
 
@@ -23,6 +32,16 @@ def read_csv_examples(file_path):
 csv_file_path = '/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/csv/questions.csv'
 examples = read_csv_examples(csv_file_path)
 
+def capitalize_first_letter(text):
+    sentences = nltk.sent_tokenize(text)
+    capitalized_sentences = []
+    for sentence in sentences:
+        # Capitalize the first letter of each sentence and make the rest of the sentence lowercase
+        capitalized_sentence = sentence.strip().capitalize()
+        capitalized_sentences.append(capitalized_sentence)
+    return ' '.join(capitalized_sentences)
+
+# Modify the existing extract_complete_answer function
 def extract_complete_answer(text, max_words):
     words = text.split()
     if len(words) <= max_words:
@@ -31,20 +50,27 @@ def extract_complete_answer(text, max_words):
         extracted_words = words[:max_words]
         for i in range(max_words-1, -1, -1):
             if extracted_words[i][-1] in {'.', '?', '!'}:
-                return ' '.join(extracted_words[:i+1])
-        return ' '.join(extracted_words)
+                return capitalize_first_letter(' '.join(extracted_words[:i+1]))
+        return capitalize_first_letter(' '.join(extracted_words))
 
 
 def generate_reasons(question):
-    openai.api_key = 'OPENAI_API_KEY'
     supporting_prompt = f"Pretend you are an IELTS Writing examiner who can explain one idea specifically and logically. Show logical progression between sentences. Write one idea to support this argument, using only 200 words and avoiding sophisticated vocabulary.\n\nFor the question: '{question}', provide a supporting reason."
     
     try:
-        supporting_response = openai.Completion.create(engine='text-davinci-003', prompt=supporting_prompt, max_tokens=200).choices[0].text.strip()
+        supporting_response = openai.Completion.create(
+            engine='text-davinci-003', 
+            prompt=supporting_prompt, 
+            max_tokens=200,
+            n=1,
+            stop=".\\n\\n",
+            temperature=0.6
+            ).choices[0].text.strip()
         print("Supporting Response:", supporting_response)  # Debug print
         # Use extract_complete_answer function to limit the length of the response
         supporting_response = extract_complete_answer(supporting_response, 100)  
-        supporting_response = supporting_response.capitalize()  # Only capitalize the first letter
+        supporting_response = capitalize_first_letter(supporting_response)
+    
     except Exception as e:
         print("Error generating supporting response: ", e)
         supporting_response = "Error generating supporting response"
@@ -52,11 +78,19 @@ def generate_reasons(question):
     opposing_prompt = f"Pretend you are an IELTS Writing examiner who can explain one idea specifically and logically. Show logical progression between sentences. Write one idea to oppose this argument, using only 200 words and avoiding sophisticated vocabulary.\n\nFor the question: '{question}', provide an opposing reason."
     
     try:
-        opposing_response = openai.Completion.create(engine='text-davinci-003', prompt=opposing_prompt, max_tokens=200).choices[0].text.strip()
+        opposing_response = openai.Completion.create(
+            engine='text-davinci-003', 
+            prompt=opposing_prompt, 
+            max_tokens=200,
+            n=1,
+            stop=".\\n\\n", 
+            temperature=0.6
+            ).choices[0].text.strip()
         print("Opposing Response:", opposing_response)  # Debug print
         # Use extract_complete_answer function to limit the length of the response
         opposing_response = extract_complete_answer(opposing_response, 100)  
-        opposing_response = opposing_response.capitalize()  # Only capitalize the first letter
+        opposing_response = capitalize_first_letter(opposing_response)
+    
     except Exception as e:
         print("Error generating opposing response: ", e)
         opposing_response = "Error generating opposing response"
@@ -67,8 +101,6 @@ def generate_reasons(question):
     ]
 
     return response
-
-
 
 
 def lexicon_count(text, removepunct=False):

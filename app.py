@@ -29,7 +29,10 @@ def read_csv_examples(file_path):
             examples.append((question, supportive_answer, opposing_answer))
     return examples
 
-csv_file_path = '/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/csv/questions.csv'
+csv_file_path = './csv/questions.csv'
+
+print("Current working directory:", os.getcwd())  # Add this line
+
 examples = read_csv_examples(csv_file_path)
 
 def capitalize_first_letter(text):

@@ -45,7 +45,7 @@ logger = configure_logging()
 
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost/ielts-writing'  # Add this line to specify your database URL
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL')
 db = SQLAlchemy(app)  # Add this line to create a SQLAlchemy object
 migrate = Migrate(app, db)  # Add this line to create a Migrate object
 

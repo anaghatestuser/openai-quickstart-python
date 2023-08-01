@@ -86,6 +86,17 @@ class Interaction(db.Model):
         return '<Interaction %r>' % self.id
 
 
+@app.cli.command('init_db')
+def initialize_database():
+    """Initialize the database."""
+    with app.app_context():
+        if not User.__table__.exists(db.engine):
+            db.create_all()
+            print('Initialized the database!')
+        else:
+            print('Database already contains the users table.')
+
+
 @login_manager.user_loader
 def load_user(user_id):
     return db.session.get(User, int(user_id))

@@ -1,4 +1,6 @@
 import logging
+from app import app  # or sometimes, it could be 'from your_flask_app import create_app' or similar.
+
 from logging.config import fileConfig
 
 from flask import current_app
@@ -90,11 +92,11 @@ def run_migrations_online():
                 directives[:] = []
                 logger.info('No changes in schema detected.')
 
-    connectable = get_engine()
+    with app.app_context():
+        connectable = get_engine()
 
-    with connectable.connect() as connection:
         context.configure(
-            connection=connection,
+            connection=connectable,
             target_metadata=get_metadata(),
             process_revision_directives=process_revision_directives,
             **current_app.extensions['migrate'].configure_args
@@ -102,6 +104,7 @@ def run_migrations_online():
 
         with context.begin_transaction():
             context.run_migrations()
+
 
 
 if context.is_offline_mode():

@@ -1,4 +1,6 @@
 import os
+import traceback
+
 from datetime import datetime
 from dotenv import load_dotenv
 import nltk
@@ -379,9 +381,9 @@ def submit_feedback():
 
 @app.errorhandler(500)
 def internal_server_error(error):
-    app.logger.error('Server Error: %s', (error))
+    app.logger.error('Server Error: %s', str(error))
+    app.logger.error(traceback.format_exc())
     return "500 error", 500
-
 
 if __name__ == '__main__':
     configure_logging()  # Invoke the configure_logging function before starting the server

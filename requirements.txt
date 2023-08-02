@@ -33,3 +33,4 @@ typing_extensions==4.7.1
 urllib3==2.0.3
 Werkzeug==2.3.6
 yarl==1.9.2
+gunicorn==21.2.0

@@ -1,5 +1,6 @@
 import os
 import traceback
+import sys
 
 from datetime import datetime
 from dotenv import load_dotenv
@@ -36,14 +37,19 @@ def configure_logging():
     # Configure logging
     logger = logging.getLogger(__name__)
     logger.setLevel(logging.DEBUG)  # Set level to DEBUG to ensure the log message gets handled
-    file_handler = logging.FileHandler('logs/application.log')  # Creates a file handler in the logs directory
+    stream_handler = logging.StreamHandler(sys.stdout)  # Creates a stream handler that logs to stdout
     formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s') # Creates a formatter
-    file_handler.setFormatter(formatter) # Adds the formatter to the file handler
-    logger.addHandler(file_handler)  # Adds the file handler to the logger
+    stream_handler.setFormatter(formatter) # Adds the formatter to the stream handler
+    logger.addHandler(stream_handler)  # Adds the stream handler to the logger
+    
+    # Also set the level for the app logger
+    app.logger.setLevel(logging.DEBUG)
+    
     return logger  # Return the logger object
 
+
 # Add the following line to get the logger object
-logger = configure_logging()
+logger = configure_logging(app)
 
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
@@ -387,4 +393,4 @@ def internal_server_error(error):
 
 if __name__ == '__main__':
     configure_logging()  # Invoke the configure_logging function before starting the server
-    app.run(debug=True)
+    app.run(debug=False)

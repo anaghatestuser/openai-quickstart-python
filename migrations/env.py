@@ -1,5 +1,5 @@
 import logging
-from writing.app import app  # or sometimes, it could be 'from your_flask_app import create_app' or similar.
+from app import app  # or sometimes, it could be 'from your_flask_app import create_app' or similar.
 
 from logging.config import fileConfig
 

@@ -33,7 +33,7 @@ if not os.path.exists('logs'):
     os.makedirs('logs')
 
 
-def configure_logging():
+def configure_logging(app):
     # Configure logging
     logger = logging.getLogger(__name__)
     logger.setLevel(logging.DEBUG)  # Set level to DEBUG to ensure the log message gets handled
@@ -392,5 +392,4 @@ def internal_server_error(error):
     return "500 error", 500
 
 if __name__ == '__main__':
-    configure_logging()  # Invoke the configure_logging function before starting the server
     app.run(debug=False)

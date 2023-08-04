@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}
+K.I.S.S. IELTS A.I. Assistant - Error Page
+{% endblock %}
+
+{% block additional_css %}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+{% endblock %}
+
+{% block content %}
+    {% if error_message %}
+    <div class="container p-3">
+        <div class="alert alert-danger">
+            <h2>Error Occurred</h2>
+            <p>{{ error_message }}</p>
+            <a href="/" class="btn btn-primary">Go back</a>
+        </div>
+    </div>
+    {% endif %}
+{% endblock %}

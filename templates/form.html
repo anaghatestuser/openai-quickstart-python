@@ -1,14 +1,14 @@
-<!-- form.html -->
-<!DOCTYPE html>
-<html>
-<head>
-    <title>K.I.S.S. IELTS A.I. Assistant</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
-</head>
-<body>
+{% extends "base.html" %}
+
+{% block title %}
+K.I.S.S. IELTS A.I. Assistant - Form Page
+{% endblock %}
+
+{% block additional_css %}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+{% endblock %}
+
+{% block content %}
     <div class="d-flex justify-content-end"> <!-- Add 'justify-content-end' to align the sidebar to the right -->
         <div class="sidebar p-3">
             <!-- Logout Button -->
@@ -44,5 +44,4 @@
             </ul>
         </div>
     </div>
-</body>
-</html>
+{% endblock %}

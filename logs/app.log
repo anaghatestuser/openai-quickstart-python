@@ -1,0 +1,6 @@
+2023-08-04 07:49:20,906 - utils.logging_config - INFO - Info message
+2023-08-04 07:49:20,906 - utils.logging_config - WARNING - Warning message
+2023-08-04 07:49:20,906 - utils.logging_config - ERROR - Error message
+2023-08-04 07:49:24,151 - utils.logging_config - INFO - Info message
+2023-08-04 07:49:24,151 - utils.logging_config - WARNING - Warning message
+2023-08-04 07:49:24,153 - utils.logging_config - ERROR - Error message

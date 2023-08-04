@@ -1,6 +1,6 @@
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
-from config import db  # Adjusted the import statement
+from config import db
 
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -8,6 +8,7 @@ class User(UserMixin, db.Model):
     email = db.Column(db.String(120), unique=True, nullable=False)
     password_hash = db.Column(db.String(128), nullable=False)
     tokens = db.Column(db.Integer, default=1000)
+    is_admin = db.Column(db.Boolean, default=False)  # Add this line
     interactions = db.relationship('Interaction', backref='user', lazy=True)
 
     def set_password(self, password):

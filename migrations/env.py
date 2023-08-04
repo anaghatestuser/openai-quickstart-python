@@ -1,5 +1,5 @@
 import logging
-from app import create_app  # Assuming your Flask app is created using `create_app` function
+from config import app
 
 from logging.config import fileConfig
 
@@ -93,7 +93,7 @@ def run_migrations_online():
                 logger.info('No changes in schema detected.')
 
     with app.app_context():
-        connectable = get_engine()
+        connectable = get_engine().connect()  # Here's the fix: call `.connect()` to get a Connection
 
         context.configure(
             connection=connectable,

@@ -44,3 +44,5 @@ def configure_logging(app):
 
     # Also set the level for the app logger
     app.logger.setLevel(logging.DEBUG)
+
+app = create_app()

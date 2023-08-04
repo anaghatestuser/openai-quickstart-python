@@ -53,27 +53,6 @@ def get_metadata():
     return target_db.metadata
 
 
-def run_migrations_offline():
-    """Run migrations in 'offline' mode.
-
-    This configures the context with just a URL
-    and not an Engine, though an Engine is acceptable
-    here as well.  By skipping the Engine creation
-    we don't even need a DBAPI to be available.
-
-    Calls to context.execute() here emit the given string to the
-    script output.
-
-    """
-    url = config.get_main_option("sqlalchemy.url")
-    context.configure(
-        url=url, target_metadata=get_metadata(), literal_binds=True
-    )
-
-    with context.begin_transaction():
-        context.run_migrations()
-
-
 def run_migrations_online():
     """Run migrations in 'online' mode.
 
@@ -92,7 +71,7 @@ def run_migrations_online():
                 directives[:] = []
                 logger.info('No changes in schema detected.')
 
-    with app.app_context():
+    with current_app.app_context():
         connectable = get_engine().connect()  # Here's the fix: call `.connect()` to get a Connection
 
         context.configure(

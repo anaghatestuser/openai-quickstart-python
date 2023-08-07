@@ -1,5 +1,9 @@
 import logging
-from app import app, db
+import sys
+sys.path.append('.')
+from app import create_app, db
+
+app = create_app()
 
 from logging.config import fileConfig
 from flask import current_app

@@ -9,7 +9,7 @@ from utils.logging_config import configure_logging
 from flask_migrate import Migrate
 from werkzeug.security import generate_password_hash
 
-def create_app():
+def create_app(create_admin=False):  # add an argument to control admin creation
     app = Flask(__name__)
     app.secret_key = os.getenv("SECRET_KEY", "default_secret_key")
     openai.api_key = os.getenv("OPENAI_API_KEY")
@@ -26,9 +26,11 @@ def create_app():
     configure_logging(app)  # Call the function to configure logging
 
     with app.app_context():
-        create_admin_user()  # Call the function to create admin user
+        if create_admin:  # only create admin user if the flag is set
+            create_admin_user()
 
     return app
+
 
 def create_admin_user():
     admin_username = os.getenv("ADMIN_USERNAME")

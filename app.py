@@ -13,6 +13,9 @@ def create_app():  # add an argument to control admin creation
     app = Flask(__name__)
     app.secret_key = os.getenv("SECRET_KEY", "default_secret_key")
     openai.api_key = os.getenv("OPENAI_API_KEY")
+   
+    # Define the create_admin flag
+    create_admin = os.getenv("CREATE_ADMIN", "False").lower() == "true"
 
     app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL')
 

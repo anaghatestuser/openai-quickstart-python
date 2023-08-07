@@ -1,13 +1,23 @@
-# config.py
-import os
+import os  # <-- Make sure you have this line at the top of your config.py
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 from dotenv import load_dotenv
+from flask_mail import Mail
+
+mail = Mail()  # Create the mail instance here
 
 load_dotenv()
 
 db = SQLAlchemy()         # Initialize SQLAlchemy instance here
 login = LoginManager()    # Initialize the LoginManager instance here
+
+# Flask-Mail configuration
+MAIL_SERVER = os.getenv('MAIL_SERVER')
+MAIL_PORT = int(os.getenv('MAIL_PORT', 587))
+MAIL_USERNAME = os.getenv('MAIL_USERNAME')
+MAIL_PASSWORD = os.getenv('MAIL_PASSWORD')
+MAIL_USE_TLS = os.getenv('MAIL_USE_TLS', 'True') == 'True'
+MAIL_USE_SSL = os.getenv('MAIL_USE_SSL', 'False') == 'False'
 
 
 def configure_logging(app):

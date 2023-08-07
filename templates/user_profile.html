@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}
+K.I.S.S. IELTS A.I. Assistant - User Profile
+{% endblock %}
+
+{% block additional_css %}
+<!-- If you have any additional CSS or scripts, include them here. -->
+{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-end">
+    <div class="sidebar p-3">
+        <!-- Logout Button -->
+        {% if current_user.is_authenticated %}
+            <a href="/logout" class="btn btn-primary mb-3">Logout</a>
+        {% endif %}
+        
+        <!-- Token Count -->
+        <p><strong>Tokens Left:</strong> {{ current_user.tokens }}</p>
+    </div>
+</div>
+<div class="container p-3">
+    <h1>Hello, {{ user.username }}! 🎉</h1>
+    <div class="user-profile-box p-4 mt-3">
+        <h2>Your Details:</h2>
+        <ul>
+            <li><b>Username:</b> {{ user.username }}</li>
+            <li><b>Email:</b> {{ user.email }}</li>
+            <li><b>Status:</b> {% if user.is_approved %}Approved{% else %}Pending Approval{% endif %}</li>
+            <li><b>Role:</b> {% if user.is_admin %}Admin{% else %}User{% endif %}</li>
+            <li><b>Tokens:</b> {{ user.tokens }}</li>
+        </ul>
+    </div>
+    <div class="fun-section mt-4">
+        <h3>Fun Zone 🥳</h3>
+        <p>Welcome to your personal fun zone! Here, you can enjoy some cool content, quizzes, and fun facts!</p>
+        <!-- Add more interactive or fun content here based on your application's theme or purpose -->
+    </div>
+</div>
+{% endblock %}

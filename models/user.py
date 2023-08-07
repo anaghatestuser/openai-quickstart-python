@@ -10,6 +10,7 @@ class User(UserMixin, db.Model):
     tokens = db.Column(db.Integer, default=1000)
     is_admin = db.Column(db.Boolean, default=False)  # Add this line
     interactions = db.relationship('Interaction', backref='user', lazy=True)
+    is_approved = db.Column(db.Boolean, default=False)
 
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)

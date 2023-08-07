@@ -2,7 +2,7 @@ import os
 import openai
 import traceback
 from flask import Flask, render_template, current_app, request
-from config import db, login
+from config import db, login, mail
 from models.user import User
 from routes import main_routes, user_routes, interaction_routes, feedback_routes
 from utils.logging_config import configure_logging
@@ -13,11 +13,19 @@ def create_app():  # add an argument to control admin creation
     app = Flask(__name__)
     app.secret_key = os.getenv("SECRET_KEY", "default_secret_key")
     openai.api_key = os.getenv("OPENAI_API_KEY")
-   
+
     # Define the create_admin flag
     create_admin = os.getenv("CREATE_ADMIN", "False").lower() == "true"
 
     app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL')
+    
+    # Load mail configurations into app
+    app.config['MAIL_SERVER'] = os.getenv('MAIL_SERVER')
+    app.config['MAIL_PORT'] = int(os.getenv('MAIL_PORT', 587))
+    app.config['MAIL_USERNAME'] = os.getenv('MAIL_USERNAME')
+    app.config['MAIL_PASSWORD'] = os.getenv('MAIL_PASSWORD')
+    app.config['MAIL_USE_TLS'] = os.getenv('MAIL_USE_TLS', 'True') == 'True'
+    app.config['MAIL_USE_SSL'] = os.getenv('MAIL_USE_SSL', 'False') == 'False'
 
     db.init_app(app)  # Initialize db with app
 
@@ -25,6 +33,9 @@ def create_app():  # add an argument to control admin creation
 
     login.init_app(app)  # Initialize login with app
     login.login_view = 'login'  # Updated from login_manager to login
+
+    # Initialize Flask-Mail with the app instance
+    mail.init_app(app)  # Move this line here
 
     configure_logging(app)  # Call the function to configure logging
 

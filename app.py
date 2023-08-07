@@ -2,7 +2,7 @@ import os
 import openai
 import traceback
 from flask import Flask, render_template, current_app, request
-from config import create_app, db, login
+from config import db, login
 from models.user import User
 from routes import main_routes, user_routes, interaction_routes, feedback_routes
 from utils.logging_config import configure_logging
@@ -52,12 +52,6 @@ logger, logger_debug = configure_logging(app)
 def load_user(user_id):
     return db.session.get(User, int(user_id))
 
-# After defining `db` and `app`
-migrate = Migrate(app, db)
-
-with app.app_context():
-    # db.create_all()  # Uncomment this line to create tables & Comment this line again after the tables are created
-    pass
 
 # Initialize the routes
 main_routes.init_app(app)

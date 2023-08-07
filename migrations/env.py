@@ -1,10 +1,8 @@
 import logging
-from config import app
+from app import app, db
 
 from logging.config import fileConfig
-
 from flask import current_app
-
 from alembic import context
 
 # this is the Alembic Config object, which provides
@@ -34,23 +32,24 @@ def get_engine_url():
         return str(get_engine().url).replace('%', '%%')
 
 
-# add your model's MetaData object here
-# for 'autogenerate' support
-# from myapp import mymodel
-# target_metadata = mymodel.Base.metadata
 config.set_main_option('sqlalchemy.url', get_engine_url())
+print("DEBUG DATABASE URL:", get_engine_url())
 target_db = current_app.extensions['migrate'].db
-
-# other values from the config, defined by the needs of env.py,
-# can be acquired:
-# my_important_option = config.get_main_option("my_important_option")
-# ... etc.
 
 
 def get_metadata():
     if hasattr(target_db, 'metadatas'):
         return target_db.metadatas[None]
     return target_db.metadata
+
+
+def run_migrations_offline():
+    """Run migrations in 'offline' mode."""
+    url = config.get_main_option("sqlalchemy.url")
+    context.configure(url=url, target_metadata=get_metadata(), literal_binds=True)
+    
+    with context.begin_transaction():
+        context.run_migrations()
 
 
 def run_migrations_online():
@@ -60,10 +59,6 @@ def run_migrations_online():
     and associate a connection with the context.
 
     """
-
-    # this callback is used to prevent an auto-migration from being generated
-    # when there are no changes to the schema
-    # reference: http://alembic.zzzcomputing.com/en/latest/cookbook.html
     def process_revision_directives(context, revision, directives):
         if getattr(config.cmd_opts, 'autogenerate', False):
             script = directives[0]
@@ -72,7 +67,7 @@ def run_migrations_online():
                 logger.info('No changes in schema detected.')
 
     with current_app.app_context():
-        connectable = get_engine().connect()  # Here's the fix: call `.connect()` to get a Connection
+        connectable = get_engine().connect()  # Using Flask's engine
 
         context.configure(
             connection=connectable,

@@ -38,7 +38,6 @@ def init_app(app):
         db.session.commit()
         return f"{username} is now an admin"
 
-    # New route to view unapproved users
     @app.route('/users_unapproved')
     @login_required
     def users_unapproved():
@@ -55,7 +54,6 @@ def init_app(app):
         # Additional logic to render a user profile or another action
         return render_template('user_profile.html', user=current_user)
 
-    # New route to approve a user
     @app.route('/approve_user/<int:user_id>')
     @login_required
     def approve_user(user_id):
@@ -68,3 +66,14 @@ def init_app(app):
         db.session.commit()
         flash(f"User {user.username} has been approved.")
         return redirect(url_for('users_unapproved'))
+    
+    @app.route('/bootstrap_admin')
+    def bootstrap_admin():
+        admin_username = 'Ulysses'  # Replace with your admin's username
+        user = User.query.filter_by(username=admin_username).first()
+        if user:
+            user.is_approved = True
+            db.session.commit()
+            return f"{admin_username} is now approved"
+        return "Admin user not found"
+

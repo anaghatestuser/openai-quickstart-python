@@ -35,7 +35,7 @@ def create_app():  # add an argument to control admin creation
     login.login_view = 'login'  # Updated from login_manager to login
 
     # Initialize Flask-Mail with the app instance
-    mail.init_app(app)  # Move this line here
+    mail.init_app(app)  # Initializes Flask-Mail within our Application
 
     configure_logging(app)  # Call the function to configure logging
 
@@ -88,4 +88,5 @@ def not_found_error(error):
     return render_template('404.html'), 404
 
 if __name__ == '__main__':
+    print("Running on http://127.0.0.1:5000/")
     app.run(debug=True)

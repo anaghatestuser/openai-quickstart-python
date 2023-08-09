@@ -4,6 +4,19 @@
 <div class="container">
     <div class="login-form">
         <h1>K.I.S.S. IELTS A.I. Assistant - Login</h1>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        <div class="flash-messages">
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endwith %}
+
         <form method="POST">
             <div class="form-group">
                 <label for="username">Username:</label>

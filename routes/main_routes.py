@@ -1,35 +1,37 @@
-from flask import render_template, request, redirect, url_for, flash
+from flask import render_template, request, redirect, url_for, flash, current_app
 from flask_login import login_required, current_user, login_user, logout_user
+from flask_mail import Message
 from werkzeug.urls import url_parse
 from models.user import User
-from config import db as user_db
+from config import db as user_db, mail
 import logging
 import random
 import csv
 import os
 
+
 logger = logging.getLogger(__name__)
 
-def load_examples_from_csv(filename):
-    if not os.path.isfile(filename):
-        logger.error("Questions CSV file not found: %s", filename)
-        return []
+def load_examples_from_csv(app, filename):
+    with app.app_context():
+        try:
+            examples = []
+            with current_app.open_resource(filename) as csvfile:
+                content = csvfile.read().decode('utf-8')
+                reader = csv.reader(content.splitlines())
+                next(reader, None)  # skip the headers
+                for row in reader:
+                    examples.append((row[0], row[1], row[2]))
+            logger.info("Loaded %d examples from %s", len(examples), filename)
+            return examples
+        except Exception as e:
+            logger.error("Failed to load examples from %s: %s", filename, e)
+            return []
 
-    try:
-        examples = []
-        with open(filename, newline='') as csvfile:
-            reader = csv.reader(csvfile)
-            next(reader, None)  # skip the headers
-            for row in reader:
-                examples.append((row[0], row[1], row[2]))
-        logger.info("Loaded %d examples from %s", len(examples), filename)
-        return examples
-    except Exception as e:
-        logger.error("Failed to load examples from %s: %s", filename, e)
-        return []
+
 
 def init_app(app):
-    examples = load_examples_from_csv('csv/questions.csv')
+    examples = load_examples_from_csv(app, 'csv/questions.csv')
 
     @app.route('/', methods=['GET'])
     def home():
@@ -45,8 +47,8 @@ def init_app(app):
     @app.route('/login', methods=['GET', 'POST'])
     def login():
         if request.method == 'POST':
-            username = request.form['username']
-            password = request.form['password']
+            username = request.form.get('username')
+            password = request.form.get('password')
 
             if not username or not password:
                 flash('Please enter both username and password.')
@@ -58,6 +60,11 @@ def init_app(app):
                 logger.warning('Failed login attempt for username: %s', username)
                 flash('Invalid username or password')
                 return redirect(url_for('login'))  
+
+            # Check if the user is approved
+            if not user.is_approved:
+                flash('Your account is awaiting approval by the admin.', 'warning')
+                return redirect(url_for('login'))
 
             login_user(user)
             logger.info('User %s logged in successfully.', user.username)
@@ -72,6 +79,7 @@ def init_app(app):
         logout_user()
         return redirect(url_for('login'))  
 
+    
     @app.route('/register', methods=['GET', 'POST'])
     def register():
         if request.method == 'POST':
@@ -96,7 +104,17 @@ def init_app(app):
             user_db.session.commit()
             logger.info('User %s registered successfully.', user.username)
 
-            login_user(user)
-            return redirect(url_for('home'))
+            # After the user is saved to the database, send an email to the admin
+            msg = Message('New User Registration', 
+                  sender='ulysses@kissielts.com',
+                  recipients=['ulysses@kissielts.com'])  # Adjust this to the admin's email
+            msg.body = f'New user {username} has registered and awaits approval.'
+            try:
+                mail.send(msg)
+            except Exception as e:
+                print(f"Error sending mail: {e}")
+
+            flash('Thank you for registering! Your account is awaiting approval by the admin.')
+            return redirect(url_for('login'))
 
         return render_template('register.html')

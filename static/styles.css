@@ -140,9 +140,13 @@ body {
     padding: 5px 15px; /* Some padding for better spacing */
     border-radius: 5px; /* Round the edges a bit */
     transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effects */
+    font-size: larger;
 }
 
 .nav-link-custom:hover {
     background-color: #007BFF; /* The primary blue color from Bootstrap */
     color: #FFFFFF; /* White color for text */
+}
+.navbar>.container-fluid { 
+    margin-left: 6em;
 }

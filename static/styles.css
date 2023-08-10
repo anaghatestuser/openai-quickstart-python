@@ -125,3 +125,24 @@ body {
     border-color: #faebcc;
     color: #8a6d3b;
 }
+.navbar-text {
+    padding-top: var(--bs-navbar-brand-padding-y);
+    padding-bottom: var(--bs-navbar-brand-padding-y);
+    margin-right: var(--bs-navbar-brand-margin-end);
+    font-size: var(--bs-navbar-brand-font-size);
+    color: var(--bs-navbar-brand-color);
+    text-decoration: none;
+    white-space: nowrap;
+}
+.nav-link-custom {
+    color: #007BFF; /* The primary blue color from Bootstrap */
+    text-decoration: none;
+    padding: 5px 15px; /* Some padding for better spacing */
+    border-radius: 5px; /* Round the edges a bit */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effects */
+}
+
+.nav-link-custom:hover {
+    background-color: #007BFF; /* The primary blue color from Bootstrap */
+    color: #FFFFFF; /* White color for text */
+}

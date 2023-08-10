@@ -9,17 +9,6 @@ K.I.S.S. IELTS A.I. Assistant - User Profile
 {% endblock %}
 
 {% block content %}
-<div class="d-flex justify-content-end">
-    <div class="sidebar p-3">
-        <!-- Logout Button -->
-        {% if current_user.is_authenticated %}
-            <a href="/logout" class="btn btn-primary mb-3">Logout</a>
-        {% endif %}
-        
-        <!-- Token Count -->
-        <p><strong>Tokens Left:</strong> {{ current_user.tokens }}</p>
-    </div>
-</div>
 <div class="container p-3">
     <h1>Hello, {{ user.username }}! 🎉</h1>
     <div class="user-profile-box p-4 mt-3">

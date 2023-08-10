@@ -4,6 +4,9 @@ import openai
 import logging
 from config import db  # Import the db object from your config module
 
+#nltk.download('punkt') # Add this line to download the 'punkt' resource
+nltk.data.path.append('/opt/render/project/src/nltk_data') # Adjust this path based on where you place the data in your project structure
+
 logger = logging.getLogger(__name__)
 
 def capitalize_first_letter(text):

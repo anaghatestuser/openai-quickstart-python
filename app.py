@@ -89,4 +89,4 @@ def not_found_error(error):
 
 if __name__ == '__main__':
     print("Running on http://127.0.0.1:5000/")
-    app.run(debug=True)
+    app.run(debug=False)

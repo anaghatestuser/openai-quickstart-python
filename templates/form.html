@@ -8,18 +8,7 @@ K.I.S.S. IELTS A.I. Assistant - Form Page
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 {% endblock %}
 
-{% block content %}
-    <div class="d-flex justify-content-end"> <!-- Add 'justify-content-end' to align the sidebar to the right -->
-        <div class="sidebar p-3">
-            <!-- Logout Button -->
-            {% if current_user.is_authenticated %}
-                <a href="/logout" class="btn btn-primary mb-3">Logout</a>
-            {% endif %}
-            
-            <!-- Token Count -->
-            <p><strong>Tokens Left:</strong> {{ current_user.tokens }}</p>
-        </div>
-    </div>    
+{% block content %}   
     <div class="container p-3">
         <h1>K.I.S.S. IELTS A.I. Assistant</h1>
         {% if feedback_message %}

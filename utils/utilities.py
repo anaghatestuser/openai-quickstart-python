@@ -1,12 +1,30 @@
+import os
 import nltk
 import string
 import openai
 import logging
 from config import db  # Import the db object from your config module
 
-nltk.download('punkt') # Add this line to download the 'punkt' resource
+# Check if the code is running on Render or local
+is_on_render = os.environ.get('IS_ON_RENDER', 'False').lower() == 'true'
 
-# nltk.data.path.append('/opt/render/project/src/nltk_data') # Adjust this path based on where you place the data in your project structure
+# Set the appropriate path based on the environment
+if is_on_render:
+    nltk_data_path = os.environ.get('NLTK_DATA_PATH', '/opt/render/project/src/nltk_data')
+else:
+    nltk_data_path = os.path.expanduser('~/nltk_data')  # This sets it to the home directory on your macOS system
+
+# Construct the path to the punkt tokenizer
+data_path = os.path.join(nltk_data_path, 'tokenizers/punkt')
+
+# Check if the punkt tokenizer data is available
+if not os.path.exists(data_path):
+    print("Downloading punkt tokenizer...")
+    nltk.download('punkt', download_dir=nltk_data_path)  # Specify where to download
+    print("Download completed!")
+
+# Add nltk_data_path to nltk's data path
+nltk.data.path.append(nltk_data_path)
 
 logger = logging.getLogger(__name__)
 

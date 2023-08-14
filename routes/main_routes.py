@@ -39,10 +39,10 @@ def init_app(app):
         if not current_user.is_authenticated:
             return redirect(url_for('login'))
         random_example = random.choice(examples)
-        question = random_example[0]
+        statement = random_example[0]
         supportive_answer = random_example[1]
         opposing_answer = random_example[2]
-        return render_template('form.html', feedback_message=feedback_message, question=question, supportive_answer=supportive_answer, opposing_answer=opposing_answer)
+        return render_template('form.html', feedback_message=feedback_message, statement=statement, supportive_answer=supportive_answer, opposing_answer=opposing_answer)
 
     @app.route('/login', methods=['GET', 'POST'])
     def login():

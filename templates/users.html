@@ -15,7 +15,7 @@ K.I.S.S. IELTS A.I. Assistant - User Form
                 <ul>
                 {% for interaction in user.interactions %}
                     <li>
-                        <b>Question:</b> {{ interaction.question }},
+                        <b>Statement:</b> {{ interaction.statement }},
                         <b>Supportive Answer:</b> {{ interaction.supportive_answer }},
                         <b>Opposing Answer:</b> {{ interaction.opposing_answer }}
                     </li>

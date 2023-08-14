@@ -3,30 +3,24 @@ import nltk
 import string
 import openai
 import logging
+import random 
 from config import db  # Import the db object from your config module
 
-# Check if the code is running on Render or local
+# Setting up logging
+logger = logging.getLogger(__name__)
+
+# Retrieves the value of OPENAI_ENGINE_NAME from the .env and defaults to 'text-davinci-003' if it's not set.
+ENGINE_NAME = os.environ.get('OPENAI_ENGINE_NAME', 'text-davinci-003')
+
+# Check environment and set nltk data path
 is_on_render = os.environ.get('IS_ON_RENDER', 'False').lower() == 'true'
-
-# Set the appropriate path based on the environment
-if is_on_render:
-    nltk_data_path = os.environ.get('NLTK_DATA_PATH', '/opt/render/project/src/nltk_data')
-else:
-    nltk_data_path = os.path.expanduser('~/nltk_data')  # This sets it to the home directory on your macOS system
-
-# Construct the path to the punkt tokenizer
+nltk_data_path = os.environ.get('NLTK_DATA_PATH', '/opt/render/project/src/nltk_data') if is_on_render else os.path.expanduser('~/nltk_data')
 data_path = os.path.join(nltk_data_path, 'tokenizers/punkt')
 
-# Check if the punkt tokenizer data is available
+# Download punkt tokenizer if not available
 if not os.path.exists(data_path):
-    print("Downloading punkt tokenizer...")
-    nltk.download('punkt', download_dir=nltk_data_path)  # Specify where to download
-    print("Download completed!")
-
-# Add nltk_data_path to nltk's data path
+    nltk.download('punkt', download_dir=nltk_data_path)
 nltk.data.path.append(nltk_data_path)
-
-logger = logging.getLogger(__name__)
 
 def capitalize_first_letter(text):
     sentences = nltk.sent_tokenize(text)
@@ -44,60 +38,88 @@ def extract_complete_answer(text, max_words):
                 return capitalize_first_letter(' '.join(extracted_words[:i+1]))
         return capitalize_first_letter(' '.join(extracted_words))
 
-def generate_prompt(question, agreement):
-    return (
-        f"Pretend you are an IELTS Band 9 Writing Task 2 examiner who is capable of writing a 120 words paragraph. "
-        f"ONLY discuss ONE reason to {agreement} with a statement. The reason should be one of the following: "
-        f"creativity, critical-thinking, empathy, face-to-face communication skills, better memory of content, "
-        f"concentration, accountability, motivation, physical health, belonging, self-esteem, identity, lonely, "
-        f"feel connected, feel secure, efficient work, efficient study, efficient life, earn more money, happy, "
-        f"feel stressed, feel relaxed, good environment, sustainable development, less crimes, cultural identity, "
-        f"social cohesion, economic growth. Write this reason clearly in the first sentence, explain it specifically, "
-        f"logically, and sufficiently with a clear logical progression. Avoid using 'Although', 'but', 'However', "
-        f"and sophisticated words. \n\nFor the question: '{question}', provide a {agreement} reason."
-    )
+REASONS_LIST = [
+    "creativity", "critical thinking", "empathy", "face-to-face communication skills", "better memory of content", 
+    "concentration", "accountability", "motivation", "physical health", "belonging", "self-esteem", "identity", "lonely", 
+    "feeling connected", "feeling secure", "efficient work", "efficient study", "efficient life", "earning more money", 
+    "happy", "feel stressed", "feel relaxed", "good environment", "sustainable development", "less crimes", "cultural identity", 
+    "social cohesion", "economic growth", "competitive work environment", "schools too much focus on academic study", 
+    "boring content", "interesting content", "gender stereotypes", "practical skills", "technology development", "media influence", 
+    "urbanisation", "overuse natural resources", "government focus too much on economic growth"
+]
 
-def generate_reasons(question):
-    try:
-        supporting_prompt = generate_prompt(question, 'agree')
+def generate_prompt(statement, agreement, paragraph_number, reasons=None): 
+    # This portion adds a random reason from your list to seed the AI.
+    seeding_reason = ""
+    if reasons:
+        seeding_reason = f"Consider reasons like {random.choice(reasons)} but don't limit yourself to them. "
+    
+    base_prompt = (
+        f"Imagine you are an IELTS Band 9 Writing Task 2 examiner. {seeding_reason}"
+        f"Your task is to write a 120-word paragraph that fulfills the following requirements:\n"
+        f"1. Each paragraph should clearly convey a single idea either supporting or opposing the statement without starting with the phrase 'One reason'.\n"  # Explicit instruction
+        f"2. Use different reasons for each paragraph.\n"
+        f"3. Ensure the reason is interwoven into the paragraph seamlessly.\n"
+        f"4. Explain the reason in a specific, logical, and sufficient manner, with a clear progression of ideas.\n"
+        f"5. Incorporate collocations.\n"
+        f"6. Do not use words including 'Although', 'but', 'However', 'While'.\n"
+        f"7. Refrain from using complex vocabulary.\n"
+        f"8. The paragraph must be 120 words in length.\n"
+        f"9. Utilize CEFR C1 level words."
+    )
+    
+    if agreement == "support":
+        return (
+            f"{base_prompt}\n\nFor paragraph {paragraph_number}, the given statement is: '{statement}'. "
+            f"Craft a paragraph that advocates for this statement without starting with the phrase 'One reason'."
+        )
+    else:
+        return (
+            f"{base_prompt}\n\nFor paragraph {paragraph_number}, the given statement is: '{statement}', "
+            f"Construct a paragraph that disputes this statement without leading with the phrase 'One reason'."
+        )
+
+
+def generate_reasons(statement):
+    # Use the entire reasons list to seed the AI but don't enforce them.
+    responses = []
+    for paragraph_number in range(1, 3):
+        # Generate supporting prompt and response
+        supporting_prompt = generate_prompt(statement, 'support', paragraph_number, REASONS_LIST)
         supporting_response = openai.Completion.create(
-            engine='text-davinci-003',
+            engine=ENGINE_NAME,
             prompt=supporting_prompt,
             max_tokens=200,
             n=1,
             stop=".\\n\\n",
             temperature=0.6
         ).choices[0].text.strip()
-        supporting_response = extract_complete_answer(supporting_response, 100)
+        supporting_response = extract_complete_answer(supporting_response, 120)
         supporting_response = capitalize_first_letter(supporting_response)
+        logger.info(f"Supporting Response for paragraph {paragraph_number}, statement '{statement}': {supporting_response}")
 
-        logger.info(f"Supporting Response for question '{question}': {supporting_response}")
-    except Exception as e:
-        logger.error(f"Error generating supporting response for question '{question}': {str(e)}")
-        supporting_response = "We're sorry, but we can't generate a supporting response at the moment. Please try again and we will try our best to get you the right response."
-
-    try:
-        opposing_prompt = generate_prompt(question, 'disagree')
+        # Generate opposing prompt and response
+        opposing_prompt = generate_prompt(statement, 'oppose', paragraph_number, REASONS_LIST)
         opposing_response = openai.Completion.create(
-            engine='text-davinci-003',
+            engine=ENGINE_NAME,
             prompt=opposing_prompt,
             max_tokens=200,
             n=1,
             stop=".\\n\\n",
             temperature=0.6
         ).choices[0].text.strip()
-        opposing_response = extract_complete_answer(opposing_response, 100)
+        opposing_response = extract_complete_answer(opposing_response, 120)
         opposing_response = capitalize_first_letter(opposing_response)
+        logger.info(f"Opposing Response for paragraph {paragraph_number}, statement '{statement}': {opposing_response}")
 
-        logger.info(f"Opposing Response for question '{question}': {opposing_response}")
-    except Exception as e:
-        logger.error(f"Error generating opposing response for question '{question}': {str(e)}")
-        opposing_response = "We're sorry, but we can't generate an opposing response at the moment. Please try again and we will try our best to get you the right response."
+        responses.extend([
+            {'title': f'Supporting reason for paragraph {paragraph_number}:', 'text': supporting_response},
+            {'title': f'Opposing reason for paragraph {paragraph_number}:', 'text': opposing_response}
+        ])
 
-    return [
-        {'title': 'Supporting reason:', 'text': supporting_response},
-        {'title': 'Opposing reason:', 'text': opposing_response}
-    ]
+    return responses
+
+
 
 def lexicon_count(text, removepunct=False):
     if removepunct:

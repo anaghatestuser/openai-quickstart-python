@@ -10,12 +10,12 @@ logger = logging.getLogger(__name__)
 
 def init_app(app):
 
-    @app.route('/add_interaction/<int:user_id>/<question>/<supportive_answer>/<opposing_answer>', methods=['GET', 'POST'])
-    def add_interaction(user_id, question, supportive_answer, opposing_answer):
+    @app.route('/add_interaction/<int:user_id>/<statement>/<supportive_answer>/<opposing_answer>', methods=['GET', 'POST'])
+    def add_interaction(user_id, statement, supportive_answer, opposing_answer):
         user = User.query.get(user_id)
         if user is None:
             return "User not found", 404
-        interaction = Interaction(question=question, supportive_answer=supportive_answer, opposing_answer=opposing_answer, user_id=user.id)
+        interaction = Interaction(statement=statement, supportive_answer=supportive_answer, opposing_answer=opposing_answer, user_id=user.id)
         user_db.session.add(interaction)
         user_db.session.commit()
         return f"Added interaction for user: {user.username}"
@@ -26,17 +26,17 @@ def init_app(app):
         user = current_user
         if user.tokens <= 0:
             return render_template('error.html', error_message='You have no tokens left.')
-        question = request.form['question']
-        logger.info(f"Generate request received. User: {user.username}, Question: {question}")
+        statement = request.form['statement']
+        logger.info(f"Generate request received. User: {user.username}, Statement: {statement}")
         try:
-            reasons = generate_reasons(question)
-            logger.info(f"Generate reasons completed. User: {user.username}, Question: {question}")
+            reasons = generate_reasons(statement)
+            logger.info(f"Generate reasons completed. User: {user.username}, Statement: {statement}")
         except Exception as e:
-            logger.error(f"Failed to generate reasons. User: {user.username}, Question: {question}, Error: {str(e)}")
+            logger.error(f"Failed to generate reasons. User: {user.username}, Statement: {statement}, Error: {str(e)}")
             return render_template('error.html', error_message='Failed to generate reasons.')
 
         deduct_tokens(user, 1)
-        interaction = Interaction(question=question, 
+        interaction = Interaction(statement=statement, 
                                   supportive_answer=reasons[0]['text'], 
                                   opposing_answer=reasons[1]['text'], 
                                   user_id=user.id)
@@ -46,7 +46,7 @@ def init_app(app):
             logger.info("Interaction committed successfully.")
         except Exception as e:
             logger.error(f"Error committing interaction: {str(e)}")
-        return render_template('results.html', reasons=reasons, question=question)
+        return render_template('results.html', reasons=reasons, statement=statement)
 
     @app.route('/generate_variation', methods=['POST'])
     @login_required
@@ -55,10 +55,9 @@ def init_app(app):
             current_user.tokens -= 1
             user_db.session.commit()
 
-            question = request.form.get('question')
-            reasons = generate_reasons(question)
-            return render_template('results.html', reasons=reasons, question=question)
+            statement = request.form.get('statement')
+            reasons = generate_reasons(statement)
+            return render_template('results.html', reasons=reasons, statement=statement)
         else:
             error_message = "Sorry, you have no tokens left. Please purchase more to continue using the service."
             return render_template('results.html', error_message=error_message)
-

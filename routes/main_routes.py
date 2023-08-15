@@ -1,9 +1,10 @@
 from flask import render_template, request, redirect, url_for, flash, current_app
 from flask_login import login_required, current_user, login_user, logout_user
-from flask_mail import Message
-from werkzeug.urls import url_parse
-from models.user import User
+from datetime import datetime, timedelta
 from config import db as user_db, mail
+from werkzeug.urls import url_parse
+from flask_mail import Message
+from models.user import User
 import logging
 import random
 import csv
@@ -60,6 +61,14 @@ def init_app(app):
                 logger.warning('Failed login attempt for username: %s', username)
                 flash('Invalid username or password')
                 return redirect(url_for('login'))  
+            
+            if user is not None and user.check_password(password):
+                # New logic to check if tokens have expired
+                if user.token_expiry_date and datetime.utcnow() > user.token_expiry_date:
+                    user.tokens = 0  # Set tokens to 0 if they're expired
+                    user_db.session.commit()  # Save changes to the database
+                    flash('Your tokens have expired and have been reset to 0.', 'warning')
+            
 
             # Check if the user is approved
             if not user.is_approved:
@@ -98,8 +107,11 @@ def init_app(app):
                 logger.warning('Attempt to register with already existing username or email: %s, %s', username, email)
                 return render_template('login.html', feedback_message='Username or email already exists. Please try a different one.')
 
-            user = User(username=username, email=email, tokens=1000)
+            # Create the user once and set all its attributes
+            user = User(username=username, email=email, tokens=200)  # Tokens set to 200 here
             user.set_password(password)
+            user.token_expiry_date = datetime.utcnow() + timedelta(days=60)  # Set the token expiry
+
             user_db.session.add(user)
             user_db.session.commit()
             logger.info('User %s registered successfully.', user.username)

@@ -19,6 +19,7 @@ K.I.S.S. IELTS A.I. Assistant - User Profile
             <li><b>Status:</b> {% if user.is_approved %}Approved{% else %}Pending Approval{% endif %}</li>
             <li><b>Role:</b> {% if user.is_admin %}Admin{% else %}User{% endif %}</li>
             <li><b>Tokens:</b> {{ user.tokens }}</li>
+            <li><b>Token Expiry:</b> {{ (user.token_expiry_date - now).days }} days remaining</li>
         </ul>
     </div>
     <div class="fun-section mt-4">

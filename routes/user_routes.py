@@ -1,8 +1,9 @@
 from flask import render_template, abort, flash, redirect, url_for
+from flask_login import login_required, current_user
 from flask_mail import Message
+from datetime import datetime
 from models.user import User
 from config import db, mail
-from flask_login import login_required, current_user
 
 def init_app(app):
 
@@ -52,7 +53,8 @@ def init_app(app):
         if not current_user.is_approved:
             abort(403)  # Forbidden access for unapproved users
         # Additional logic to render a user profile or another action
-        return render_template('user_profile.html', user=current_user)
+        return render_template('user_profile.html', user=current_user, now=datetime.utcnow())
+
 
     @app.route('/approve_user/<int:user_id>')
     @login_required

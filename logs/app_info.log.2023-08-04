@@ -1,0 +1,63 @@
+2023-08-15 07:44:31,226 - app - ERROR - Exception on /user_profile [GET]
+Traceback (most recent call last):
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/routes/user_routes.py", line 55, in user_profile
+    return render_template('user_profile.html', user=current_user, now=datetime.utcnow)
+                                                                       ^^^^^^^^
+NameError: name 'datetime' is not defined
+2023-08-15 07:44:32,676 - app - ERROR - Exception on /user_profile [GET]
+Traceback (most recent call last):
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/routes/user_routes.py", line 55, in user_profile
+    return render_template('user_profile.html', user=current_user, now=datetime.utcnow)
+                                                                       ^^^^^^^^
+NameError: name 'datetime' is not defined
+2023-08-15 07:44:33,571 - app - ERROR - Exception on /user_profile [GET]
+Traceback (most recent call last):
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/routes/user_routes.py", line 55, in user_profile
+    return render_template('user_profile.html', user=current_user, now=datetime.utcnow)
+                                                                       ^^^^^^^^
+NameError: name 'datetime' is not defined

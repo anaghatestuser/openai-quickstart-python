@@ -4,7 +4,6 @@ import traceback
 from flask import Flask, render_template, current_app, request
 from config import db, login, mail
 from models.user import User
-from routes import main_routes, user_routes, interaction_routes, feedback_routes
 from utils.logging_config import configure_logging
 from flask_migrate import Migrate
 from werkzeug.security import generate_password_hash
@@ -69,23 +68,30 @@ logger, logger_debug = configure_logging(app)
 def load_user(user_id):
     return db.session.get(User, int(user_id))
 
+# Import and initialize the routes
+from routes import main_routes, user_routes, interaction_routes, feedback_routes, admin_routes
 
-# Initialize the routes
 main_routes.init_app(app)
 user_routes.init_app(app)
 interaction_routes.init_app(app)
 feedback_routes.init_app(app)
+admin_routes.init_app(app)
 
 @app.errorhandler(500)
 def internal_server_error(error):
     logger.error('Server Error: %s', (error))
     logger.error(traceback.format_exc())
-    return "500 error", 500
+    return render_template('500.html'), 500
 
 @app.errorhandler(404)
 def not_found_error(error):
     logger.warning('Page Not Found: %s, path: %s', error, request.path)
     return render_template('404.html'), 404
+
+@app.errorhandler(403)
+def forbidden_error(error):
+    logger.warning('Forbidden Request: %s, path: %s', error, request.path)
+    return render_template('403.html'), 403
 
 if __name__ == '__main__':
     print("Running on http://127.0.0.1:5000/")

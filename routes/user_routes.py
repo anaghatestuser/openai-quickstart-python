@@ -31,21 +31,16 @@ def init_app(app):
     @login_required
     def make_admin(username):
         if not current_user.is_admin:
+            logger.warning(f"Unauthorized access attempt to make {username} an admin")
             abort(403)  # Only admin can make another user an admin
         user = User.query.filter_by(username=username).first()
         if not user:
+            logger.error(f"User {username} not found for admin creation")
             return "User not found"
         user.is_admin = True
         db.session.commit()
+        logger.info(f"{username} is now an admin")
         return f"{username} is now an admin"
-
-    @app.route('/users_unapproved')
-    @login_required
-    def users_unapproved():
-        if not current_user.is_admin:
-            abort(403)
-        unapproved_users = User.query.filter_by(is_approved=False).all()
-        return render_template('users_unapproved.html', users=unapproved_users)
     
     @app.route('/user_profile')
     @login_required
@@ -54,20 +49,6 @@ def init_app(app):
             abort(403)  # Forbidden access for unapproved users
         # Additional logic to render a user profile or another action
         return render_template('user_profile.html', user=current_user, now=datetime.utcnow())
-
-
-    @app.route('/approve_user/<int:user_id>')
-    @login_required
-    def approve_user(user_id):
-        if not current_user.is_admin:
-            abort(403)
-        user = User.query.get(user_id)
-        if not user:
-            return "User not found"
-        user.is_approved = True
-        db.session.commit()
-        flash(f"User {user.username} has been approved.")
-        return redirect(url_for('users_unapproved'))
     
     @app.route('/bootstrap_admin')
     def bootstrap_admin():

@@ -1,5 +1,6 @@
 from flask import render_template, request, redirect, url_for, flash, current_app
 from flask_login import login_required, current_user, login_user, logout_user
+from utils.logging_config import log_activity
 from datetime import datetime, timedelta
 from config import db as user_db, mail
 from werkzeug.urls import url_parse
@@ -9,7 +10,6 @@ import logging
 import random
 import csv
 import os
-
 
 logger = logging.getLogger(__name__)
 
@@ -28,8 +28,6 @@ def load_examples_from_csv(app, filename):
         except Exception as e:
             logger.error("Failed to load examples from %s: %s", filename, e)
             return []
-
-
 
 def init_app(app):
     examples = load_examples_from_csv(app, 'csv/questions.csv')
@@ -60,23 +58,21 @@ def init_app(app):
             if user is None or not user.check_password(password):
                 logger.warning('Failed login attempt for username: %s', username)
                 flash('Invalid username or password')
-                return redirect(url_for('login'))  
-            
-            if user is not None and user.check_password(password):
-                # New logic to check if tokens have expired
-                if user.token_expiry_date and datetime.utcnow() > user.token_expiry_date:
-                    user.tokens = 0  # Set tokens to 0 if they're expired
-                    user_db.session.commit()  # Save changes to the database
-                    flash('Your tokens have expired and have been reset to 0.', 'warning')
-            
+                return redirect(url_for('login'))
 
-            # Check if the user is approved
+            if user is not None and user.check_password(password):
+                if user.token_expiry_date and datetime.utcnow() > user.token_expiry_date:
+                    user.tokens = 0
+                    user_db.session.commit()
+                    flash('Your tokens have expired and have been reset to 0.', 'warning')
+
             if not user.is_approved:
                 flash('Your account is awaiting approval by the admin.', 'warning')
                 return redirect(url_for('login'))
 
             login_user(user)
             logger.info('User %s logged in successfully.', user.username)
+            log_activity(user.id, "User Login", f"User {user.username} logged in.")
             return redirect(url_for('home'))
 
         return render_template('login.html')
@@ -85,10 +81,10 @@ def init_app(app):
     @login_required
     def logout():
         logger.info('User %s logged out.', current_user.username)
+        log_activity(current_user.id, "User Logout", f"User {current_user.username} logged out.")
         logout_user()
-        return redirect(url_for('login'))  
+        return redirect(url_for('login'))
 
-    
     @app.route('/register', methods=['GET', 'POST'])
     def register():
         if request.method == 'POST':
@@ -107,24 +103,23 @@ def init_app(app):
                 logger.warning('Attempt to register with already existing username or email: %s, %s', username, email)
                 return render_template('login.html', feedback_message='Username or email already exists. Please try a different one.')
 
-            # Create the user once and set all its attributes
-            user = User(username=username, email=email, tokens=200)  # Tokens set to 200 here
+            user = User(username=username, email=email, tokens=200)
             user.set_password(password)
-            user.token_expiry_date = datetime.utcnow() + timedelta(days=60)  # Set the token expiry
+            user.token_expiry_date = datetime.utcnow() + timedelta(days=60)
 
             user_db.session.add(user)
             user_db.session.commit()
             logger.info('User %s registered successfully.', user.username)
+            log_activity(user.id, "User Registration", f"User {user.username} registered.")
 
-            # After the user is saved to the database, send an email to the admin
             msg = Message('New User Registration', 
                   sender='ulysses@kissielts.com',
-                  recipients=['ulysses@kissielts.com'])  # Adjust this to the admin's email
+                  recipients=['ulysses@kissielts.com'])
             msg.body = f'New user {username} has registered and awaits approval.'
             try:
                 mail.send(msg)
             except Exception as e:
-                print(f"Error sending mail: {e}")
+                logger.error(f"Error sending mail: {e}")
 
             flash('Thank you for registering! Your account is awaiting approval by the admin.')
             return redirect(url_for('login'))

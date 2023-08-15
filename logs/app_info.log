@@ -217,3 +217,1387 @@ Traceback (most recent call last):
     <li><b>Token Expiry:</b> {{ (user.token_expiry_date - now).days }} days remaining</li>
     ^^^^^^^^^^^^^^^^^^^^^^^^^
 TypeError: unsupported operand type(s) for -: 'datetime.datetime' and 'builtin_function_or_method'
+2023-08-15 09:46:37,863 - app - ERROR - Exception on /admin/ [GET]
+Traceback (most recent call last):
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/routes/admin_routes.py", line 14, in admin_dashboard
+    return render_template('admin.html')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/templates/admin.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/templates/base.html", line 56, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/templates/admin.html", line 31, in block 'content'
+    <a href="{{ url_for('admin.view_users') }}" class="btn btn-primary">View All Users</a>
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1697, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1686, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/werkzeug/routing/map.py", line 950, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'admin.view_users'. Did you mean 'view_users' instead?
+2023-08-15 09:46:37,863 - app - ERROR - Exception on /admin/ [GET]
+Traceback (most recent call last):
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/routes/admin_routes.py", line 14, in admin_dashboard
+    return render_template('admin.html')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/templates/admin.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/templates/base.html", line 56, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/templates/admin.html", line 31, in block 'content'
+    <a href="{{ url_for('admin.view_users') }}" class="btn btn-primary">View All Users</a>
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1697, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1686, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/werkzeug/routing/map.py", line 950, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'admin.view_users'. Did you mean 'view_users' instead?
+2023-08-15 09:46:39,071 - app - ERROR - Exception on /admin/ [GET]
+Traceback (most recent call last):
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/routes/admin_routes.py", line 14, in admin_dashboard
+    return render_template('admin.html')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/templates/admin.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/templates/base.html", line 56, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/templates/admin.html", line 31, in block 'content'
+    <a href="{{ url_for('admin.view_users') }}" class="btn btn-primary">View All Users</a>
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1697, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1686, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/werkzeug/routing/map.py", line 950, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'admin.view_users'. Did you mean 'view_users' instead?
+2023-08-15 09:46:39,071 - app - ERROR - Exception on /admin/ [GET]
+Traceback (most recent call last):
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/routes/admin_routes.py", line 14, in admin_dashboard
+    return render_template('admin.html')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/templates/admin.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/templates/base.html", line 56, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/templates/admin.html", line 31, in block 'content'
+    <a href="{{ url_for('admin.view_users') }}" class="btn btn-primary">View All Users</a>
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1697, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1686, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/werkzeug/routing/map.py", line 950, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'admin.view_users'. Did you mean 'view_users' instead?
+2023-08-15 09:47:56,774 - app - ERROR - Exception on /admin/ [GET]
+Traceback (most recent call last):
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/routes/admin_routes.py", line 14, in admin_dashboard
+    return render_template('admin.html')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/templates/admin.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/templates/base.html", line 56, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/templates/admin.html", line 31, in block 'content'
+    <a href="{{ url_for('view_users') }}" class="btn btn-primary">View All Users</a>
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1697, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1686, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/werkzeug/routing/map.py", line 950, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'admin.view_users'. Did you mean 'view_users' instead?
+2023-08-15 09:47:56,774 - app - ERROR - Exception on /admin/ [GET]
+Traceback (most recent call last):
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/routes/admin_routes.py", line 14, in admin_dashboard
+    return render_template('admin.html')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/templates/admin.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/templates/base.html", line 56, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/templates/admin.html", line 31, in block 'content'
+    <a href="{{ url_for('view_users') }}" class="btn btn-primary">View All Users</a>
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1697, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1686, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/werkzeug/routing/map.py", line 950, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'admin.view_users'. Did you mean 'view_users' instead?
+2023-08-15 09:55:02,195 - app - ERROR - Exception on /admin/view_users [GET]
+Traceback (most recent call last):
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/routes/admin_routes.py", line 57, in view_users
+    return render_template('view_users.html', users=users)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/templates/view_users.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/templates/base.html", line 56, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/templates/view_users.html", line 49, in block 'content'
+    <form action="{{ url_for('admin.approve_user', user_id=user.id) }}" method="post" style="display: inline;">
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1697, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1686, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/werkzeug/routing/map.py", line 950, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'admin.approve_user' with values ['user_id']. Did you mean 'admin_approve_user' instead?
+2023-08-15 09:55:02,195 - app - ERROR - Exception on /admin/view_users [GET]
+Traceback (most recent call last):
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/routes/admin_routes.py", line 57, in view_users
+    return render_template('view_users.html', users=users)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/templates/view_users.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/templates/base.html", line 56, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/templates/view_users.html", line 49, in block 'content'
+    <form action="{{ url_for('admin.approve_user', user_id=user.id) }}" method="post" style="display: inline;">
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1697, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1686, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/werkzeug/routing/map.py", line 950, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'admin.approve_user' with values ['user_id']. Did you mean 'admin_approve_user' instead?
+2023-08-15 11:44:10,064 - app - ERROR - Exception on /admin/logs [GET]
+Traceback (most recent call last):
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/routes/admin_routes.py", line 101, in view_logs
+    logs = ActivityLog.query.order_by(ActivityLog.timestamp.desc()).all()
+           ^^^^^^^^^^^
+NameError: name 'ActivityLog' is not defined
+2023-08-15 11:44:10,064 - app - ERROR - Exception on /admin/logs [GET]
+Traceback (most recent call last):
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/routes/admin_routes.py", line 101, in view_logs
+    logs = ActivityLog.query.order_by(ActivityLog.timestamp.desc()).all()
+           ^^^^^^^^^^^
+NameError: name 'ActivityLog' is not defined
+2023-08-15 11:46:20,970 - app - ERROR - Exception on /admin/logs [GET]
+Traceback (most recent call last):
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/routes/admin_routes.py", line 101, in view_logs
+    logs = ActivityLog.query.order_by(ActivityLog.timestamp.desc()).all()
+           ^^^^^^^^^^^
+NameError: name 'ActivityLog' is not defined
+2023-08-15 11:46:20,970 - app - ERROR - Exception on /admin/logs [GET]
+Traceback (most recent call last):
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/routes/admin_routes.py", line 101, in view_logs
+    logs = ActivityLog.query.order_by(ActivityLog.timestamp.desc()).all()
+           ^^^^^^^^^^^
+NameError: name 'ActivityLog' is not defined
+2023-08-15 11:50:38,497 - app - ERROR - Exception on /admin/logs [GET]
+Traceback (most recent call last):
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1965, in _exec_single_context
+    self.dialect.do_execute(
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 921, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.UndefinedTable: relation "activity_log" does not exist
+LINE 2: FROM activity_log ORDER BY activity_log.timestamp DESC
+             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/routes/admin_routes.py", line 102, in view_logs
+    logs = ActivityLog.query.order_by(ActivityLog.timestamp.desc()).all()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/orm/query.py", line 2692, in all
+    return self._iter().all()  # type: ignore
+           ^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/orm/query.py", line 2846, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 2246, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 2141, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/orm/context.py", line 293, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1412, in execute
+    return meth(
+           ^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/sql/elements.py", line 483, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1635, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1844, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1984, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 2339, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1965, in _exec_single_context
+    self.dialect.do_execute(
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 921, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.errors.UndefinedTable) relation "activity_log" does not exist
+LINE 2: FROM activity_log ORDER BY activity_log.timestamp DESC
+             ^
+
+[SQL: SELECT activity_log.id AS activity_log_id, activity_log.timestamp AS activity_log_timestamp, activity_log.user_id AS activity_log_user_id, activity_log.action AS activity_log_action, activity_log.details AS activity_log_details 
+FROM activity_log ORDER BY activity_log.timestamp DESC]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2023-08-15 11:50:38,497 - app - ERROR - Exception on /admin/logs [GET]
+Traceback (most recent call last):
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1965, in _exec_single_context
+    self.dialect.do_execute(
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 921, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.UndefinedTable: relation "activity_log" does not exist
+LINE 2: FROM activity_log ORDER BY activity_log.timestamp DESC
+             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/routes/admin_routes.py", line 102, in view_logs
+    logs = ActivityLog.query.order_by(ActivityLog.timestamp.desc()).all()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/orm/query.py", line 2692, in all
+    return self._iter().all()  # type: ignore
+           ^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/orm/query.py", line 2846, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 2246, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 2141, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/orm/context.py", line 293, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1412, in execute
+    return meth(
+           ^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/sql/elements.py", line 483, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1635, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1844, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1984, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 2339, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1965, in _exec_single_context
+    self.dialect.do_execute(
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 921, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.errors.UndefinedTable) relation "activity_log" does not exist
+LINE 2: FROM activity_log ORDER BY activity_log.timestamp DESC
+             ^
+
+[SQL: SELECT activity_log.id AS activity_log_id, activity_log.timestamp AS activity_log_timestamp, activity_log.user_id AS activity_log_user_id, activity_log.action AS activity_log_action, activity_log.details AS activity_log_details 
+FROM activity_log ORDER BY activity_log.timestamp DESC]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2023-08-15 11:51:06,213 - app - ERROR - Exception on /admin/logs [GET]
+Traceback (most recent call last):
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1965, in _exec_single_context
+    self.dialect.do_execute(
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 921, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.UndefinedTable: relation "activity_log" does not exist
+LINE 2: FROM activity_log ORDER BY activity_log.timestamp DESC
+             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/routes/admin_routes.py", line 102, in view_logs
+    logs = ActivityLog.query.order_by(ActivityLog.timestamp.desc()).all()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/orm/query.py", line 2692, in all
+    return self._iter().all()  # type: ignore
+           ^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/orm/query.py", line 2846, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 2246, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 2141, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/orm/context.py", line 293, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1412, in execute
+    return meth(
+           ^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/sql/elements.py", line 483, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1635, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1844, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1984, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 2339, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1965, in _exec_single_context
+    self.dialect.do_execute(
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 921, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.errors.UndefinedTable) relation "activity_log" does not exist
+LINE 2: FROM activity_log ORDER BY activity_log.timestamp DESC
+             ^
+
+[SQL: SELECT activity_log.id AS activity_log_id, activity_log.timestamp AS activity_log_timestamp, activity_log.user_id AS activity_log_user_id, activity_log.action AS activity_log_action, activity_log.details AS activity_log_details 
+FROM activity_log ORDER BY activity_log.timestamp DESC]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2023-08-15 11:51:06,213 - app - ERROR - Exception on /admin/logs [GET]
+Traceback (most recent call last):
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1965, in _exec_single_context
+    self.dialect.do_execute(
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 921, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.UndefinedTable: relation "activity_log" does not exist
+LINE 2: FROM activity_log ORDER BY activity_log.timestamp DESC
+             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/routes/admin_routes.py", line 102, in view_logs
+    logs = ActivityLog.query.order_by(ActivityLog.timestamp.desc()).all()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/orm/query.py", line 2692, in all
+    return self._iter().all()  # type: ignore
+           ^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/orm/query.py", line 2846, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 2246, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 2141, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/orm/context.py", line 293, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1412, in execute
+    return meth(
+           ^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/sql/elements.py", line 483, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1635, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1844, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1984, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 2339, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1965, in _exec_single_context
+    self.dialect.do_execute(
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 921, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.errors.UndefinedTable) relation "activity_log" does not exist
+LINE 2: FROM activity_log ORDER BY activity_log.timestamp DESC
+             ^
+
+[SQL: SELECT activity_log.id AS activity_log_id, activity_log.timestamp AS activity_log_timestamp, activity_log.user_id AS activity_log_user_id, activity_log.action AS activity_log_action, activity_log.details AS activity_log_details 
+FROM activity_log ORDER BY activity_log.timestamp DESC]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2023-08-15 11:52:33,512 - app - ERROR - Exception on /admin/logs [GET]
+Traceback (most recent call last):
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1965, in _exec_single_context
+    self.dialect.do_execute(
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 921, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.UndefinedTable: relation "activity_log" does not exist
+LINE 2: FROM activity_log ORDER BY activity_log.timestamp DESC
+             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/routes/admin_routes.py", line 102, in view_logs
+    logs = ActivityLog.query.order_by(ActivityLog.timestamp.desc()).all()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/orm/query.py", line 2692, in all
+    return self._iter().all()  # type: ignore
+           ^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/orm/query.py", line 2846, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 2246, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 2141, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/orm/context.py", line 293, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1412, in execute
+    return meth(
+           ^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/sql/elements.py", line 483, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1635, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1844, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1984, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 2339, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1965, in _exec_single_context
+    self.dialect.do_execute(
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 921, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.errors.UndefinedTable) relation "activity_log" does not exist
+LINE 2: FROM activity_log ORDER BY activity_log.timestamp DESC
+             ^
+
+[SQL: SELECT activity_log.id AS activity_log_id, activity_log.timestamp AS activity_log_timestamp, activity_log.user_id AS activity_log_user_id, activity_log.action AS activity_log_action, activity_log.details AS activity_log_details 
+FROM activity_log ORDER BY activity_log.timestamp DESC]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2023-08-15 11:52:33,512 - app - ERROR - Exception on /admin/logs [GET]
+Traceback (most recent call last):
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1965, in _exec_single_context
+    self.dialect.do_execute(
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 921, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.UndefinedTable: relation "activity_log" does not exist
+LINE 2: FROM activity_log ORDER BY activity_log.timestamp DESC
+             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/routes/admin_routes.py", line 102, in view_logs
+    logs = ActivityLog.query.order_by(ActivityLog.timestamp.desc()).all()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/orm/query.py", line 2692, in all
+    return self._iter().all()  # type: ignore
+           ^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/orm/query.py", line 2846, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 2246, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 2141, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/orm/context.py", line 293, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1412, in execute
+    return meth(
+           ^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/sql/elements.py", line 483, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1635, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1844, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1984, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 2339, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1965, in _exec_single_context
+    self.dialect.do_execute(
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 921, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.errors.UndefinedTable) relation "activity_log" does not exist
+LINE 2: FROM activity_log ORDER BY activity_log.timestamp DESC
+             ^
+
+[SQL: SELECT activity_log.id AS activity_log_id, activity_log.timestamp AS activity_log_timestamp, activity_log.user_id AS activity_log_user_id, activity_log.action AS activity_log_action, activity_log.details AS activity_log_details 
+FROM activity_log ORDER BY activity_log.timestamp DESC]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2023-08-15 11:56:20,148 - app - ERROR - Exception on /admin/logs [GET]
+Traceback (most recent call last):
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/routes/admin_routes.py", line 103, in view_logs
+    return render_template('logs.html', logs=logs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/templates/logs.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/templates/base.html", line 56, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/templates/logs.html", line 29, in block 'content'
+    <td>{{ log.user.username }}</td>
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 485, in getattr
+    return getattr(obj, attribute)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'models.log.ActivityLog object' has no attribute 'user'
+2023-08-15 11:56:20,148 - app - ERROR - Exception on /admin/logs [GET]
+Traceback (most recent call last):
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/routes/admin_routes.py", line 103, in view_logs
+    return render_template('logs.html', logs=logs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/templates/logs.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/templates/base.html", line 56, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/templates/logs.html", line 29, in block 'content'
+    <td>{{ log.user.username }}</td>
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 485, in getattr
+    return getattr(obj, attribute)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'models.log.ActivityLog object' has no attribute 'user'
+2023-08-15 11:56:23,528 - app - ERROR - Exception on /admin/logs [GET]
+Traceback (most recent call last):
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/routes/admin_routes.py", line 103, in view_logs
+    return render_template('logs.html', logs=logs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/templates/logs.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/templates/base.html", line 56, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/templates/logs.html", line 29, in block 'content'
+    <td>{{ log.user.username }}</td>
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 485, in getattr
+    return getattr(obj, attribute)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'models.log.ActivityLog object' has no attribute 'user'
+2023-08-15 11:56:23,528 - app - ERROR - Exception on /admin/logs [GET]
+Traceback (most recent call last):
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/routes/admin_routes.py", line 103, in view_logs
+    return render_template('logs.html', logs=logs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/templates/logs.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/templates/base.html", line 56, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/templates/logs.html", line 29, in block 'content'
+    <td>{{ log.user.username }}</td>
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 485, in getattr
+    return getattr(obj, attribute)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'models.log.ActivityLog object' has no attribute 'user'
+2023-08-15 11:57:05,613 - app - ERROR - Exception on /admin/logs [GET]
+Traceback (most recent call last):
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/routes/admin_routes.py", line 103, in view_logs
+    return render_template('logs.html', logs=logs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/templates/logs.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/templates/base.html", line 56, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/templates/logs.html", line 29, in block 'content'
+    <td>{{ log.user.username }}</td>
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 485, in getattr
+    return getattr(obj, attribute)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'models.log.ActivityLog object' has no attribute 'user'
+2023-08-15 11:57:05,613 - app - ERROR - Exception on /admin/logs [GET]
+Traceback (most recent call last):
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/routes/admin_routes.py", line 103, in view_logs
+    return render_template('logs.html', logs=logs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/templates/logs.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/templates/base.html", line 56, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/templates/logs.html", line 29, in block 'content'
+    <td>{{ log.user.username }}</td>
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 485, in getattr
+    return getattr(obj, attribute)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'models.log.ActivityLog object' has no attribute 'user'
+2023-08-15 11:57:06,406 - app - ERROR - Exception on /admin/logs [GET]
+Traceback (most recent call last):
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/routes/admin_routes.py", line 103, in view_logs
+    return render_template('logs.html', logs=logs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/templates/logs.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/templates/base.html", line 56, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/templates/logs.html", line 29, in block 'content'
+    <td>{{ log.user.username }}</td>
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 485, in getattr
+    return getattr(obj, attribute)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'models.log.ActivityLog object' has no attribute 'user'
+2023-08-15 11:57:06,406 - app - ERROR - Exception on /admin/logs [GET]
+Traceback (most recent call last):
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/routes/admin_routes.py", line 103, in view_logs
+    return render_template('logs.html', logs=logs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/templates/logs.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/templates/base.html", line 56, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/templates/logs.html", line 29, in block 'content'
+    <td>{{ log.user.username }}</td>
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 485, in getattr
+    return getattr(obj, attribute)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'models.log.ActivityLog object' has no attribute 'user'
+2023-08-15 11:57:17,933 - app - ERROR - Exception on /admin/logs [GET]
+Traceback (most recent call last):
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/routes/admin_routes.py", line 103, in view_logs
+    return render_template('logs.html', logs=logs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/templates/logs.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/templates/base.html", line 56, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/templates/logs.html", line 29, in block 'content'
+    <td>{{ log.user.username }}</td>
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 485, in getattr
+    return getattr(obj, attribute)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'models.log.ActivityLog object' has no attribute 'user'
+2023-08-15 11:57:17,933 - app - ERROR - Exception on /admin/logs [GET]
+Traceback (most recent call last):
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/routes/admin_routes.py", line 103, in view_logs
+    return render_template('logs.html', logs=logs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/templates/logs.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/templates/base.html", line 56, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/templates/logs.html", line 29, in block 'content'
+    <td>{{ log.user.username }}</td>
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 485, in getattr
+    return getattr(obj, attribute)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'models.log.ActivityLog object' has no attribute 'user'
+2023-08-15 11:57:18,951 - app - ERROR - Exception on /admin/logs [GET]
+Traceback (most recent call last):
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/routes/admin_routes.py", line 103, in view_logs
+    return render_template('logs.html', logs=logs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/templates/logs.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/templates/base.html", line 56, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/templates/logs.html", line 29, in block 'content'
+    <td>{{ log.user.username }}</td>
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 485, in getattr
+    return getattr(obj, attribute)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'models.log.ActivityLog object' has no attribute 'user'
+2023-08-15 11:57:18,951 - app - ERROR - Exception on /admin/logs [GET]
+Traceback (most recent call last):
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/routes/admin_routes.py", line 103, in view_logs
+    return render_template('logs.html', logs=logs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/templates/logs.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/templates/base.html", line 56, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/templates/logs.html", line 29, in block 'content'
+    <td>{{ log.user.username }}</td>
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 485, in getattr
+    return getattr(obj, attribute)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'models.log.ActivityLog object' has no attribute 'user'

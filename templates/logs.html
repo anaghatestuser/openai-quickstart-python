@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}
+K.I.S.S. IELTS A.I. Assistant - Admin Logs
+{% endblock %}
+
+{% block additional_css %}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+{% endblock %}
+
+{% block content %}   
+    <div class="container p-3">
+        <h2 class="mb-4">Admin Activity Logs</h2>
+        
+        <table class="table table-hover table-bordered">
+            <thead class="table-light">
+                <tr>
+                    <th>Timestamp</th>
+                    <th>Username</th>
+                    <th>Action</th>
+                    <th>Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for log in logs %}
+                <tr>
+                    <td>{{ log.timestamp.strftime('%Y-%m-%d %H:%M:%S') }}</td>  <!-- Formatting the timestamp for readability -->
+                    <td>{{ log.user.username }}</td>  
+                    <td>{{ log.action }}</td>
+                    <td>{{ log.details }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

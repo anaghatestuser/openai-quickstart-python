@@ -1,7 +1,21 @@
+from logging.handlers import TimedRotatingFileHandler, RotatingFileHandler
+from models.log import ActivityLog
+from datetime import datetime
+from config import db
 import os
 import sys
 import logging
-from logging.handlers import TimedRotatingFileHandler, RotatingFileHandler
+
+
+def log_activity(user_id, action, details):
+    log_entry = ActivityLog(timestamp=datetime.now(), user_id=user_id, action=action, details=details)
+    db.session.add(log_entry)
+    db.session.commit()
+
+    # This is where you can use your existing logger for application logs
+    logger = logging.getLogger(__name__)
+    logger.info(f"User {user_id} performed action: {action}. Details: {details}")
+    
 
 def configure_logging(app):
     log_dir = './logs'

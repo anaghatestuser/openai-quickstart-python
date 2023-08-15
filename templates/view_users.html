@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block title %}
+K.I.S.S. IELTS A.I. Assistant - View All Users
+{% endblock %}
+
+{% block additional_css %}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<style>
+    .unapproved {
+        background-color: #ffe5e5;
+    }
+</style>
+{% endblock %}
+
+{% block content %}    
+<div class="container p-3">
+    <h1>All Users</h1>
+    <p>Below is a list of all users. Unapproved users are highlighted.</p>
+    
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Username</th>
+                <th scope="col">Email</th>
+                <th scope="col">Status</th>
+                <th scope="col">Tokens</th>  <!-- New column header -->
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+                <tr {% if not user.is_approved %} class="unapproved" {% endif %}>
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ "Approved" if user.is_approved else "Unapproved" }}</td>
+                    <td>{{ user.tokens }}</td>  <!-- New column data -->
+                    <td>
+                        {% if not user.is_approved %}
+                            <form action="{{ url_for('approve_user', user_id=user.id) }}" method="post" style="display: inline;">
+                                <button type="submit" class="btn btn-success">Approve</button>
+                            </form>
+                        {% else %}
+                            <form action="{{ url_for('disallow_user', user_id=user.id) }}" method="post" style="display: inline;">
+                                <button type="submit" class="btn btn-danger">Disallow</button>
+                            </form>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

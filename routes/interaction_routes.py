@@ -14,10 +14,12 @@ def init_app(app):
     def add_interaction(user_id, statement, supportive_answer, opposing_answer):
         user = User.query.get(user_id)
         if user is None:
+            logger.error("User not found while trying to add interaction")
             return "User not found", 404
         interaction = Interaction(statement=statement, supportive_answer=supportive_answer, opposing_answer=opposing_answer, user_id=user.id)
         user_db.session.add(interaction)
         user_db.session.commit()
+        logger.info(f"Added interaction for user: {user.username}")
         return f"Added interaction for user: {user.username}"
 
     @app.route('/generate', methods=['POST'])
@@ -51,13 +53,12 @@ def init_app(app):
     @app.route('/generate_variation', methods=['POST'])
     @login_required
     def generate_variation():
-        if current_user.tokens > 0:
-            current_user.tokens -= 1
-            user_db.session.commit()
-
-            statement = request.form.get('statement')
-            reasons = generate_reasons(statement)
-            return render_template('results.html', reasons=reasons, statement=statement)
-        else:
+        if current_user.tokens <= 0:
             error_message = "Sorry, you have no tokens left. Please purchase more to continue using the service."
             return render_template('results.html', error_message=error_message)
+
+        current_user.tokens -= 1
+        user_db.session.commit()
+        statement = request.form.get('statement')
+        reasons = generate_reasons(statement)
+        return render_template('results.html', reasons=reasons, statement=statement)

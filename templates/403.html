@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}
+K.I.S.S. IELTS A.I. Assistant - 404 Not Found
+{% endblock %}
+
+{% block additional_css %}
+<style>
+    /* Additional styles for the 404 page */
+    body {
+        text-align: center; /* Center the content horizontally */
+        background-color: #f8f9fa; /* Set a light background color */
+        color: #007bff; /* Set a blue color for the text */
+    }
+
+    h1 {
+        font-weight: 900;
+        font-size: 40px;
+        margin-bottom: 20px; /* Add some space below the heading */
+    }
+
+    p {
+        font-size: 24px;
+        margin-bottom: 30px; /* Add some space below the paragraph */
+    }
+
+    .btn-variation {
+        background-color: #007bff; /* Use the blue color for buttons */
+    }
+
+    .btn-variation:hover {
+        background-color: #0056b3; /* Darken the button on hover */
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Rest of the template remains unchanged -->
+<div class="d-flex justify-content-end">
+    <!-- Sidebar and other content -->
+</div>    
+<div class="container p-3">
+    <h1>403 Forbidden</h1>
+    <p>You do not have permission to access this page or perform this action.</p>
+</div>
+{% endblock %}

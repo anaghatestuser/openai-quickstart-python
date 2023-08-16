@@ -4,6 +4,8 @@ from datetime import datetime, timedelta
 from models.log import ActivityLog
 from models.user import User
 from config import db
+from utils.logging_config import log_activity
+
 
 def init_app(app):
 

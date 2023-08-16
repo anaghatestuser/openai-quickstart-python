@@ -4,10 +4,6 @@
 K.I.S.S. IELTS A.I. Assistant - Results Page
 {% endblock %}
 
-{% block additional_css %}
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-{% endblock %}
-
 {% block content %}
 {% if error_message %}
     <div class="alert alert-danger">
@@ -15,38 +11,48 @@ K.I.S.S. IELTS A.I. Assistant - Results Page
     </div>
 {% endif %} 
     <div class="container p-3">
-        <h2>Here are my reasons:</h2>
-        <h1>"{{ statement }}"</h1>
-    <br>
-        {% for reason in reasons %}
-        <p><b>{{ reason['title'] }}</b></p>
-        <p>{{ reason['text']|safe }}</p>
-        {% endfor %}
-    <br>
-        <p><b>If you would like me to generate different reasons, please let me know.</b></p>
-        <div class="mb-3">
+        <div class="results-header">
+            <h2>AI Analysis</h2>
+            <h1>"{{ statement }}"</h1>
+        </div>
+
+        <div class="results-content">
+            {% for reason in reasons %}
+            <div class="reason">
+                <h3>{{ reason['title'] }}</h3>
+                <p>{{ reason['text']|safe }}</p>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="results-actions">
+            <p><b>Want different perspectives?</b></p>
             <form action="/generate_variation" method="post">
                 <input type="hidden" name="statement" value="{{ statement }}">
                 <input type="submit" name="choice" value="Supportive" class="btn btn-primary btn-supportive">
                 <input type="submit" name="choice" value="Opposing" class="btn btn-danger btn-opposing">
             </form>
-    <br>
+
             <form action="/" method="get">
                 <input type="submit" value="Ask Another Question" class="btn-variation">
             </form>
         </div>
+
         <div class="mb-3">
            <br>
-    <hr>
-    <h2>Rate the quality of my response</h2>
-    <p><b>You can also rate the quality of my response and provide feedback to help improve my future responses.</b></p>
-    <form action="/submit_feedback" method="post">
-        <label for="rating">Rating (1-5):</label><br>
-        <input type="number" id="rating" name="rating" min="1" max="5"><br>
-        <label for="feedback">Feedback:</label><br>
-        <textarea id="feedback" name="feedback"></textarea><br>
-        <input type="submit" value="Submit Feedback" class="btn-variation">
-    </form>
+           <hr>
+           <div class="feedback-section feedback-style">
+               <h2>Rate the quality of my response</h2>
+               <p><b>You can also rate the quality of my response and provide feedback to help improve my future responses.</b></p>
+               <form action="/submit_feedback" method="post">
+                   <label for="rating">Rating (1-5):</label>
+                   <input type="number" id="rating" name="rating" min="1" max="5">
+                   <label for="feedback">Feedback:</label>
+                   <textarea id="feedback" name="feedback"></textarea>
+                   <div class="submit-btn">
+                       <input type="submit" value="Submit Feedback" class="btn-variation">
+                   </div>
+               </form>
+           </div>
         </div>
-    </div>
 {% endblock %}

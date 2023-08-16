@@ -8,17 +8,14 @@ from utils.logging_config import configure_logging
 from flask_migrate import Migrate
 from werkzeug.security import generate_password_hash
 
-def create_app():  # add an argument to control admin creation
+def create_app():
     app = Flask(__name__)
     app.secret_key = os.getenv("SECRET_KEY", "default_secret_key")
     openai.api_key = os.getenv("OPENAI_API_KEY")
-
-    # Define the create_admin flag
+    
     create_admin = os.getenv("CREATE_ADMIN", "False").lower() == "true"
-
     app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL')
     
-    # Load mail configurations into app
     app.config['MAIL_SERVER'] = os.getenv('MAIL_SERVER')
     app.config['MAIL_PORT'] = int(os.getenv('MAIL_PORT', 587))
     app.config['MAIL_USERNAME'] = os.getenv('MAIL_USERNAME')
@@ -26,49 +23,41 @@ def create_app():  # add an argument to control admin creation
     app.config['MAIL_USE_TLS'] = os.getenv('MAIL_USE_TLS', 'True') == 'True'
     app.config['MAIL_USE_SSL'] = os.getenv('MAIL_USE_SSL', 'False') == 'False'
 
-    db.init_app(app)  # Initialize db with app
+    db.init_app(app)
 
     migrate = Migrate(app, db)
 
-    login.init_app(app)  # Initialize login with app
-    login.login_view = 'login'  # Updated from login_manager to login
+    login.init_app(app)
+    login.login_view = 'login'
+    mail.init_app(app)
 
-    # Initialize Flask-Mail with the app instance
-    mail.init_app(app)  # Initializes Flask-Mail within our Application
-
-    configure_logging(app)  # Call the function to configure logging
+    configure_logging(app)  # Configure logging
 
     with app.app_context():
-        if create_admin:  # only create admin user if the flag is set
-            print("Debug Admin Info:", os.getenv("ADMIN_USERNAME"), os.getenv("ADMIN_EMAIL"))
+        if create_admin:
             create_admin_user()
 
     return app
 
-
 def create_admin_user():
     admin_username = os.getenv("ADMIN_USERNAME")
     admin_password = os.getenv("ADMIN_PASSWORD")
-    admin_email = os.getenv("ADMIN_EMAIL")  # Add this line
+    admin_email = os.getenv("ADMIN_EMAIL")
 
-    # Check if the admin user already exists
     admin_user = User.query.filter_by(username=admin_username).first()
 
-    # If the admin user does not exist, create them
     if not admin_user:
-        admin_user = User(username=admin_username, email=admin_email, password_hash=generate_password_hash(admin_password), is_admin=True)  # Update this line
+        admin_user = User(username=admin_username, email=admin_email, password_hash=generate_password_hash(admin_password), is_admin=True)
         db.session.add(admin_user)
         db.session.commit()
 
-
 app = create_app()
-logger, logger_debug = configure_logging(app)
+logger, logger_debug = configure_logging(app)  # Configure loggers
 
 @login.user_loader
 def load_user(user_id):
     return db.session.get(User, int(user_id))
 
-# Import and initialize the routes
 from routes import main_routes, user_routes, interaction_routes, feedback_routes, admin_routes
 
 main_routes.init_app(app)
@@ -94,5 +83,4 @@ def forbidden_error(error):
     return render_template('errors/403.html'), 403
 
 if __name__ == '__main__':
-    print("Running on http://127.0.0.1:5000/")
     app.run(debug=False)

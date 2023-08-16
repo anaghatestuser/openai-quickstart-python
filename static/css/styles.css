@@ -15,6 +15,9 @@ body {
     font-family: var(--bs-body-font-family);
     font-size: var(--bs-body-font-size);
 }
+.unapproved {
+    background-color: #ffe5e5;
+}
 .btn-variation {
     display: inline-block;
     outline: none;
@@ -150,11 +153,257 @@ body {
 .navbar>.container-fluid { 
     margin-left: 6em;
 }
+
+/* Harmonizing Button Styles */
+
+.btn-supportive, .btn-opposing, .btn-variation {
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    font-size: var(--bs-body-font-size);
+    line-height: 1;
+    border-radius: 500px;
+    transition-property: background-color, border-color, color, box-shadow, filter;
+    transition-duration: .3s;
+    border: 1px solid transparent;
+    letter-spacing: 2px;
+    min-width: 160px;
+    text-transform: uppercase;
+    white-space: normal;
+    font-weight: 700;
+    text-align: center;
+    padding: 10px 20px;
+    height: 40px;
+    margin: 5px;  /* Added margin for spacing between buttons */
+}
+/* Hover effects for the buttons */
+.btn-supportive:hover, .btn-opposing:hover, .btn-variation:hover {
+    transform: scale(1.04);
+}
+/* Enhancing Individual Button Styles */
 .btn-supportive {
-    background-color: green;
+    background-color: #107ede; /* Adjusted green for better look */
     color: white;
 }
+.btn-supportive:hover {
+    background-color: #1044de; /* Darker shade for hover effect */
+}
 .btn-opposing {
-    background-color: red;
+    background-color: #dc3545; /* Adjusted red for better look */
     color: white;
+}
+.btn-opposing:hover {
+    background-color: #c82333; /* Darker shade for hover effect */
+}
+
+/* Feedback Specific Styles */
+.feedback-style {
+    background: #f4f4f4;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin-top: 40px;
+}
+
+.feedback-style h2 {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.feedback-style label {
+    display: block;
+    margin-top: 20px;
+}
+
+.feedback-style input[type="number"], 
+.feedback-style textarea {
+    width: 100%;
+    padding: 10px 15px;
+    margin-top: 5px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+.feedback-style input[type="number"]:focus, 
+.feedback-style textarea:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.feedback-style input[type="number"] {
+    max-width: 80px;
+}
+
+.feedback-style textarea {
+    min-height: 100px;
+    resize: vertical;  /* Allows user to resize the textarea vertically */
+}
+
+.feedback-style .submit-btn {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.feedback-style .submit-btn .btn-variation {
+    display: inline-block;
+}
+
+/* ... Your existing styles ... */
+
+/* Results Header */
+.results-header {
+    background-color: #f4f4f8;
+    padding: 20px 30px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.results-header h2 {
+    color: #555;
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.results-header h1 {
+    font-size: 28px;
+    font-weight: 900;
+    color: #333;
+    border-bottom: 2px solid #007BFF;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+/* Results Content */
+.results-content .reason {
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.results-content h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+/* Results Actions */
+.results-actions {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.results-actions p {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+
+/* ... Form.html Page ... */
+
+.form-section {
+    background-color: #f4f4f8;
+    padding: 20px 30px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+.form-section label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+.form-section textarea {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    resize: vertical;  /* Allows user to resize the textarea vertically */
+    transition: border-color 0.3s;
+}
+.form-section textarea:focus {
+    border-color: #007bff;
+    outline: none;
+}
+.btn-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+.sample-section h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+}
+/* Global Styles for the Buttons */
+input[type="submit"].btn {
+    padding: 12px 24px;  
+    font-size: 1.2rem;  
+    border-radius: 5px; 
+    border: none;  
+    transition: transform .3s, box-shadow .3s;  
+    cursor: pointer;  
+    margin: 5px;  
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);  
+    text-align: center; /* Ensure text is horizontally centered */
+    line-height: 1.4;   /* Ensure text is vertically centered */
+}
+
+/* Button-specific styles */
+input[type="submit"].btn-supportive {
+    /* background-color: #28a745;  Remove or comment out if you'd like to keep original color */
+    color: white;
+}
+
+input[type="submit"].btn-opposing {
+    /* background-color: #dc3545;  Remove or comment out if you'd like to keep original color */
+    color: white;
+}
+
+/* Hover styles for feedback */
+input[type="submit"].btn:hover {
+    transform: translateY(-2px);  
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);  
+}
+
+/* Active (or "pressed") styles for feedback */
+input[type="submit"].btn:active {
+    transform: translateY(1px);  
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);  
+}
+
+/* Enhanced styles for the textarea */
+.form-control {
+    font-size: 1.2rem;          /* Increase font size for better readability */
+    padding: 10px 15px;        /* Provide some padding inside the textarea */
+    border: 2px solid #cccccc; /* Introduce a thicker border for visibility */
+    border-radius: 5px;        /* Round the edges for a softer look */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow to make it pop */
+    transition: border-color 0.3s, box-shadow 0.3s; /* Smooth transitions for hover effects */
+}
+
+/* Add a hover effect to indicate interactivity */
+.form-control:hover {
+    border-color: #999999;     /* Darken the border slightly on hover */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Enhance shadow on hover for depth */
+}
+
+/* If users focus on the textarea (click into it) */
+.form-control:focus {
+    border-color: #666666; /* Provide a more pronounced border on focus */
+    box-shadow: 0 0 10px rgba(66, 153, 225, 0.6); /* A blue-ish glow to indicate focus */
+    outline: none; /* Remove the default browser outline */
 }

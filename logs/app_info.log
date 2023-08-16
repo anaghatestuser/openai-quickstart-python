@@ -1979,3 +1979,69 @@ Traceback (most recent call last):
     supportive_answer=reasons[0]['text'],
                      ~~~~~~~^^^
 IndexError: list index out of range
+2023-08-16 17:14:03,803 - app - ERROR - Exception on /submit_feedback [POST]
+Traceback (most recent call last):
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/routes/feedback_routes.py", line 24, in submit_feedback
+    feedback = Feedback(
+               ^^^^^^^^^
+  File "<string>", line 4, in __init__
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/orm/state.py", line 566, in _initialize_instance
+    with util.safe_reraise():
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/util/langhelpers.py", line 147, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/orm/state.py", line 564, in _initialize_instance
+    manager.original_init(*mixed[1:], **kwargs)
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/orm/decl_base.py", line 2134, in _declarative_constructor
+    raise TypeError(
+TypeError: 'feedback' is an invalid keyword argument for Feedback
+2023-08-16 17:14:03,803 - app - ERROR - Exception on /submit_feedback [POST]
+Traceback (most recent call last):
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/routes/feedback_routes.py", line 24, in submit_feedback
+    feedback = Feedback(
+               ^^^^^^^^^
+  File "<string>", line 4, in __init__
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/orm/state.py", line 566, in _initialize_instance
+    with util.safe_reraise():
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/util/langhelpers.py", line 147, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/orm/state.py", line 564, in _initialize_instance
+    manager.original_init(*mixed[1:], **kwargs)
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/sqlalchemy/orm/decl_base.py", line 2134, in _declarative_constructor
+    raise TypeError(
+TypeError: 'feedback' is an invalid keyword argument for Feedback
+2023-08-16 17:38:10,458 - app - INFO - Feedback received from user 18 with rating 4 and feedback text: 'Testing the feedback database one more time
+'.
+2023-08-16 17:38:10,458 - app - INFO - Feedback received from user 18 with rating 4 and feedback text: 'Testing the feedback database one more time
+'.
+2023-08-16 17:39:24,914 - app - INFO - Feedback received from user 11 with rating 3 and feedback text: 'testing feedback as a regular user'.
+2023-08-16 17:39:24,914 - app - INFO - Feedback received from user 11 with rating 3 and feedback text: 'testing feedback as a regular user'.

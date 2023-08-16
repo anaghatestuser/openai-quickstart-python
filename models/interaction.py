@@ -1,5 +1,3 @@
-# models/interaction.py
-
 from datetime import datetime
 from config import db
 

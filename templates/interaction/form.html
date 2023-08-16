@@ -5,31 +5,44 @@ K.I.S.S. IELTS A.I. Assistant - Form Page
 {% endblock %}
 
 {% block content %}
-    <div class="container p-3">
-        <h1>K.I.S.S. IELTS A.I. Assistant</h1>
-        {% if feedback_message %}
+<div class="container p-3">
+    <div class="results-header">
+        <h1>K.I.S.S. IELTS Writing Assistant</h1>
+    </div>
+
+    {% if feedback_message %}
+    <div class="alert feedback-style">
         <p>{{ feedback_message }}</p>
-        {% endif %}
-        <div class="mb-3">
-            <form method="post" action="/generate">
+    </div>
+    {% endif %}
+
+    <div class="mb-3 form-section">
+        <form method="post" action="/generate">
+            <div class="form-group">
                 <label for="statement" class="form-label"><strong>Enter your statement:</strong></label>
-                <textarea class="form-control" type="textarea" id="statement" name="statement" rows="4"></textarea><br>
-            
-                <!-- Buttons for Supportive and Opposing -->
-                <input type="submit" name="choice" value="Supportive" class="btn btn-primary btn-supportive">
-                <input type="submit" name="choice" value="Opposing" class="btn btn-danger btn-opposing">
-            </form>            
+                <textarea class="form-control enhanced-textarea" type="textarea" id="statement" name="statement" rows="4" required></textarea>
+            </div>
+            <div class="btn-group">
+                <input type="submit" name="choice" value="Supportive" class="btn btn-supportive">
+                <input type="submit" name="choice" value="Opposing" class="btn btn-opposing">
+            </div>
+        </form>
+    </div>
+
+    <div class="results-content sample-section">
+        <h2>Sample Statement and Answers:</h2>
+        <div class="reason">
+            <h3>Statement</h3>
+            <p>{{ statement }}</p>
         </div>
-        <div class="mb-3">
-            <h2>Sample Statement and Answers:</h2>
-            <br>
-            <ul>
-                <li><b>Statement</b> {{ statement }}</li>
-                <br>
-                <li><b>Supportive Answer:</b> {{ supportive_answer }}</li>
-                <br>
-                <li><b>Opposing Answer:</b> {{ opposing_answer }}</li>
-            </ul>
+        <div class="reason">
+            <h3>Supportive Answer</h3>
+            <p>{{ supportive_answer }}</p>
+        </div>
+        <div class="reason">
+            <h3>Opposing Answer</h3>
+            <p>{{ opposing_answer }}</p>
         </div>
     </div>
+</div>
 {% endblock %}

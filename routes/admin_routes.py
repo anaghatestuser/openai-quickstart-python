@@ -13,7 +13,7 @@ def init_app(app):
         # Ensure the user is an admin
         if not current_user.is_admin:
             abort(403)
-        return render_template('admin.html')
+        return render_template('admin/admin.html')
 
     @app.route('/admin/adjust_user', methods=['POST'])
     @login_required  
@@ -58,12 +58,11 @@ def init_app(app):
             abort(403)
 
         users = User.query.all()
-        return render_template('view_users.html', users=users)
+        return render_template('admin/view_users.html', users=users)
 
     @app.route('/admin/approve_user/<int:user_id>', methods=['POST'])
     @login_required  
     def approve_user(user_id):
-        # Ensure the user is an admin
         if not current_user.is_admin:
             abort(403)
 
@@ -74,8 +73,17 @@ def init_app(app):
 
         user.is_approved = True
         db.session.commit()
+
+        # Capturing IP address and user agent
+        ip_address = request.remote_addr
+        user_agent = request.user_agent.string
+
+        # Log the action
+        log_activity(current_user.id, "Approved account", f"Approved account for user {user.username}", ip_address=ip_address, user_agent=user_agent)
+
         flash('User approved successfully', 'success')
         return redirect(url_for('view_users'))
+
 
     @app.route('/admin/disallow_user/<int:user_id>', methods=['POST'])
     @login_required  
@@ -100,5 +108,5 @@ def init_app(app):
         if not current_user.is_admin:
             abort(403)
         logs = ActivityLog.query.order_by(ActivityLog.timestamp.desc()).all()
-        return render_template('logs.html', logs=logs)
+        return render_template('admin/logs.html', logs=logs)
 

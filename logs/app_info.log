@@ -1601,3 +1601,381 @@ Traceback (most recent call last):
     return getattr(obj, attribute)
            ^^^^^^^^^^^^^^^^^^^^^^^
 jinja2.exceptions.UndefinedError: 'models.log.ActivityLog object' has no attribute 'user'
+2023-08-15 17:59:03,380 - app - ERROR - Exception on /generate [POST]
+Traceback (most recent call last):
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/routes/interaction_routes.py", line 36, in generate
+    return redirect(url_for('form_page'))
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/helpers.py", line 225, in url_for
+    return current_app.url_for(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1697, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1686, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/werkzeug/routing/map.py", line 950, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'form_page'. Did you mean 'home' instead?
+2023-08-15 17:59:03,380 - app - ERROR - Exception on /generate [POST]
+Traceback (most recent call last):
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/routes/interaction_routes.py", line 36, in generate
+    return redirect(url_for('form_page'))
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/helpers.py", line 225, in url_for
+    return current_app.url_for(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1697, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1686, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/werkzeug/routing/map.py", line 950, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'form_page'. Did you mean 'home' instead?
+2023-08-15 17:59:07,443 - app - ERROR - Exception on /generate [POST]
+Traceback (most recent call last):
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/routes/interaction_routes.py", line 36, in generate
+    return redirect(url_for('form_page'))
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/helpers.py", line 225, in url_for
+    return current_app.url_for(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1697, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1686, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/werkzeug/routing/map.py", line 950, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'form_page'. Did you mean 'home' instead?
+2023-08-15 17:59:07,443 - app - ERROR - Exception on /generate [POST]
+Traceback (most recent call last):
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/routes/interaction_routes.py", line 36, in generate
+    return redirect(url_for('form_page'))
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/helpers.py", line 225, in url_for
+    return current_app.url_for(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1697, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1686, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/werkzeug/routing/map.py", line 950, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'form_page'. Did you mean 'home' instead?
+2023-08-15 18:12:33,222 - app - ERROR - Exception on /generate [POST]
+Traceback (most recent call last):
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/routes/interaction_routes.py", line 36, in generate
+    return redirect(url_for('form_page'))
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/helpers.py", line 225, in url_for
+    return current_app.url_for(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1697, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1686, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/werkzeug/routing/map.py", line 950, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'form_page'. Did you mean 'home' instead?
+2023-08-15 18:12:33,222 - app - ERROR - Exception on /generate [POST]
+Traceback (most recent call last):
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/routes/interaction_routes.py", line 36, in generate
+    return redirect(url_for('form_page'))
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/helpers.py", line 225, in url_for
+    return current_app.url_for(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1697, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1686, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/werkzeug/routing/map.py", line 950, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'form_page'. Did you mean 'home' instead?
+2023-08-15 18:12:37,858 - app - ERROR - Exception on /generate [POST]
+Traceback (most recent call last):
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/routes/interaction_routes.py", line 36, in generate
+    return redirect(url_for('form_page'))
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/helpers.py", line 225, in url_for
+    return current_app.url_for(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1697, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1686, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/werkzeug/routing/map.py", line 950, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'form_page'. Did you mean 'home' instead?
+2023-08-15 18:12:37,858 - app - ERROR - Exception on /generate [POST]
+Traceback (most recent call last):
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/routes/interaction_routes.py", line 36, in generate
+    return redirect(url_for('form_page'))
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/helpers.py", line 225, in url_for
+    return current_app.url_for(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1697, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1686, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/werkzeug/routing/map.py", line 950, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'form_page'. Did you mean 'home' instead?
+2023-08-15 18:12:47,146 - app - ERROR - Exception on /generate [POST]
+Traceback (most recent call last):
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/routes/interaction_routes.py", line 42, in generate
+    reasons = generate_reasons(statement, choice)  # Updated the function call to include choice
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: generate_reasons() takes 1 positional argument but 2 were given
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/routes/interaction_routes.py", line 49, in generate
+    return redirect(url_for('form_page'))
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/helpers.py", line 225, in url_for
+    return current_app.url_for(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1697, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1686, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/werkzeug/routing/map.py", line 950, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'form_page'. Did you mean 'home' instead?
+2023-08-15 18:12:47,146 - app - ERROR - Exception on /generate [POST]
+Traceback (most recent call last):
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/routes/interaction_routes.py", line 42, in generate
+    reasons = generate_reasons(statement, choice)  # Updated the function call to include choice
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: generate_reasons() takes 1 positional argument but 2 were given
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/routes/interaction_routes.py", line 49, in generate
+    return redirect(url_for('form_page'))
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/helpers.py", line 225, in url_for
+    return current_app.url_for(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1697, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1686, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/werkzeug/routing/map.py", line 950, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'form_page'. Did you mean 'home' instead?
+2023-08-15 18:55:03,789 - app - ERROR - Exception on /generate [POST]
+Traceback (most recent call last):
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/routes/interaction_routes.py", line 58, in generate
+    supportive_answer=reasons[0]['text'],
+                     ~~~~~~~^^^
+IndexError: list index out of range
+2023-08-15 18:55:03,789 - app - ERROR - Exception on /generate [POST]
+Traceback (most recent call last):
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/routes/interaction_routes.py", line 58, in generate
+    supportive_answer=reasons[0]['text'],
+                     ~~~~~~~^^^
+IndexError: list index out of range

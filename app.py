@@ -81,17 +81,17 @@ admin_routes.init_app(app)
 def internal_server_error(error):
     logger.error('Server Error: %s', (error))
     logger.error(traceback.format_exc())
-    return render_template('500.html'), 500
+    return render_template('errors/500.html'), 500
 
 @app.errorhandler(404)
 def not_found_error(error):
     logger.warning('Page Not Found: %s, path: %s', error, request.path)
-    return render_template('404.html'), 404
+    return render_template('errors/404.html'), 404
 
 @app.errorhandler(403)
 def forbidden_error(error):
     logger.warning('Forbidden Request: %s, path: %s', error, request.path)
-    return render_template('403.html'), 403
+    return render_template('errors/403.html'), 403
 
 if __name__ == '__main__':
     print("Running on http://127.0.0.1:5000/")

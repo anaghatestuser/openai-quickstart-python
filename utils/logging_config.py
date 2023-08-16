@@ -7,14 +7,22 @@ import sys
 import logging
 
 
-def log_activity(user_id, action, details):
-    log_entry = ActivityLog(timestamp=datetime.now(), user_id=user_id, action=action, details=details)
+def log_activity(user_id, action, details, duration=None, ip_address=None, user_agent=None):
+    log_entry = ActivityLog(
+        timestamp=datetime.now(),
+        user_id=user_id,
+        action=action,
+        details=details,
+        duration=duration,  # This should be set
+        ip_address=ip_address,     # Add IP address to the log entry if provided
+        user_agent=user_agent      # Add User Agent to the log entry if provided
+    )
     db.session.add(log_entry)
     db.session.commit()
 
     # This is where you can use your existing logger for application logs
     logger = logging.getLogger(__name__)
-    logger.info(f"User {user_id} performed action: {action}. Details: {details}")
+    logger.info(f"User {user_id} performed action: {action}. Details: {details}. IP: {ip_address}. User Agent: {user_agent}")
     
 
 def configure_logging(app):

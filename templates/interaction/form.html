@@ -4,11 +4,7 @@
 K.I.S.S. IELTS A.I. Assistant - Form Page
 {% endblock %}
 
-{% block additional_css %}
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-{% endblock %}
-
-{% block content %}   
+{% block content %}
     <div class="container p-3">
         <h1>K.I.S.S. IELTS A.I. Assistant</h1>
         {% if feedback_message %}
@@ -18,8 +14,11 @@ K.I.S.S. IELTS A.I. Assistant - Form Page
             <form method="post" action="/generate">
                 <label for="statement" class="form-label"><strong>Enter your statement:</strong></label>
                 <textarea class="form-control" type="textarea" id="statement" name="statement" rows="4"></textarea><br>
-                <input type="submit" value="Submit" class="btn-variation">
-            </form>
+            
+                <!-- Buttons for Supportive and Opposing -->
+                <input type="submit" name="choice" value="Supportive" class="btn btn-primary btn-supportive">
+                <input type="submit" name="choice" value="Opposing" class="btn btn-danger btn-opposing">
+            </form>            
         </div>
         <div class="mb-3">
             <h2>Sample Statement and Answers:</h2>

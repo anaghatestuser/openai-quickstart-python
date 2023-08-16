@@ -9,13 +9,13 @@ K.I.S.S. IELTS A.I. Assistant - Results Page
 {% endblock %}
 
 {% block content %}
-    {% if error_message %}
+{% if error_message %}
     <div class="alert alert-danger">
         {{ error_message }}
     </div>
 {% endif %} 
     <div class="container p-3">
-        <h2>Here are my reasons to support and oppose:</h2>
+        <h2>Here are my reasons:</h2>
         <h1>"{{ statement }}"</h1>
     <br>
         {% for reason in reasons %}
@@ -23,16 +23,17 @@ K.I.S.S. IELTS A.I. Assistant - Results Page
         <p>{{ reason['text']|safe }}</p>
         {% endfor %}
     <br>
-            <p><b>If you would like me to generate additional supporting and opposing reasons, please let me know.</b>
+        <p><b>If you would like me to generate different reasons, please let me know.</b></p>
         <div class="mb-3">
             <form action="/generate_variation" method="post">
-        <input type="hidden" name="statement" value="{{ statement }}">
-        <input type="submit" value="Ask for Variation" class="btn-variation">
-    </form>
+                <input type="hidden" name="statement" value="{{ statement }}">
+                <input type="submit" name="choice" value="Supportive" class="btn btn-primary btn-supportive">
+                <input type="submit" name="choice" value="Opposing" class="btn btn-danger btn-opposing">
+            </form>
     <br>
-    <form action="/" method="get">
-        <input type="submit" value="Ask Another Question" class="btn-variation">
-    </form>
+            <form action="/" method="get">
+                <input type="submit" value="Ask Another Question" class="btn-variation">
+            </form>
         </div>
         <div class="mb-3">
            <br>

@@ -150,3 +150,11 @@ body {
 .navbar>.container-fluid { 
     margin-left: 6em;
 }
+.btn-supportive {
+    background-color: green;
+    color: white;
+}
+.btn-opposing {
+    background-color: red;
+    color: white;
+}

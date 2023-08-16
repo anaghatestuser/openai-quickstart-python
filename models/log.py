@@ -2,13 +2,15 @@ from datetime import datetime
 from config import db
 
 class ActivityLog(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    timestamp = db.Column(db.DateTime, default=datetime.utcnow, index=True)  # Time when the log was created
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))  # ForeignKey pointing to the User model
-    action = db.Column(db.String(120))  # A short descriptor of the activity
-    details = db.Column(db.String(500))  # Detailed information about the activity
+    """Model representing activity logs for user actions."""
     
-    # Relationship with User model. 
-    # This allows us to access the User of an ActivityLog with `activity_log_instance.user`
-    # It also gives us a handy backref. A user instance will have an `activity_logs` attribute which returns all activity logs of that user.
+    id = db.Column(db.Integer, primary_key=True)
+    timestamp = db.Column(db.DateTime, default=datetime.utcnow, index=True)
+    duration = db.Column(db.Interval)  # Duration for which the user was logged in
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    action = db.Column(db.String(120))
+    details = db.Column(db.String(500))
     user = db.relationship('User', backref='activity_logs')
+    ip_address = db.Column(db.String(45))  # Enough space for IPv4 and IPv6 addresses
+    user_agent = db.Column(db.String(500))  # Arbitrary length, adjust as necessary
+

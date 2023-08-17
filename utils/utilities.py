@@ -50,22 +50,23 @@ REASONS_LIST = [
     "urbanisation", "overuse natural resources", "government focus too much on economic growth"
     ]
 
-
 def generate_prompt(statement, agreement, paragraph_number, reasons=None):
     """Generate a prompt for generating Supportive/Opposing paragraphs for IELTS writing task."""
-    seeding_reason = f"Consider reasons like {random.choice(reasons)} but don't limit yourself to them. " if reasons else ""
-
+    
+    seeding_reason = f"Anchor your exposition around the reason: '{random.choice(reasons)}'. This reason should directly and unequivocally resonate with the core statement. " if reasons else ""
+    
     base_prompt = (
-        f"Imagine you are an IELTS Band 9 Writing Task 2 examiner. {seeding_reason}"
-        "Your task is to write a 120-word paragraph that fulfills the following requirements:"
-        "\n1. Each paragraph should clearly convey a single idea either Supportive or Opposing the statement without starting with the phrase 'One reason'."
-        "\n2. Use different reasons for each paragraph."
-        "\n... (rest of your requirements remain unchanged)"
+        f"You're tasked with simulating an IELTS Band 9 Writing Task 2 response. {seeding_reason}"
+        "To achieve this standard, compose a 120-word paragraph adhering to these guidelines:"
+        "\n1. Address the given statement directly and avoid ambiguous interpretations. Stay true to the core topic throughout."
+        "\n2. Elaborate deeply on the given reason. Explain its significance, implications, and 'how' it ties back to the central theme. If introducing sub-points, ensure they seamlessly weave into the main reason."
+        "\n3. Ensure the paragraph doesn't overlap with other arguments, and offers a fresh perspective."
+        "\n4. Maintain a balanced and precise exposition, refraining from unnecessary elaborations."
+        "\nAim for depth, precision, and utmost relevance. Stay on topic and ensure every point made is pertinent to the central theme."
     )
 
-    action_word = "advocates" if agreement == "Supportive" else "disputes"
-    return f"{base_prompt}\n\nFor paragraph {paragraph_number}, the given statement is: '{statement}'. Craft a paragraph that {action_word} for this statement without starting with the phrase 'One reason'."
-
+    action_word = "supports" if agreement == "Supportive" else "contradicts"
+    return f"{base_prompt}\n\nIn paragraph {paragraph_number}, the statement reads: '{statement}'. Craft a paragraph that {action_word} this contention, focusing on a single-threaded, detailed elucidation of the reason specified, ensuring it harmonizes seamlessly with the statement's main theme."
 
 def generate_reasons(statement, choice=None):
     """Generate Supportive and Opposing reasons for a given statement."""

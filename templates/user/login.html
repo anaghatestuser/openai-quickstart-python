@@ -1,9 +1,10 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="container">
-    <div class="login-form">
-        <h1>K.I.S.S. IELTS A.I. Assistant - Login</h1>
+<div class="login-container">
+    <div class="login-card">
+        <h1>K.I.S.S. IELTS </h1>
+        <h2>Writing Assistant</h2>
 
 {% with messages = get_flashed_messages(with_categories=true) %}
     {% if messages %}
@@ -17,22 +18,24 @@
     {% endif %}
 {% endwith %}
 
-        <form method="POST">
+        <form method="POST" class="login-form">
             <div class="form-group">
-                <label for="username">Username:</label>
-                <input type="text" name="username" id="username" placeholder="Username" required>
+                <label for="username">Username:<span class="tooltip">Enter your registered username</span></label>
+                <input type="text" name="username" id="username" placeholder="Enter your username" required>
             </div>
             <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" name="password" id="password" placeholder="Password" required>
+                <label for="password">Password:<span class="tooltip">Ensure it's strong</span></label>
+                <input type="password" name="password" id="password" placeholder="Enter your password" required>
             </div>
             <div class="form-group">
-                <input type="submit" value="Log In">
+                <input type="submit" value="Log In" class="btn-variation" onclick="displayLoading()">
             </div>
+            <div class="loader" id="loader" style="display: none;">Loading...</div>
         </form>
         <div class="register-link">
-            <a href="{{ url_for('register') }}">Register</a>
+            Not a member yet? <a href="{{ url_for('register') }}">Register Now</a>
         </div>
     </div>
+    <button class="dark-mode-toggle">🌙</button>
 </div>
 {% endblock %}

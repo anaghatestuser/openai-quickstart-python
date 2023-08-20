@@ -1,0 +1,113 @@
+
+/* === DARK MODE STYLES === */
+
+/* Dark Mode Toggle Button */
+.dark-mode-toggle {
+    position: fixed;
+    top: 50px;
+    right: 30px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #333; /* Default color in light mode */
+}
+
+/* Basic dark mode styles for the body */
+body.dark-mode {
+    background-color: #000;
+    color: #FFF;
+}
+
+body.dark-mode::before {
+    display: none;
+}
+
+/* Dark mode toggle button color in dark mode */
+body.dark-mode .dark-mode-toggle {
+    color: #fff;
+}
+
+/* Slightly transparent dark background for the login container in dark mode */
+body.dark-mode .login-container {
+    background-color: #0a0a0a
+}
+
+/* Specific dark mode styles for the login card */
+body.dark-mode .login-card {
+    background-color: #282626;
+}
+
+.dark-mode .user-profile-box, 
+.dark-mode .fun-section {
+    background-color: #3e3b3b; 
+    color: #eee;
+}
+
+/* Styling for the containers and main sections */
+.dark-mode .container,
+.dark-mode .table,
+.dark-mode .results-header,
+.dark-mode .form-section,
+.dark-mode .results-content,
+.dark-mode .feedback-section,
+.dark-mode .sample-section {
+    background-color: #3e3b3b; 
+    color: #eee;
+}
+
+.dark-mode .results-header h1,
+.dark-mode .results-header h2,
+.dark-mode .navbar-brand,
+.dark-mode .navbar-text,
+.dark-mode .table-light,
+.dark-mode .table-hover>tbody>tr:hover>*{
+    color: #fff;
+}
+
+.dark-mode .unapproved,
+.dark-mode .btn-success,
+.dark-mode .table>:not(caption)>*>*,
+.dark-mode .results-content .reason {
+    background-color: #555;
+}
+
+
+/* Styling for the textareas and inputs in the forms */
+.dark-mode .form-control,
+.dark-mode .bg-light,
+.dark-mode textarea,
+.dark-mode input[type="number"],
+.dark-mode input[type="submit"],
+.dark-mode .btn-primary,
+.dark-mode .btn-variation,
+.dark-mode .nav-link-custom,
+.dark-mode .btn-danger,
+.dark-mode .btn-supportive,
+.dark-mode .btn-opposing {
+    background-color: #555 !important;
+    color: #eee;
+    border: 1px solid #777;
+}
+
+.dark-mode .form-control::placeholder,
+.dark-mode textarea::placeholder {
+    color: #aaa;
+}
+
+/* Styling for the alert and feedback messages */
+.dark-mode .alert,
+.dark-mode .feedback-style {
+    background-color: #555;
+    color: #eee;
+    border: 1px solid #777;
+}
+
+.dark-mode .form-section {
+    background-color: #312d2d;
+}
+
+.dark-mode .bg-light,
+.dark-mode .results-header {
+    background-color: #555;
+}

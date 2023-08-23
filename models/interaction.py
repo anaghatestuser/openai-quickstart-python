@@ -9,7 +9,9 @@ class Interaction(db.Model):
     supportive_answer = db.Column(db.Text, nullable=False)
     opposing_answer = db.Column(db.Text, nullable=False)
     timestamp = db.Column(db.DateTime, default=datetime.utcnow)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    
+    # Point to 'user.id' and remove the 'nullable' (it will be inferred from the ForeignKey)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id', ondelete='CASCADE'))
 
     def __repr__(self):
         return f'<Interaction {self.id}>'

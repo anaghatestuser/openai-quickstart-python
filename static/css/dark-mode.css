@@ -71,23 +71,48 @@ body.dark-mode .login-card {
 .dark-mode .results-content .reason {
     background-color: #555;
 }
-
+.dark-mode .btn-danger {
+    --bs-btn-bg: #555555;
+    --bs-btn-hover-color: #ce1919;
+    --bs-btn-border-color: #daa9a7;
+    --bs-btn-color: #fff;
+    --bs-btn-hover-bg: #000000;
+    --bs-btn-hover-border-color: #fb420d;
+}
+.dark-mode .btn-warning {
+    --bs-btn-bg: #555555;
+    --bs-btn-hover-color: #eff527;
+    --bs-btn-border-color: #daa9a7;
+    --bs-btn-color: #fff;
+    --bs-btn-hover-bg: #555555;
+    --bs-btn-hover-border-color: #eff527;
+}
+.dark-mode .btn-success {
+    --bs-btn-hover-color: #2ece1e;
+    --bs-btn-border-color: #daa9a7;
+    --bs-btn-color: #fff;
+    --bs-btn-hover-bg: #3e3b3b;
+    --bs-btn-hover-border-color: #54d53d;
+}
 
 /* Styling for the textareas and inputs in the forms */
 .dark-mode .form-control,
-.dark-mode .bg-light,
 .dark-mode textarea,
 .dark-mode input[type="number"],
 .dark-mode input[type="submit"],
 .dark-mode .btn-primary,
 .dark-mode .btn-variation,
 .dark-mode .nav-link-custom,
-.dark-mode .btn-danger,
 .dark-mode .btn-supportive,
 .dark-mode .btn-opposing {
-    background-color: #555 !important;
+    background-color: #555;
     color: #eee;
-    border: 1px solid #777;
+    border: 1px solid #f5f0f0;
+}
+
+.dark-mode .bg-light{
+    background-color: #3e3b3b !important;
+    color: #eee;
 }
 
 .dark-mode .form-control::placeholder,
@@ -107,7 +132,10 @@ body.dark-mode .login-card {
     background-color: #312d2d;
 }
 
-.dark-mode .bg-light,
 .dark-mode .results-header {
     background-color: #555;
+}
+
+.dark-mode .login-form {
+background-color: #282626;
 }

@@ -2045,3 +2045,55 @@ TypeError: 'feedback' is an invalid keyword argument for Feedback
 '.
 2023-08-16 17:39:24,914 - app - INFO - Feedback received from user 11 with rating 3 and feedback text: 'testing feedback as a regular user'.
 2023-08-16 17:39:24,914 - app - INFO - Feedback received from user 11 with rating 3 and feedback text: 'testing feedback as a regular user'.
+2023-08-23 12:21:23,955 - app - ERROR - Exception on /admin/approve_user/38 [POST]
+Traceback (most recent call last):
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/routes/admin_routes.py", line 38, in approve_user_by_id
+    return toggle_user_approval(user_id, True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/routes/admin_routes.py", line 106, in toggle_user_approval
+    send_approval_email(user.email)
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/routes/admin_routes.py", line 157, in send_approval_email
+    msg.body = MAIL_BODY.format(url="https://ielts-bxsh.onrender.com/")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+IndexError: Replacement index 0 out of range for positional args tuple
+2023-08-23 12:21:23,955 - app - ERROR - Exception on /admin/approve_user/38 [POST]
+Traceback (most recent call last):
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/langflow/.venv/lib/python3.11/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/routes/admin_routes.py", line 38, in approve_user_by_id
+    return toggle_user_approval(user_id, True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/routes/admin_routes.py", line 106, in toggle_user_approval
+    send_approval_email(user.email)
+  File "/Users/perfectly-imperfect/Documents/GitHub/ielts-writing/routes/admin_routes.py", line 157, in send_approval_email
+    msg.body = MAIL_BODY.format(url="https://ielts-bxsh.onrender.com/")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+IndexError: Replacement index 0 out of range for positional args tuple

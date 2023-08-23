@@ -11,7 +11,7 @@ load_dotenv()
 db = SQLAlchemy()         # Initialize SQLAlchemy instance here
 login = LoginManager()    # Initialize the LoginManager instance here
 
-# Flask-Mail configuration
+# Flask-Mail Configuration
 MAIL_SERVER = os.getenv('MAIL_SERVER')
 MAIL_PORT = int(os.getenv('MAIL_PORT', 587))
 MAIL_USERNAME = os.getenv('MAIL_USERNAME')
@@ -19,6 +19,12 @@ MAIL_PASSWORD = os.getenv('MAIL_PASSWORD')
 MAIL_USE_TLS = os.getenv('MAIL_USE_TLS', 'True') == 'True'
 MAIL_USE_SSL = os.getenv('MAIL_USE_SSL', 'False') == 'False'
 
+# Email Approval Confirmation Configuration
+MAIL_SENDER = 'ulysses@kissielts.com'
+MAIL_SUBJECT = 'Account Approved - K.I.S.S. IELTS'
+MAIL_BODY = ("Congratulations! Your K.I.S.S. IELTS A.I. account has been approved. "
+             "You can now access our platform at {url}. "
+             "Thank you for joining us!")
 
 def configure_logging(app):
     # Configure logging

@@ -144,23 +144,36 @@ def init_app(app):
                 logger.warning('Attempt to register with already existing username or email: %s, %s', username, email)
                 return render_template('user/login.html', feedback_message='Username or email already exists. Please try a different one.')
 
-            user = User(username=username, email=email, tokens=200)
+            user = User(username=username, email=email, tokens=100)
             user.set_password(password)
-            user.token_expiry_date = datetime.utcnow() + timedelta(days=60)
+            user.token_expiry_date = datetime.utcnow() + timedelta(days=30)
     
             db.session.add(user)
             db.session.commit()
             logger.info('User %s registered successfully.', user.username)
             log_activity(user.id, "User Registration", f"User {user.username} registered.")
-
-            msg = Message('New User Registration', 
-                  sender='ulysses@kissielts.com',
-                  recipients=['ulysses@kissielts.com'])
-            msg.body = f'New user {username} has registered and awaits approval.'
+        
+            # Send email to admin
+            msg_admin = Message('New User Registration', 
+                sender='ulysses@kissielts.com',
+                recipients=['ulysses@kissielts.com'])
+            msg_admin.body = f'New user {username} has registered and awaits approval.'
             try:
-                mail.send(msg)
+                mail.send(msg_admin)
             except Exception as e:
-                logger.error(f"Error sending mail: {e}")
+                logger.error(f"Error sending mail to admin: {e}")
+
+            # Send email to the registered user
+            msg_user = Message('Welcome to K.I.S.S. IELTS', 
+                sender='ulysses@kissielts.com',
+                recipients=[email])  # Send to the user's email
+            msg_user.body = ("Thank you for registering with K.I.S.S. IELTS. "
+                            "Your account will be approved within 24 hours. "
+                            "Please ensure to check your spam folder if the email is not in your inbox.")
+            try:
+                mail.send(msg_user)
+            except Exception as e:
+                logger.error(f"Error sending mail to user: {e}")
 
             flash('Thank you for registering! Your account is awaiting approval by the admin.')
             return redirect(url_for('login'))

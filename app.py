@@ -52,7 +52,7 @@ def create_admin_user():
         db.session.commit()
 
 app = create_app()
-logger, logger_debug = configure_logging(app)  # Configure loggers
+configure_logging(app)  # Configure loggers
 
 @login.user_loader
 def load_user(user_id):

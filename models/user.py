@@ -10,11 +10,14 @@ class User(UserMixin, db.Model):
     username = db.Column(db.String(80), unique=True, nullable=False, index=True)
     email = db.Column(db.String(120), unique=True, nullable=False, index=True)
     password_hash = db.Column(db.String(256), nullable=False)
-    tokens = db.Column(db.Integer, default=200)
+    tokens = db.Column(db.Integer, default=100)
     is_admin = db.Column(db.Boolean, default=False)
     is_approved = db.Column(db.Boolean, default=False)
     token_expiry_date = db.Column(db.DateTime)
-    interactions = db.relationship('Interaction', backref='user', lazy=True)
+    
+    # Change backref to 'owner'
+    interactions = db.relationship('Interaction', backref='owner', lazy=True)
+    
     login_time = db.Column(db.DateTime)  # Add this line for the login_time attribute
 
     def set_password(self, password):
@@ -25,4 +28,3 @@ class User(UserMixin, db.Model):
 
     def __repr__(self):
         return '<User {}>'.format(self.username)
-    

@@ -10,7 +10,7 @@ from config import db  # Import the db object from your config module
 logger = logging.getLogger(__name__)
 
 # Configuration setup
-ENGINE_NAME = os.environ.get('OPENAI_ENGINE_NAME', 'text-davinci-003')
+ENGINE_NAME = os.environ.get('OPENAI_ENGINE_NAME', 'gpt-3.5-turbo-instruct')
 is_on_render = os.environ.get('IS_ON_RENDER', 'False').lower() == 'true'
 nltk_data_path = os.environ.get('NLTK_DATA_PATH', '/opt/render/project/src/nltk_data') if is_on_render else os.path.expanduser('~/nltk_data')
 data_path = os.path.join(nltk_data_path, 'tokenizers/punkt')

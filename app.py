@@ -1,12 +1,16 @@
 import os
 import openai
 import traceback
-from flask import Flask, render_template, current_app, request
+from flask import Flask, render_template, request
 from config import db, login, mail
 from models.user import User
 from utils.logging_config import configure_logging
 from flask_migrate import Migrate
 from werkzeug.security import generate_password_hash
+import logging  # Add this import
+
+# Initialize logger
+logger = logging.getLogger(__name__)
 
 def create_app():
     app = Flask(__name__)

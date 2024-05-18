@@ -29,7 +29,8 @@ def init_app(app):
     def view_users():
         ensure_admin()
         users = User.query.all()
-        return render_template('admin/view_users.html', users=users)
+        current_time = datetime.utcnow()  # Get the current time in UTC
+        return render_template('admin/view_users.html', users=users, current_time=current_time)
 
     @app.route('/admin/approve_user/<int:user_id>', methods=['POST'])
     @login_required  

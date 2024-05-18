@@ -2097,3 +2097,1431 @@ Traceback (most recent call last):
     msg.body = MAIL_BODY.format(url="https://ielts-bxsh.onrender.com/")
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 IndexError: Replacement index 0 out of range for positional args tuple
+2024-05-18 11:10:21,640 - app - ERROR - Exception on /admin/view_users [GET]
+Traceback (most recent call last):
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/routes/admin_routes.py", line 32, in view_users
+    return render_template('admin/view_users.html', users=users)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/ulysses/IELTS/writing/templates/admin/view_users.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/Users/ulysses/IELTS/writing/templates/base.html", line 68, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/templates/admin/view_users.html", line 29, in block 'content'
+    <td style="font-weight: bold; color: {% if user.token_expiry_date and user.token_expiry_date < current_time %}red{% else %}green{% endif %};">
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'current_time' is undefined
+2024-05-18 11:10:21,640 - app - ERROR - Exception on /admin/view_users [GET]
+Traceback (most recent call last):
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/routes/admin_routes.py", line 32, in view_users
+    return render_template('admin/view_users.html', users=users)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/ulysses/IELTS/writing/templates/admin/view_users.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/Users/ulysses/IELTS/writing/templates/base.html", line 68, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/templates/admin/view_users.html", line 29, in block 'content'
+    <td style="font-weight: bold; color: {% if user.token_expiry_date and user.token_expiry_date < current_time %}red{% else %}green{% endif %};">
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'current_time' is undefined
+2024-05-18 11:10:21,689 - app - ERROR - Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1458, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1440, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/werkzeug/routing/map.py", line 655, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1341, in handle_user_exception
+    return self.handle_http_exception(e)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1281, in handle_http_exception
+    return self.ensure_sync(handler)(e)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/app.py", line 77, in not_found_error
+    logger.warning('Page Not Found: %s, path: %s', error, request.path)
+    ^^^^^^
+NameError: name 'logger' is not defined
+2024-05-18 11:10:21,689 - app - ERROR - Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1458, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1440, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/werkzeug/routing/map.py", line 655, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1341, in handle_user_exception
+    return self.handle_http_exception(e)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1281, in handle_http_exception
+    return self.ensure_sync(handler)(e)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/app.py", line 77, in not_found_error
+    logger.warning('Page Not Found: %s, path: %s', error, request.path)
+    ^^^^^^
+NameError: name 'logger' is not defined
+2024-05-18 11:10:23,361 - app - ERROR - Exception on /admin/view_users [GET]
+Traceback (most recent call last):
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/routes/admin_routes.py", line 32, in view_users
+    return render_template('admin/view_users.html', users=users)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/ulysses/IELTS/writing/templates/admin/view_users.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/Users/ulysses/IELTS/writing/templates/base.html", line 68, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/templates/admin/view_users.html", line 29, in block 'content'
+    <td style="font-weight: bold; color: {% if user.token_expiry_date and user.token_expiry_date < current_time %}red{% else %}green{% endif %};">
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'current_time' is undefined
+2024-05-18 11:10:23,361 - app - ERROR - Exception on /admin/view_users [GET]
+Traceback (most recent call last):
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/routes/admin_routes.py", line 32, in view_users
+    return render_template('admin/view_users.html', users=users)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/ulysses/IELTS/writing/templates/admin/view_users.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/Users/ulysses/IELTS/writing/templates/base.html", line 68, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/templates/admin/view_users.html", line 29, in block 'content'
+    <td style="font-weight: bold; color: {% if user.token_expiry_date and user.token_expiry_date < current_time %}red{% else %}green{% endif %};">
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'current_time' is undefined
+2024-05-18 11:10:23,403 - app - ERROR - Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1458, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1440, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/werkzeug/routing/map.py", line 655, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1341, in handle_user_exception
+    return self.handle_http_exception(e)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1281, in handle_http_exception
+    return self.ensure_sync(handler)(e)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/app.py", line 77, in not_found_error
+    logger.warning('Page Not Found: %s, path: %s', error, request.path)
+    ^^^^^^
+NameError: name 'logger' is not defined
+2024-05-18 11:10:23,403 - app - ERROR - Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1458, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1440, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/werkzeug/routing/map.py", line 655, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1341, in handle_user_exception
+    return self.handle_http_exception(e)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1281, in handle_http_exception
+    return self.ensure_sync(handler)(e)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/app.py", line 77, in not_found_error
+    logger.warning('Page Not Found: %s, path: %s', error, request.path)
+    ^^^^^^
+NameError: name 'logger' is not defined
+2024-05-18 11:10:24,649 - app - ERROR - Exception on /admin/view_users [GET]
+Traceback (most recent call last):
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/routes/admin_routes.py", line 32, in view_users
+    return render_template('admin/view_users.html', users=users)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/ulysses/IELTS/writing/templates/admin/view_users.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/Users/ulysses/IELTS/writing/templates/base.html", line 68, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/templates/admin/view_users.html", line 29, in block 'content'
+    <td style="font-weight: bold; color: {% if user.token_expiry_date and user.token_expiry_date < current_time %}red{% else %}green{% endif %};">
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'current_time' is undefined
+2024-05-18 11:10:24,649 - app - ERROR - Exception on /admin/view_users [GET]
+Traceback (most recent call last):
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/routes/admin_routes.py", line 32, in view_users
+    return render_template('admin/view_users.html', users=users)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/ulysses/IELTS/writing/templates/admin/view_users.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/Users/ulysses/IELTS/writing/templates/base.html", line 68, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/templates/admin/view_users.html", line 29, in block 'content'
+    <td style="font-weight: bold; color: {% if user.token_expiry_date and user.token_expiry_date < current_time %}red{% else %}green{% endif %};">
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'current_time' is undefined
+2024-05-18 11:10:24,683 - app - ERROR - Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1458, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1440, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/werkzeug/routing/map.py", line 655, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1341, in handle_user_exception
+    return self.handle_http_exception(e)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1281, in handle_http_exception
+    return self.ensure_sync(handler)(e)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/app.py", line 77, in not_found_error
+    logger.warning('Page Not Found: %s, path: %s', error, request.path)
+    ^^^^^^
+NameError: name 'logger' is not defined
+2024-05-18 11:10:24,683 - app - ERROR - Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1458, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1440, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/werkzeug/routing/map.py", line 655, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1341, in handle_user_exception
+    return self.handle_http_exception(e)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1281, in handle_http_exception
+    return self.ensure_sync(handler)(e)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/app.py", line 77, in not_found_error
+    logger.warning('Page Not Found: %s, path: %s', error, request.path)
+    ^^^^^^
+NameError: name 'logger' is not defined
+2024-05-18 11:10:28,753 - app - ERROR - Exception on /admin/view_users [GET]
+Traceback (most recent call last):
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/routes/admin_routes.py", line 32, in view_users
+    return render_template('admin/view_users.html', users=users)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/ulysses/IELTS/writing/templates/admin/view_users.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/Users/ulysses/IELTS/writing/templates/base.html", line 68, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/templates/admin/view_users.html", line 29, in block 'content'
+    <td style="font-weight: bold; color: {% if user.token_expiry_date and user.token_expiry_date < current_time %}red{% else %}green{% endif %};">
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'current_time' is undefined
+2024-05-18 11:10:28,753 - app - ERROR - Exception on /admin/view_users [GET]
+Traceback (most recent call last):
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/routes/admin_routes.py", line 32, in view_users
+    return render_template('admin/view_users.html', users=users)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/ulysses/IELTS/writing/templates/admin/view_users.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/Users/ulysses/IELTS/writing/templates/base.html", line 68, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/templates/admin/view_users.html", line 29, in block 'content'
+    <td style="font-weight: bold; color: {% if user.token_expiry_date and user.token_expiry_date < current_time %}red{% else %}green{% endif %};">
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'current_time' is undefined
+2024-05-18 11:10:28,788 - app - ERROR - Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1458, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1440, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/werkzeug/routing/map.py", line 655, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1341, in handle_user_exception
+    return self.handle_http_exception(e)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1281, in handle_http_exception
+    return self.ensure_sync(handler)(e)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/app.py", line 77, in not_found_error
+    logger.warning('Page Not Found: %s, path: %s', error, request.path)
+    ^^^^^^
+NameError: name 'logger' is not defined
+2024-05-18 11:10:28,788 - app - ERROR - Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1458, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1440, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/werkzeug/routing/map.py", line 655, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1341, in handle_user_exception
+    return self.handle_http_exception(e)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1281, in handle_http_exception
+    return self.ensure_sync(handler)(e)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/app.py", line 77, in not_found_error
+    logger.warning('Page Not Found: %s, path: %s', error, request.path)
+    ^^^^^^
+NameError: name 'logger' is not defined
+2024-05-18 11:12:49,894 - app - ERROR - Exception on /admin/view_users [GET]
+Traceback (most recent call last):
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/routes/admin_routes.py", line 32, in view_users
+    return render_template('admin/view_users.html', users=users)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/ulysses/IELTS/writing/templates/admin/view_users.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/Users/ulysses/IELTS/writing/templates/base.html", line 68, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/templates/admin/view_users.html", line 30, in block 'content'
+    <td style="font-weight: bold; color: {% if user.token_expiry_date and user.token_expiry_date < current_time %}red{% else %}green{% endif %};">
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'current_time' is undefined
+2024-05-18 11:12:49,894 - app - ERROR - Exception on /admin/view_users [GET]
+Traceback (most recent call last):
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/routes/admin_routes.py", line 32, in view_users
+    return render_template('admin/view_users.html', users=users)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/ulysses/IELTS/writing/templates/admin/view_users.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/Users/ulysses/IELTS/writing/templates/base.html", line 68, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/templates/admin/view_users.html", line 30, in block 'content'
+    <td style="font-weight: bold; color: {% if user.token_expiry_date and user.token_expiry_date < current_time %}red{% else %}green{% endif %};">
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'current_time' is undefined
+2024-05-18 11:12:49,982 - app - ERROR - Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1458, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1440, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/werkzeug/routing/map.py", line 655, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1341, in handle_user_exception
+    return self.handle_http_exception(e)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1281, in handle_http_exception
+    return self.ensure_sync(handler)(e)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/app.py", line 77, in not_found_error
+    logger.warning('Page Not Found: %s, path: %s', error, request.path)
+    ^^^^^^
+NameError: name 'logger' is not defined
+2024-05-18 11:12:49,982 - app - ERROR - Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1458, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1440, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/werkzeug/routing/map.py", line 655, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1341, in handle_user_exception
+    return self.handle_http_exception(e)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1281, in handle_http_exception
+    return self.ensure_sync(handler)(e)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/app.py", line 77, in not_found_error
+    logger.warning('Page Not Found: %s, path: %s', error, request.path)
+    ^^^^^^
+NameError: name 'logger' is not defined
+2024-05-18 11:12:51,300 - app - ERROR - Exception on /admin/view_users [GET]
+Traceback (most recent call last):
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/routes/admin_routes.py", line 32, in view_users
+    return render_template('admin/view_users.html', users=users)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/ulysses/IELTS/writing/templates/admin/view_users.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/Users/ulysses/IELTS/writing/templates/base.html", line 68, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/templates/admin/view_users.html", line 30, in block 'content'
+    <td style="font-weight: bold; color: {% if user.token_expiry_date and user.token_expiry_date < current_time %}red{% else %}green{% endif %};">
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'current_time' is undefined
+2024-05-18 11:12:51,300 - app - ERROR - Exception on /admin/view_users [GET]
+Traceback (most recent call last):
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/routes/admin_routes.py", line 32, in view_users
+    return render_template('admin/view_users.html', users=users)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/ulysses/IELTS/writing/templates/admin/view_users.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/Users/ulysses/IELTS/writing/templates/base.html", line 68, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/templates/admin/view_users.html", line 30, in block 'content'
+    <td style="font-weight: bold; color: {% if user.token_expiry_date and user.token_expiry_date < current_time %}red{% else %}green{% endif %};">
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'current_time' is undefined
+2024-05-18 11:12:51,340 - app - ERROR - Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1458, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1440, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/werkzeug/routing/map.py", line 655, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1341, in handle_user_exception
+    return self.handle_http_exception(e)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1281, in handle_http_exception
+    return self.ensure_sync(handler)(e)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/app.py", line 77, in not_found_error
+    logger.warning('Page Not Found: %s, path: %s', error, request.path)
+    ^^^^^^
+NameError: name 'logger' is not defined
+2024-05-18 11:12:51,340 - app - ERROR - Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1458, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1440, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/werkzeug/routing/map.py", line 655, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1341, in handle_user_exception
+    return self.handle_http_exception(e)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1281, in handle_http_exception
+    return self.ensure_sync(handler)(e)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/app.py", line 77, in not_found_error
+    logger.warning('Page Not Found: %s, path: %s', error, request.path)
+    ^^^^^^
+NameError: name 'logger' is not defined
+2024-05-18 11:13:32,571 - app - ERROR - Exception on /admin/view_users [GET]
+Traceback (most recent call last):
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/routes/admin_routes.py", line 32, in view_users
+    return render_template('admin/view_users.html', users=users)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/ulysses/IELTS/writing/templates/admin/view_users.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/Users/ulysses/IELTS/writing/templates/base.html", line 68, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/templates/admin/view_users.html", line 29, in block 'content'
+    <td style="font-weight: bold; color: {% if user.token_expiry_date and user.token_expiry_date < current_time %}red{% else %}green{% endif %};">
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'current_time' is undefined
+2024-05-18 11:13:32,571 - app - ERROR - Exception on /admin/view_users [GET]
+Traceback (most recent call last):
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/routes/admin_routes.py", line 32, in view_users
+    return render_template('admin/view_users.html', users=users)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/ulysses/IELTS/writing/templates/admin/view_users.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/Users/ulysses/IELTS/writing/templates/base.html", line 68, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/templates/admin/view_users.html", line 29, in block 'content'
+    <td style="font-weight: bold; color: {% if user.token_expiry_date and user.token_expiry_date < current_time %}red{% else %}green{% endif %};">
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'current_time' is undefined
+2024-05-18 11:13:32,605 - app - ERROR - Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1458, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1440, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/werkzeug/routing/map.py", line 655, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1341, in handle_user_exception
+    return self.handle_http_exception(e)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1281, in handle_http_exception
+    return self.ensure_sync(handler)(e)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/app.py", line 77, in not_found_error
+    logger.warning('Page Not Found: %s, path: %s', error, request.path)
+    ^^^^^^
+NameError: name 'logger' is not defined
+2024-05-18 11:13:32,605 - app - ERROR - Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1458, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1440, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/werkzeug/routing/map.py", line 655, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1341, in handle_user_exception
+    return self.handle_http_exception(e)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1281, in handle_http_exception
+    return self.ensure_sync(handler)(e)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/app.py", line 77, in not_found_error
+    logger.warning('Page Not Found: %s, path: %s', error, request.path)
+    ^^^^^^
+NameError: name 'logger' is not defined
+2024-05-18 11:13:33,360 - app - ERROR - Exception on /admin/view_users [GET]
+Traceback (most recent call last):
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/routes/admin_routes.py", line 32, in view_users
+    return render_template('admin/view_users.html', users=users)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/ulysses/IELTS/writing/templates/admin/view_users.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/Users/ulysses/IELTS/writing/templates/base.html", line 68, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/templates/admin/view_users.html", line 29, in block 'content'
+    <td style="font-weight: bold; color: {% if user.token_expiry_date and user.token_expiry_date < current_time %}red{% else %}green{% endif %};">
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'current_time' is undefined
+2024-05-18 11:13:33,360 - app - ERROR - Exception on /admin/view_users [GET]
+Traceback (most recent call last):
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/routes/admin_routes.py", line 32, in view_users
+    return render_template('admin/view_users.html', users=users)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/ulysses/IELTS/writing/templates/admin/view_users.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/Users/ulysses/IELTS/writing/templates/base.html", line 68, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/templates/admin/view_users.html", line 29, in block 'content'
+    <td style="font-weight: bold; color: {% if user.token_expiry_date and user.token_expiry_date < current_time %}red{% else %}green{% endif %};">
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'current_time' is undefined
+2024-05-18 11:13:33,400 - app - ERROR - Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1458, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1440, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/werkzeug/routing/map.py", line 655, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1341, in handle_user_exception
+    return self.handle_http_exception(e)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1281, in handle_http_exception
+    return self.ensure_sync(handler)(e)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/app.py", line 77, in not_found_error
+    logger.warning('Page Not Found: %s, path: %s', error, request.path)
+    ^^^^^^
+NameError: name 'logger' is not defined
+2024-05-18 11:13:33,400 - app - ERROR - Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1458, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1440, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/werkzeug/routing/map.py", line 655, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1341, in handle_user_exception
+    return self.handle_http_exception(e)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1281, in handle_http_exception
+    return self.ensure_sync(handler)(e)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/app.py", line 77, in not_found_error
+    logger.warning('Page Not Found: %s, path: %s', error, request.path)
+    ^^^^^^
+NameError: name 'logger' is not defined
+2024-05-18 11:16:36,949 - app - ERROR - Exception on /admin/view_users [GET]
+Traceback (most recent call last):
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/routes/admin_routes.py", line 32, in view_users
+    return render_template('admin/view_users.html', users=users)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/ulysses/IELTS/writing/templates/admin/view_users.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/Users/ulysses/IELTS/writing/templates/base.html", line 68, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/templates/admin/view_users.html", line 29, in block 'content'
+    <<td style="font-weight: bold; color: {% if user.token_expiry_date and user.token_expiry_date < current_time %}red{% else %}green{% endif %};">
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'current_time' is undefined
+2024-05-18 11:16:36,949 - app - ERROR - Exception on /admin/view_users [GET]
+Traceback (most recent call last):
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/routes/admin_routes.py", line 32, in view_users
+    return render_template('admin/view_users.html', users=users)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/ulysses/IELTS/writing/templates/admin/view_users.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/Users/ulysses/IELTS/writing/templates/base.html", line 68, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/templates/admin/view_users.html", line 29, in block 'content'
+    <<td style="font-weight: bold; color: {% if user.token_expiry_date and user.token_expiry_date < current_time %}red{% else %}green{% endif %};">
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'current_time' is undefined
+2024-05-18 11:16:36,990 - app - ERROR - Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1458, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1440, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/werkzeug/routing/map.py", line 655, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1341, in handle_user_exception
+    return self.handle_http_exception(e)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1281, in handle_http_exception
+    return self.ensure_sync(handler)(e)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/app.py", line 78, in not_found_error
+    logger.warning('Page Not Found: %s, path: %s', error, request.path)
+    ^^^^^^
+NameError: name 'logger' is not defined
+2024-05-18 11:16:36,990 - app - ERROR - Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1458, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1440, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/werkzeug/routing/map.py", line 655, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1341, in handle_user_exception
+    return self.handle_http_exception(e)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1281, in handle_http_exception
+    return self.ensure_sync(handler)(e)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/app.py", line 78, in not_found_error
+    logger.warning('Page Not Found: %s, path: %s', error, request.path)
+    ^^^^^^
+NameError: name 'logger' is not defined
+2024-05-18 11:17:43,390 - app - ERROR - Exception on /admin/view_users [GET]
+Traceback (most recent call last):
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/routes/admin_routes.py", line 32, in view_users
+    return render_template('admin/view_users.html', users=users)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/ulysses/IELTS/writing/templates/admin/view_users.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/Users/ulysses/IELTS/writing/templates/base.html", line 68, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/templates/admin/view_users.html", line 29, in block 'content'
+    <<td style="font-weight: bold; color: {% if user.token_expiry_date and user.token_expiry_date < current_time %}red{% else %}green{% endif %};">
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'current_time' is undefined
+2024-05-18 11:17:43,390 - app - ERROR - Exception on /admin/view_users [GET]
+Traceback (most recent call last):
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/routes/admin_routes.py", line 32, in view_users
+    return render_template('admin/view_users.html', users=users)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/flask/templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/Users/ulysses/IELTS/writing/venv/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/ulysses/IELTS/writing/templates/admin/view_users.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/Users/ulysses/IELTS/writing/templates/base.html", line 68, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ulysses/IELTS/writing/templates/admin/view_users.html", line 29, in block 'content'
+    <<td style="font-weight: bold; color: {% if user.token_expiry_date and user.token_expiry_date < current_time %}red{% else %}green{% endif %};">
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'current_time' is undefined

@@ -26,8 +26,12 @@ K.I.S.S. IELTS A.I. Assistant - View All Users
                     <td>{{ user.username }}</td>
                     <td>{{ user.email }}</td>
                     <td>{{ "Approved" if user.is_approved else "Unapproved" }}</td>
-                    <td>{{ user.tokens }}</td>
-                    <td>{{ user.token_expiry_date.strftime('%Y-%m-%d %H:%M:%S') if user.token_expiry_date else 'N/A' }}</td> <!-- New column data -->
+                    <td style="font-weight: bold; color: {% if user.token_expiry_date and user.token_expiry_date < current_time %}red{% else %}green{% endif %};">
+                        {{ user.tokens }}
+                    </td>                    
+                    <td style="font-weight: bold; color: {% if user.token_expiry_date and user.token_expiry_date < current_time %}red{% else %}green{% endif %};">
+                        {{ user.token_expiry_date.strftime('%Y-%m-%d %H:%M:%S') if user.token_expiry_date else 'N/A' }}
+                    </td> <!-- New column data -->
                     <td>
                         {% if not user.is_approved %}
                             <form action="{{ url_for('approve_user_by_id', user_id=user.id) }}" method="post" style="display: inline;">

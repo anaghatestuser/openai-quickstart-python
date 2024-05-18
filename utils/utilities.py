@@ -20,12 +20,10 @@ if not os.path.exists(data_path):
     nltk.download('punkt', download_dir=nltk_data_path)
 nltk.data.path.append(nltk_data_path)
 
-
 def capitalize_first_letter(text):
     """Capitalize the first letter of each sentence in the given text."""
     sentences = nltk.sent_tokenize(text)
     return ' '.join(sentence.capitalize() for sentence in sentences)
-
 
 def extract_complete_answer(text, max_words):
     """Extract a complete answer from a text, ensuring the text does not exceed max_words."""
@@ -38,7 +36,6 @@ def extract_complete_answer(text, max_words):
         if extracted_words[i][-1] in {'.', '?', '!'}:
             return capitalize_first_letter(' '.join(extracted_words[:i+1]))
     return capitalize_first_letter(' '.join(extracted_words))
-
 
 REASONS_LIST = [
     "creativity", "critical thinking", "empathy", "face-to-face communication skills", "better memory of content", 
@@ -81,7 +78,6 @@ def generate_reasons(statement, choice=None):
 
     return responses
 
-
 def _get_openai_response(statement, agreement, paragraph_number):
     """Helper function to fetch response from OpenAI API."""
     prompt = generate_prompt(statement, agreement, paragraph_number, REASONS_LIST)
@@ -98,21 +94,20 @@ def _get_openai_response(statement, agreement, paragraph_number):
         ).choices[0].text.strip()
 
         logger.info(f"{agreement} Response for paragraph {paragraph_number}, statement '{statement}': {response}")
-
+    except openai.error.RateLimitError:
+        logger.error("Error fetching reason: You have exceeded your quota. Please check your OpenAI plan and billing details.")
+        response = "Error: You have exceeded your quota. Please check your OpenAI plan and billing details."
     except Exception as e:
         logger.error(f"Error fetching {agreement} reason: {e}")
-        response = extract_complete_answer(response, 120)
-        response = capitalize_first_letter(response)
+        response = "Error: Failed to generate reasons due to an unexpected error."
 
     return {'title': f'{agreement} reason for paragraph {paragraph_number}:', 'text': response}
-
 
 def lexicon_count(text, removepunct=False):
     """Count the number of lexicons in the text."""
     if removepunct:
         text = text.translate(str.maketrans('', '', string.punctuation))
     return len(text.split())
-
 
 def deduct_tokens(user, tokens):
     """Deduct a specified number of tokens from a user."""

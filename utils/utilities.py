@@ -47,23 +47,43 @@ REASONS_LIST = [
     "urbanisation", "overuse natural resources", "government focus too much on economic growth"
     ]
 
-def generate_prompt(statement, agreement, paragraph_number, reasons=None):
-    """Generate a prompt for generating Supportive/Opposing paragraphs for IELTS writing task."""
+def generate_supportive_prompt(statement, paragraph_number, reasons=None):
+    """Generate a prompt for generating Supportive paragraphs for IELTS writing task."""
     
-    seeding_reason = f"Anchor your exposition around the reason: '{random.choice(reasons)}'. This reason should directly and unequivocally resonate with the core statement. " if reasons else ""
+    seeding_reason = f"Anchor your exposition around the reason: '{random.choice(reasons)}'. This reason should directly and unequivocally resonate with the core statement." if reasons else ""
     
     base_prompt = (
         f"You're tasked with simulating an IELTS Band 9 Writing Task 2 response. {seeding_reason}"
-        "To achieve this standard, compose a 120-word paragraph adhering to these guidelines:"
-        "\n1. Address the given statement directly and avoid ambiguous interpretations. Stay true to the core topic throughout."
-        "\n2. Elaborate deeply on the given reason. Explain its significance, implications, and 'how' it ties back to the central theme. If introducing sub-points, ensure they seamlessly weave into the main reason."
-        "\n3. Ensure the paragraph doesn't overlap with other arguments, and offers a fresh perspective."
-        "\n4. Maintain a balanced and precise exposition, refraining from unnecessary elaborations."
+        "To achieve this standard, compose a 150-word paragraph adhering to these guidelines:"
+        "\n1. Directly address the given statement and avoid ambiguous interpretations. Stay true to the core topic throughout."
+        "\n2. Focus on one main idea and develop it thoroughly. Explain its significance, implications, and how it ties back to the central theme."
+        "\n3. Provide relevant examples and evidence to support your points."
+        "\n4. Use a variety of sentence structures and maintain a formal tone."
+        "\n5. Ensure the paragraph doesn't overlap with other arguments and offers a fresh perspective."
+        "\n6. Conclude the paragraph effectively, reinforcing the main idea discussed."
         "\nAim for depth, precision, and utmost relevance. Stay on topic and ensure every point made is pertinent to the central theme."
     )
 
-    action_word = "supports" if agreement == "Supportive" else "contradicts"
-    return f"{base_prompt}\n\nIn paragraph {paragraph_number}, the statement reads: '{statement}'. Craft a paragraph that {action_word} this contention, focusing on a single-threaded, detailed elucidation of the reason specified, ensuring it harmonizes seamlessly with the statement's main theme."
+    return f"{base_prompt}\n\nIn paragraph {paragraph_number}, the statement reads: '{statement}'. Craft a paragraph that supports this contention, focusing on a single-threaded, detailed elucidation of the reason specified, ensuring it harmonizes seamlessly with the statement's main theme."
+
+def generate_opposing_prompt(statement, paragraph_number, reasons=None):
+    """Generate a prompt for generating Opposing paragraphs for IELTS writing task."""
+    
+    seeding_reason = f"Anchor your exposition around the reason: '{random.choice(reasons)}'. This reason should directly and unequivocally resonate with the core statement." if reasons else ""
+    
+    base_prompt = (
+        f"You're tasked with simulating an IELTS Band 9 Writing Task 2 response. {seeding_reason}"
+        "To achieve this standard, compose a 150-word paragraph adhering to these guidelines:"
+        "\n1. Directly address the given statement and avoid ambiguous interpretations. Stay true to the core topic throughout."
+        "\n2. Focus on one main idea and develop it thoroughly. Explain its significance, implications, and how it ties back to the central theme."
+        "\n3. Provide relevant examples and evidence to support your points."
+        "\n4. Use a variety of sentence structures and maintain a formal tone."
+        "\n5. Ensure the paragraph doesn't overlap with other arguments and offers a fresh perspective."
+        "\n6. Conclude the paragraph effectively, reinforcing the main idea discussed."
+        "\nAim for depth, precision, and utmost relevance. Stay on topic and ensure every point made is pertinent to the central theme."
+    )
+
+    return f"{base_prompt}\n\nIn paragraph {paragraph_number}, the statement reads: '{statement}'. Craft a paragraph that contradicts this contention, focusing on a single-threaded, detailed elucidation of the reason specified, ensuring it harmonizes seamlessly with the statement's main theme."
 
 def generate_reasons(statement, choice=None):
     """Generate Supportive and Opposing reasons for a given statement."""
@@ -80,18 +100,23 @@ def generate_reasons(statement, choice=None):
 
 def _get_openai_response(statement, agreement, paragraph_number):
     """Helper function to fetch response from OpenAI API."""
-    prompt = generate_prompt(statement, agreement, paragraph_number, REASONS_LIST)
+    if agreement == 'Supportive':
+        prompt = generate_supportive_prompt(statement, paragraph_number, REASONS_LIST)
+    else:
+        prompt = generate_opposing_prompt(statement, paragraph_number, REASONS_LIST)
+
     print("Making OpenAI API call...")
     
     try:
-        response = openai.Completion.create(
-            engine=ENGINE_NAME,
-            prompt=prompt,
+        response = openai.ChatCompletion.create(
+            model=ENGINE_NAME,
+            messages=[
+                {"role": "system", "content": "You are an expert IELTS writing assistant. Your task is to provide high-quality, Band 9 level responses for IELTS Writing Task 2. Ensure your responses are well-structured, clear, and directly address the prompt. Focus on one main idea and expand upon it in detail."},
+                {"role": "user", "content": prompt}
+            ],
             max_tokens=200,
-            n=1,
-            stop=".\\n\\n",
             temperature=0.6
-        ).choices[0].text.strip()
+        ).choices[0].message['content'].strip()
 
         logger.info(f"{agreement} Response for paragraph {paragraph_number}, statement '{statement}': {response}")
     except openai.error.RateLimitError:
@@ -102,6 +127,7 @@ def _get_openai_response(statement, agreement, paragraph_number):
         response = "Error: Failed to generate reasons due to an unexpected error."
 
     return {'title': f'{agreement} reason for paragraph {paragraph_number}:', 'text': response}
+
 
 def lexicon_count(text, removepunct=False):
     """Count the number of lexicons in the text."""

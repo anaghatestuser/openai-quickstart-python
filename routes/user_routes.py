@@ -1,4 +1,4 @@
-from flask import render_template, abort, flash, redirect, url_for, request
+from flask import render_template, abort, flash, redirect, url_for, request, current_app as app
 from flask_login import login_required, current_user, login_user, logout_user
 from utils.logging_config import log_activity
 from flask_mail import Message
@@ -6,6 +6,7 @@ from datetime import datetime, timedelta
 from models.user import User
 from config import db, mail
 import logging
+from utils.utilities import send_reset_email  # Ensure this is correctly imported
 
 logger = logging.getLogger(__name__)
 
@@ -15,7 +16,7 @@ def init_app(app):
     def test_mail():
         try:
             msg = Message('Hello from Flask-Mail', 
-                          sender='ulysses@kissielts.com',
+                          sender=app.config['MAIL_USERNAME'],
                           recipients=['ulysses@kissielts.com'])  # Replace with your email or another testing email
             msg.body = 'This is a test email sent from the Flask-Mail setup.'
             mail.send(msg)
@@ -63,6 +64,35 @@ def init_app(app):
             db.session.commit()
             return f"{admin_username} is now approved"
         return "Admin user not found"
+
+    @app.route('/forgot_password', methods=['GET', 'POST'])
+    def forgot_password():
+        if request.method == 'POST':
+            email = request.form.get('email')
+            user = User.query.filter_by(email=email).first()
+            if user:
+                send_reset_email(user)
+            flash('If an account with that email exists, a reset link has been sent.', 'info')
+            return redirect(url_for('login'))
+        return render_template('user/reset_password.html')
+
+    @app.route('/reset_password/<token>', methods=['GET', 'POST'])
+    def reset_token(token):
+        user = User.verify_reset_token(token)
+        if not user:
+            flash('That is an invalid or expired token', 'warning')
+            return redirect(url_for('forgot_password'))
+        if request.method == 'POST':
+            password = request.form.get('password')
+            confirm_password = request.form.get('confirm_password')
+            if password == confirm_password:
+                user.set_password(password)
+                db.session.commit()
+                flash('Your password has been updated!', 'success')
+                return redirect(url_for('login'))
+            else:
+                flash('Passwords do not match', 'danger')
+        return render_template('user/reset_token.html')
 
     @app.route('/login', methods=['GET', 'POST'])
     def login():
@@ -155,7 +185,7 @@ def init_app(app):
         
             # Send email to admin
             msg_admin = Message('New User Registration', 
-                sender='ulysses@kissielts.com',
+                sender=app.config['MAIL_USERNAME'],
                 recipients=['ulysses@kissielts.com'])
             msg_admin.body = f'New user {username} has registered and awaits approval.'
             try:
@@ -165,7 +195,7 @@ def init_app(app):
 
             # Send email to the registered user
             msg_user = Message('Welcome to K.I.S.S. IELTS', 
-                sender='ulysses@kissielts.com',
+                sender=app.config['MAIL_USERNAME'],
                 recipients=[email])  # Send to the user's email
             msg_user.body = ("Thank you for registering with K.I.S.S. IELTS. "
                             "Your account will be approved within 24 hours. "

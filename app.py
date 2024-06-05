@@ -7,7 +7,7 @@ from models.user import User
 from utils.logging_config import configure_logging
 from flask_migrate import Migrate
 from werkzeug.security import generate_password_hash
-import logging  # Add this import
+import logging
 
 # Initialize logger
 logger = logging.getLogger(__name__)
@@ -27,6 +27,12 @@ def create_app():
     app.config['MAIL_USE_TLS'] = os.getenv('MAIL_USE_TLS', 'True') == 'True'
     app.config['MAIL_USE_SSL'] = os.getenv('MAIL_USE_SSL', 'False') == 'False'
 
+    app.config['MAIL_SENDER'] = 'ulysses@kissielts.com'
+    app.config['MAIL_SUBJECT'] = 'Account Approved - K.I.S.S. IELTS'
+    app.config['MAIL_BODY'] = ("Congratulations! Your K.I.S.S. IELTS A.I. account has been approved. "
+                               "You can now access our platform at {url}. "
+                               "Thank you for joining us!")
+
     db.init_app(app)
 
     migrate = Migrate(app, db)
@@ -35,7 +41,7 @@ def create_app():
     login.login_view = 'login'
     mail.init_app(app)
 
-    configure_logging(app)  # Configure logging
+    configure_logging(app)
 
     with app.app_context():
         if create_admin:
@@ -56,7 +62,7 @@ def create_admin_user():
         db.session.commit()
 
 app = create_app()
-configure_logging(app)  # Configure loggers
+configure_logging(app)
 
 @login.user_loader
 def load_user(user_id):
@@ -87,4 +93,5 @@ def forbidden_error(error):
     return render_template('errors/403.html'), 403
 
 if __name__ == '__main__':
-    app.run(debug=False)
+    # Run the app with specific host and port configurations
+    app.run(host='127.0.0.1', port=5000, debug=True)

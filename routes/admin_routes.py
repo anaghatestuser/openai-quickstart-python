@@ -1,10 +1,10 @@
-from flask import render_template, abort, flash, redirect, url_for, request
+from flask import render_template, abort, flash, redirect, url_for, request, current_app as app
 from flask_login import current_user, login_required
 from flask_mail import Message
 from datetime import datetime, timedelta
 from models.log import ActivityLog
 from models.user import User
-from config import db, mail, MAIL_SENDER, MAIL_SUBJECT, MAIL_BODY
+from config import db, mail
 from utils.logging_config import log_activity
 import logging
 
@@ -152,10 +152,10 @@ def approve_user_with_username(username):
 
 
 def send_approval_email(recipient):
-    msg = Message(MAIL_SUBJECT, 
-                  sender=MAIL_SENDER,
+    msg = Message(app.config['MAIL_SUBJECT'], 
+                  sender=app.config['MAIL_SENDER'],
                   recipients=[recipient])
-    msg.body = MAIL_BODY.format(url="https://ielts-bxsh.onrender.com/")
+    msg.body = app.config['MAIL_BODY'].format(url="https://ielts-bxsh.onrender.com/")
     
     try:
         mail.send(msg)

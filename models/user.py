@@ -17,7 +17,6 @@ class User(UserMixin, db.Model):
     is_approved = db.Column(db.Boolean, default=False)
     token_expiry_date = db.Column(db.DateTime)
     
-    # Change backref to 'owner'
     interactions = db.relationship('Interaction', backref='owner', lazy=True)
     
     login_time = db.Column(db.DateTime)  # Add this line for the login_time attribute
@@ -29,14 +28,34 @@ class User(UserMixin, db.Model):
         return check_password_hash(self.password_hash, password)
 
     def get_reset_token(self, expires_sec=1800):
-        s = Serializer(current_app.config['SECRET_KEY'], expires_sec)
-        return s.dumps({'user_id': self.id})
+        secret_key = current_app.config['SECRET_KEY']
+        print(f"SECRET_KEY: {secret_key}")
+        print(f"SECRET_KEY type: {type(secret_key)}")
+        
+        if isinstance(secret_key, str):
+            secret_key = secret_key.encode('utf-8')
+        
+        print(f"Encoded SECRET_KEY: {secret_key}")
+        print(f"Encoded SECRET_KEY type: {type(secret_key)}")
+        
+        s = Serializer(secret_key)
+        print(f"Serializer initialized with secret_key: {secret_key}")
+        
+        # Generate token with the expiration time
+        token = s.dumps({'user_id': self.id}, salt='password-reset-salt')
+        print(f"Generated token: {token}")
+        
+        return token  # Removed .decode('utf-8')
 
     @staticmethod
     def verify_reset_token(token):
-        s = Serializer(current_app.config['SECRET_KEY'])
+        secret_key = current_app.config['SECRET_KEY']
+        if isinstance(secret_key, str):
+            secret_key = secret_key.encode('utf-8')
+        s = Serializer(secret_key)
         try:
-            user_id = s.loads(token)['user_id']
-        except:
+            user_id = s.loads(token, salt='password-reset-salt')['user_id']
+        except Exception as e:
+            print(f"Error in verify_reset_token: {e}")
             return None
         return User.query.get(user_id)

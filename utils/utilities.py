@@ -135,7 +135,7 @@ def _get_openai_response(statement, agreement, paragraph_number):
             json={"model": ENGINE_NAME, "messages": [{"role": "system", "content": prompt}], "max_tokens": 200, "temperature": 0.6}
         ).json()
 
-        response_text = response['choices'][0]['text'].strip()
+        response_text = response['choices'][0]['message']['content'].strip()
         logger.info(f"{agreement} Response for paragraph {paragraph_number}, statement '{statement}': {response_text}")
     except KeyError as e:
         logger.error(f"KeyError: {e}. Response received: {response}")

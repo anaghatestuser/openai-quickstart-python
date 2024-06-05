@@ -1,7 +1,5 @@
 import os
 import openai
-import logging
-import logging
 import traceback
 from flask import Flask, render_template, request
 from config import db, login, mail
@@ -17,10 +15,11 @@ logger = logging.getLogger(__name__)
 def create_app():
     app = Flask(__name__)
     app.secret_key = os.getenv("SECRET_KEY", "default_secret_key")
-
+    openai.api_key = os.getenv("OPENAI_API_KEY")
+    
     create_admin = os.getenv("CREATE_ADMIN", "False").lower() == "true"
     app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL')
-
+    
     app.config['MAIL_SERVER'] = os.getenv('MAIL_SERVER')
     app.config['MAIL_PORT'] = int(os.getenv('MAIL_PORT', 587))
     app.config['MAIL_USERNAME'] = os.getenv('MAIL_USERNAME')

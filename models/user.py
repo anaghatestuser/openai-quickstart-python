@@ -40,4 +40,3 @@ class User(UserMixin, db.Model):
         except:
             return None
         return User.query.get(user_id)
-        return '<User {}>'.format(self.username)

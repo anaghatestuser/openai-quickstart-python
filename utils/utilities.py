@@ -141,7 +141,7 @@ def _get_openai_response(statement, agreement, paragraph_number):
 
         logger.info(f"{agreement} Response for paragraph {paragraph_number}, statement '{statement}': {response}")
     except OpenAIError as e:
-        logger.error(f"OpenAI error fetching {agreement} reason: {e.http_status} - {e}")
+        logger.error(f"OpenAI error fetching {agreement} reason: {e}")
         response = "Error: There was an issue with the OpenAI API. Please check your OpenAI plan and billing details."
     except AttributeError as e:
         logger.error(f"AttributeError: {e}")

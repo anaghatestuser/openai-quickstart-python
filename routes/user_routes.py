@@ -6,7 +6,7 @@ from datetime import datetime, timedelta
 from models.user import User
 from config import db, mail
 import logging
-from utils.utilities import send_reset_email  # Ensure this is correctly imported
+from utils.utilities import send_reset_email, _get_openai_response  # Ensure this is correctly imported
 
 logger = logging.getLogger(__name__)
 

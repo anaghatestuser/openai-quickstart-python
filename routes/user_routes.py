@@ -1,6 +1,8 @@
 from flask import render_template, abort, flash, redirect, url_for, request, current_app as app
 from flask_login import login_required, current_user, login_user, logout_user
 from utils.logging_config import log_activity
+
+logger = logging.getLogger(__name__)
 from flask_mail import Message
 from datetime import datetime, timedelta
 from models.user import User

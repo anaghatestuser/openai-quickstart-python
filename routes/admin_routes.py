@@ -6,6 +6,8 @@ from models.log import ActivityLog
 from models.user import User
 from config import db, mail
 from utils.logging_config import log_activity
+
+logger = logging.getLogger(__name__)
 import logging
 
 

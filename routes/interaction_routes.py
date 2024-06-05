@@ -4,6 +4,7 @@ from models.user import User
 from models.interaction import Interaction
 from config import db
 from utils.utilities import generate_reasons, deduct_tokens
+import openai
 import logging
 
 logger = logging.getLogger(__name__)

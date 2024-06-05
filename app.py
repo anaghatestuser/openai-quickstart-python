@@ -1,6 +1,7 @@
 import os
 import openai
 import logging
+import logging
 import traceback
 from flask import Flask, render_template, request
 from config import db, login, mail

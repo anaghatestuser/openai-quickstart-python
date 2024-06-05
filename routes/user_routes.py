@@ -7,6 +7,7 @@ from models.user import User
 from config import db, mail
 import logging
 from utils.utilities import send_reset_email, _get_openai_response  # Ensure this is correctly imported
+import openai
 
 logger = logging.getLogger(__name__)
 

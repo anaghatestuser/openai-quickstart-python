@@ -2,7 +2,7 @@ import os
 import nltk
 import string
 import openai
-from openai.error import OpenAIError
+from openai import OpenAIError
 import logging
 import random
 from itsdangerous import URLSafeTimedSerializer as Serializer

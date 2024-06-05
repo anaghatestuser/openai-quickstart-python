@@ -129,12 +129,15 @@ def _get_openai_response(statement, agreement, paragraph_number):
     print("Making OpenAI API call...")
 
     try:
-        response = openai.Completion.create(
+        response = openai.ChatCompletion.create(
             model=ENGINE_NAME,
-            prompt=f"You are an expert IELTS writing assistant. Your task is to provide high-quality, Band 9 level responses for IELTS Writing Task 2. Ensure your responses are well-structured, clear, and directly address the prompt. Focus on one main idea and expand upon it in detail.\n\n{prompt}",
+            messages=[
+                {"role": "system", "content": "You are an expert IELTS writing assistant. Your task is to provide high-quality, Band 9 level responses for IELTS Writing Task 2. Ensure your responses are well-structured, clear, and directly address the prompt. Focus on one main idea and expand upon it in detail."},
+                {"role": "user", "content": prompt}
+            ],
             max_tokens=200,
             temperature=0.6
-        ).choices[0].text.strip()
+        ).choices[0].message['content'].strip()
 
         logger.info(f"{agreement} Response for paragraph {paragraph_number}, statement '{statement}': {response}")
     except OpenAIError as e:

@@ -132,7 +132,7 @@ def _get_openai_response(statement, agreement, paragraph_number):
         response = requests.post(
             "https://api.openai.com/v1/chat/completions",
             headers={"Authorization": f"Bearer {os.getenv('OPENAI_API_KEY')}"},
-            json={"model": ENGINE_NAME, "prompt": prompt, "max_tokens": 200, "temperature": 0.6}
+            json={"model": ENGINE_NAME, "messages": [{"role": "system", "content": prompt}], "max_tokens": 200, "temperature": 0.6}
         ).json()
 
         response_text = response['choices'][0]['text'].strip()

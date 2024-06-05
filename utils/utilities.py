@@ -2,7 +2,7 @@ import os
 import nltk
 import string
 import openai
-from openai import error
+from openai.error import OpenAIError
 import logging
 import random
 from itsdangerous import URLSafeTimedSerializer as Serializer
@@ -20,7 +20,7 @@ nltk_data_path = os.environ.get('NLTK_DATA_PATH', '/opt/render/project/src/nltk_
 data_path = os.path.join(nltk_data_path, 'tokenizers/punkt')
 
 # Initialize OpenAI client
-client = openai.OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
+openai.api_key = os.getenv('OPENAI_API_KEY')
 
 # Download punkt tokenizer if not available
 if not os.path.exists(data_path):

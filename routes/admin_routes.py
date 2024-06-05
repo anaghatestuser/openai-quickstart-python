@@ -8,7 +8,6 @@ from config import db, mail
 from utils.logging_config import log_activity
 import logging
 
-logger = logging.getLogger(__name__)
 
 def init_app(app):
 

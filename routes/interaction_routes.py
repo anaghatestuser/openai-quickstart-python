@@ -6,7 +6,6 @@ from config import db
 from utils.utilities import generate_reasons, deduct_tokens
 import logging
 
-logger = logging.getLogger(__name__)
 
 def init_app(app):
 

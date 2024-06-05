@@ -10,8 +10,6 @@ from flask import current_app, url_for
 from flask_mail import Message
 from config import db, mail
 
-# Setting up logging
-logger = logging.getLogger(__name__)
 
 # Configuration setup
 ENGINE_NAME = os.environ.get('OPENAI_ENGINE_NAME', 'gpt-3.5-turbo-instruct')

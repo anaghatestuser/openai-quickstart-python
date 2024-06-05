@@ -7,7 +7,6 @@ from flask_login import LoginManager, login_user
 from utils.logging_config import configure_logging  # Import the configure_logging function from utils
 
 app = create_app()  # Get the app instance from create_app function
-logger = configure_logging(app)  # Configure logging with the app instance
 
 # Define the login manager for the app
 login = LoginManager(app)

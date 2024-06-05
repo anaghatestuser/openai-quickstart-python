@@ -10,7 +10,6 @@ from models.user import User
 from config import db
 from utils.logging_config import log_activity
 
-logger = logging.getLogger(__name__)
 
 
 def load_examples_from_csv(app, filename):

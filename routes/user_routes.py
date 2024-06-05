@@ -8,7 +8,6 @@ from config import db, mail
 import logging
 from utils.utilities import send_reset_email  # Ensure this is correctly imported
 
-logger = logging.getLogger(__name__)
 
 def init_app(app):
 

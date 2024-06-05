@@ -1,7 +1,8 @@
 import os
 import nltk
 import string
-from openai import OpenAI, error
+import openai
+from openai import error
 import logging
 import random
 from itsdangerous import URLSafeTimedSerializer as Serializer
@@ -19,7 +20,7 @@ nltk_data_path = os.environ.get('NLTK_DATA_PATH', '/opt/render/project/src/nltk_
 data_path = os.path.join(nltk_data_path, 'tokenizers/punkt')
 
 # Initialize OpenAI client
-client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
+client = openai.OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
 
 # Download punkt tokenizer if not available
 if not os.path.exists(data_path):
@@ -128,7 +129,7 @@ def _get_openai_response(statement, agreement, paragraph_number):
     print("Making OpenAI API call...")
 
     try:
-        response = client.chat.completions.create(
+        response = openai.ChatCompletion.create(
             model=ENGINE_NAME,
             messages=[
                 {"role": "system", "content": "You are an expert IELTS writing assistant. Your task is to provide high-quality, Band 9 level responses for IELTS Writing Task 2. Ensure your responses are well-structured, clear, and directly address the prompt. Focus on one main idea and expand upon it in detail."},
@@ -140,7 +141,7 @@ def _get_openai_response(statement, agreement, paragraph_number):
 
         logger.info(f"{agreement} Response for paragraph {paragraph_number}, statement '{statement}': {response}")
     except error.OpenAIError as e:
-        logger.error(f"OpenAI error fetching {agreement} reason: {e.http_status} - {e.error}")
+        logger.error(f"OpenAI error fetching {agreement} reason: {e.http_status} - {e}")
         response = "Error: There was an issue with the OpenAI API. Please check your OpenAI plan and billing details."
     except AttributeError as e:
         logger.error(f"AttributeError: {e}")

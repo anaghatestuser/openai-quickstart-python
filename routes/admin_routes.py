@@ -1,3 +1,4 @@
+import logging
 from flask import render_template, abort, flash, redirect, url_for, request, current_app as app
 from flask_login import current_user, login_required
 from flask_mail import Message
@@ -8,8 +9,6 @@ from config import db, mail
 from utils.logging_config import log_activity
 
 logger = logging.getLogger(__name__)
-import logging
-
 
 def init_app(app):
 

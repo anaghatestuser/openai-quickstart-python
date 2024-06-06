@@ -1,5 +1,5 @@
-import csv
 import logging
+import csv
 import random
 import os
 from datetime import datetime, timedelta
@@ -10,7 +10,8 @@ from models.user import User
 from config import db
 from utils.logging_config import log_activity
 
-
+# Initialize logger
+logger = logging.getLogger(__name__)
 
 def load_examples_from_csv(app, filename):
     with app.app_context():
@@ -27,7 +28,6 @@ def load_examples_from_csv(app, filename):
         except Exception as e:
             logger.error("Failed to load examples from %s: %s", filename, e)
             return []
-
 
 def init_app(app):
     examples = load_examples_from_csv(app, 'csv/questions.csv')

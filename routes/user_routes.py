@@ -1,3 +1,4 @@
+import logging
 from flask import render_template, abort, flash, redirect, url_for, request, current_app as app
 from flask_login import login_required, current_user, login_user, logout_user
 from utils.logging_config import log_activity
@@ -7,7 +8,6 @@ from flask_mail import Message
 from datetime import datetime, timedelta
 from models.user import User
 from config import db, mail
-import logging
 from utils.utilities import send_reset_email  # Ensure this is correctly imported
 
 

@@ -1,3 +1,4 @@
+import logging
 from flask import render_template, request, redirect, url_for, flash
 from flask_login import login_required, current_user
 from models.user import User
@@ -6,8 +7,6 @@ from config import db
 from utils.utilities import generate_reasons, deduct_tokens
 
 logger = logging.getLogger(__name__)
-import logging
-
 
 def init_app(app):
 

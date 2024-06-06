@@ -11,6 +11,8 @@ from flask import current_app, url_for
 from flask_mail import Message
 from config import db, mail
 
+# Initialize logger
+logger = logging.getLogger(__name__)
 
 # Configuration setup
 ENGINE_NAME = os.environ.get('OPENAI_ENGINE_NAME', 'gpt-3.5-turbo-instruct')
@@ -133,7 +135,8 @@ def _get_openai_response(statement, agreement, paragraph_number):
             ],
             max_tokens=200,
             temperature=0.6
-        ).choices[0].message['content'].strip()
+        ).choices[0].message.content.strip()
+
 
         logger.info(f"{agreement} Response for paragraph {paragraph_number}, statement '{statement}': {response}")
     except OpenAIError as e:

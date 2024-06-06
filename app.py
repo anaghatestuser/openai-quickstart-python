@@ -1,4 +1,7 @@
 import os
+from dotenv import load_dotenv
+load_dotenv()
+
 import openai
 import traceback
 from flask import Flask, render_template, request
@@ -9,23 +12,25 @@ from flask_migrate import Migrate
 from werkzeug.security import generate_password_hash
 import logging
 
+# Load environment variables from .env file
+load_dotenv()
+
 # Initialize logger
 logger = logging.getLogger(__name__)
 
 def create_app():
     app = Flask(__name__)
     app.secret_key = os.getenv("SECRET_KEY", "default_secret_key")
-    openai.api_key = os.getenv("OPENAI_API_KEY")
-    
-    create_admin = os.getenv("CREATE_ADMIN", "False").lower() == "true"
     app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL')
-    
+
     app.config['MAIL_SERVER'] = os.getenv('MAIL_SERVER')
     app.config['MAIL_PORT'] = int(os.getenv('MAIL_PORT', 587))
     app.config['MAIL_USERNAME'] = os.getenv('MAIL_USERNAME')
     app.config['MAIL_PASSWORD'] = os.getenv('MAIL_PASSWORD')
     app.config['MAIL_USE_TLS'] = os.getenv('MAIL_USE_TLS', 'True') == 'True'
     app.config['MAIL_USE_SSL'] = os.getenv('MAIL_USE_SSL', 'False') == 'False'
+
+    app.config['DEBUG'] = os.getenv('FLASK_ENV') == 'development'
 
     app.config['MAIL_SENDER'] = 'ulysses@kissielts.com'
     app.config['MAIL_SUBJECT'] = 'Account Approved - K.I.S.S. IELTS'
@@ -34,15 +39,14 @@ def create_app():
                                "Thank you for joining us!")
 
     db.init_app(app)
-
     migrate = Migrate(app, db)
-
     login.init_app(app)
     login.login_view = 'login'
     mail.init_app(app)
 
     configure_logging(app)
 
+    create_admin = os.getenv("CREATE_ADMIN", "False").lower() == "true"
     with app.app_context():
         if create_admin:
             create_admin_user()
@@ -95,4 +99,4 @@ def forbidden_error(error):
 
 if __name__ == '__main__':
     # Run the app with specific host and port configurations
-    app.run(host='127.0.0.1', port=5000, debug=True)
+    app.run(host='127.0.0.1', port=5000)

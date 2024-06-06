@@ -1,10 +1,11 @@
 import os
 import nltk
 import string
-import openai
+from openai import OpenAI, OpenAIError  # Correct import
+
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 import logging
 import random
-import requests
 from itsdangerous import URLSafeTimedSerializer as Serializer
 from flask import current_app, url_for
 from flask_mail import Message
@@ -32,7 +33,7 @@ def extract_complete_answer(text, max_words):
     words = text.split()
     if len(words) <= max_words:
         return ' '.join(words)
-    
+
     extracted_words = words[:max_words]
     for i in range(max_words-1, -1, -1):
         if extracted_words[i][-1] in {'.', '?', '!'}:
@@ -63,9 +64,9 @@ REASONS_LIST = [
 
 def generate_supportive_prompt(statement, paragraph_number, reasons=None):
     """Generate a prompt for generating Supportive paragraphs for IELTS writing task."""
-    
+
     seeding_reason = f"Anchor your exposition around the reason: '{random.choice(reasons)}'. This reason should directly and unequivocally resonate with the core statement." if reasons else ""
-    
+
     base_prompt = (
         f"You're tasked with simulating an IELTS Band 9 Writing Task 2 response. {seeding_reason}"
         "To achieve this standard, compose a 150-word paragraph adhering to these guidelines:"
@@ -82,9 +83,9 @@ def generate_supportive_prompt(statement, paragraph_number, reasons=None):
 
 def generate_opposing_prompt(statement, paragraph_number, reasons=None):
     """Generate a prompt for generating Opposing paragraphs for IELTS writing task."""
-    
+
     seeding_reason = f"Anchor your exposition around the reason: '{random.choice(reasons)}'. This reason should directly and unequivocally resonate with the core statement." if reasons else ""
-    
+
     base_prompt = (
         f"You're tasked with simulating an IELTS Band 9 Writing Task 2 response. {seeding_reason}"
         "To achieve this standard, compose a 150-word paragraph adhering to these guidelines:"
@@ -112,9 +113,6 @@ def generate_reasons(statement, choice=None):
 
     return responses
 
-
-import requests
-
 def _get_openai_response(statement, agreement, paragraph_number):
     """Helper function to fetch response from OpenAI API."""
     if agreement == 'Supportive':
@@ -127,22 +125,28 @@ def _get_openai_response(statement, agreement, paragraph_number):
     logger.debug("Making OpenAI API call...")
     
     try:
-        response = requests.post(
-            "https://api.openai.com/v1/chat/completions",
-            headers={"Authorization": f"Bearer {os.getenv('OPENAI_API_KEY')}"},
-            json={"model": ENGINE_NAME, "messages": [{"role": "system", "content": prompt}], "max_tokens": 200, "temperature": 0.6}
-        ).json()
+        response = client.chat.completions.create(
+            model=ENGINE_NAME,
+            messages=[
+                {"role": "system", "content": "You are a helpful assistant."},
+                {"role": "user", "content": prompt}
+            ],
+            max_tokens=200,
+            temperature=0.6
+        ).choices[0].message['content'].strip()
 
-        response_text = response['choices'][0]['message']['content'].strip()
-        logger.info(f"{agreement} Response for paragraph {paragraph_number}, statement '{statement}': {response_text}")
-    except KeyError as e:
-        logger.error(f"KeyError: {e}. Response received: {response}")
-        response_text = "Error: Unexpected response structure from OpenAI API."
+        logger.info(f"{agreement} Response for paragraph {paragraph_number}, statement '{statement}': {response}")
+    except OpenAIError as e:
+        logger.error(f"OpenAI error fetching {agreement} reason: {e}")
+        response = "Error: There was an issue with the OpenAI API. Please check your OpenAI plan and billing details."
+    except AttributeError as e:
+        logger.error(f"AttributeError: {e}")
+        response = "Error: Failed to generate reasons due to an AttributeError."
     except Exception as e:
         logger.error(f"Error fetching {agreement} reason: {e}")
-        response_text = "Error: There was an issue with the OpenAI API. Please check your OpenAI plan and billing details."
+        response = "Error: There was an issue with the OpenAI API. Please check your OpenAI plan and billing details."
 
-    return {'title': f'{agreement} reason for paragraph {paragraph_number}:', 'text': response_text}
+    return {'title': f'{agreement} reason for paragraph {paragraph_number}:', 'text': response}
 
 
 def lexicon_count(text, removepunct=False):

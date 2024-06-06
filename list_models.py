@@ -1,10 +1,11 @@
-import openai
+from openai import OpenAI
 
-openai.api_key = "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"
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+
 
 # List all models
-response = openai.Model.list()
+response = client.models.list()
 
 # Print the list of models
-for model in response['data']:
+for model in response.data:
     print(model['id'])

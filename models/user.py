@@ -29,21 +29,14 @@ class User(UserMixin, db.Model):
 
     def get_reset_token(self, expires_sec=1800):
         secret_key = current_app.config['SECRET_KEY']
-        print(f"SECRET_KEY: {secret_key}")
-        print(f"SECRET_KEY type: {type(secret_key)}")
         
         if isinstance(secret_key, str):
             secret_key = secret_key.encode('utf-8')
         
-        print(f"Encoded SECRET_KEY: {secret_key}")
-        print(f"Encoded SECRET_KEY type: {type(secret_key)}")
-        
         s = Serializer(secret_key)
-        print(f"Serializer initialized with secret_key: {secret_key}")
         
         # Generate token with the expiration time
         token = s.dumps({'user_id': self.id}, salt='password-reset-salt')
-        print(f"Generated token: {token}")
         
         return token  # Removed .decode('utf-8')
 

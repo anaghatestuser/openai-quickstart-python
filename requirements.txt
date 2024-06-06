@@ -34,4 +34,5 @@ urllib3==2.0.3
 Werkzeug==2.3.6
 yarl==1.9.2
 gunicorn==21.2.0
-Flask-Mail==0.9.1openai==1.30.1
+Flask-Mail==0.9.1
+

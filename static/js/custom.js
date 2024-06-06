@@ -16,6 +16,16 @@ function toggleDarkMode() {
     }
 }
 
+// Toggle password visibility
+function togglePasswordVisibility(id) {
+    var x = document.getElementById(id);
+    if (x.type === "password") {
+        x.type = "text";
+    } else {
+        x.type = "password";
+    }
+}
+
 // On page load, check the theme preference and apply it
 document.addEventListener('DOMContentLoaded', function() {
     // Apply Dark mode

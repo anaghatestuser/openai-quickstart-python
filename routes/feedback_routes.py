@@ -42,8 +42,3 @@ def init_app(app):
     def view_feedback():
         feedback_list = Feedback.query.all()
         return render_template('view_feedback.html', feedback_list=feedback_list)
-    @app.route('/view_feedback', methods=['GET'])
-    @login_required
-    def view_feedback():
-        feedback_list = Feedback.query.all()
-        return render_template('view_feedback.html', feedback_list=feedback_list)

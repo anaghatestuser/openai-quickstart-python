@@ -39,6 +39,7 @@ def init_app(app):
 
     @app.route('/view_feedback', methods=['GET'])
     @login_required
+    @admin_required
     def view_feedback():
         feedback_list = Feedback.query.all()
         return render_template('admin/view_feedback.html', feedback_list=feedback_list)

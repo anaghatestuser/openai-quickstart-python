@@ -55,5 +55,5 @@ class User(UserMixin, db.Model):
     
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        self.username = self.username.lower()
-        self.email = self.email.lower()
+        self.username = kwargs.get('username', '').lower()
+        self.email = kwargs.get('email', '').lower()

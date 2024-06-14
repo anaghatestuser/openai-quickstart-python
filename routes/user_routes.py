@@ -105,7 +105,7 @@ def init_app(app):
                 flash('Please enter both username and password.')
                 return redirect(url_for('login'))
 
-            user = User.query.filter_by(username=username).first()
+            user = User.query.filter(db.func.lower(User.username) == db.func.lower(username)).first()
 
             # Capturing IP address and user agent
             ip_address = request.remote_addr
@@ -175,7 +175,7 @@ def init_app(app):
                 logger.warning('Attempt to register with already existing username or email: %s, %s', username, email)
                 return render_template('user/login.html', feedback_message='Username or email already exists. Please try a different one.')
 
-            user = User(username=username, email=email, tokens=100)
+            user = User(username=username.lower(), email=email.lower(), tokens=100)
             user.set_password(password)
             user.token_expiry_date = datetime.utcnow() + timedelta(days=30)
     

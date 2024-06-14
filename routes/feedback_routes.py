@@ -1,5 +1,5 @@
 import logging
-from flask import request, redirect, url_for, flash, current_app, jsonify
+from flask import request, redirect, url_for, flash, current_app, jsonify, render_template
 from flask_login import login_required, current_user
 from models.feedback import Feedback
 from config import db
@@ -36,3 +36,8 @@ def init_app(app):
     
         flash('Thank you for your feedback!', 'success')
         return jsonify(status="success", message="Thank you for your feedback!", redirect_url=url_for('home'))
+@app.route('/view_feedback', methods=['GET'])
+@login_required
+def view_feedback():
+    feedback_list = Feedback.query.all()
+    return render_template('view_feedback.html', feedback_list=feedback_list)

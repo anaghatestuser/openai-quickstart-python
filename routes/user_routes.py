@@ -129,14 +129,14 @@ def init_app(app):
                 db.session.commit()
                 flash('Your tokens have expired and have been reset to 0.', 'warning')
 
-            if not user.is_approved:
+            if user.is_approved:
+                login_user(user)
+                logger.info('User %s logged in successfully.', user.username)
+                log_activity(user.id, "User Login", f"User {user.username} logged in.", ip_address=ip_address, user_agent=user_agent)
+                return redirect(url_for('home'))
+            else:
                 flash('Your account is awaiting approval by the admin.', 'warning')
                 return redirect(url_for('login'))
-
-            login_user(user)
-            logger.info('User %s logged in successfully.', user.username)
-            log_activity(user.id, "User Login", f"User {user.username} logged in.", ip_address=ip_address, user_agent=user_agent)
-            return redirect(url_for('home'))
 
         return render_template('user/login.html')
 

@@ -51,6 +51,15 @@ def create_app():
         if create_admin:
             create_admin_user()
 
+    # Import and register blueprints
+    from routes import main_routes, user_routes, interaction_routes, feedback_routes, admin_routes
+
+    main_routes.init_app(app)
+    user_routes.init_app(app)
+    interaction_routes.init_app(app)
+    feedback_routes.init_app(app)
+    admin_routes.init_app(app)
+
     return app
 
 def create_admin_user():
@@ -72,14 +81,6 @@ if not app.logger.handlers:
 @login.user_loader
 def load_user(user_id):
     return db.session.get(User, int(user_id))
-
-from routes import main_routes, user_routes, interaction_routes, feedback_routes, admin_routes
-
-main_routes.init_app(app)
-user_routes.init_app(app)
-interaction_routes.init_app(app)
-feedback_routes.init_app(app)
-admin_routes.init_app(app)
 
 @app.errorhandler(500)
 def internal_server_error(error):

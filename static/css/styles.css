@@ -437,7 +437,7 @@ padding-right: 1em;
 
 /* Global Styles for the Buttons */
 input[type="submit"].btn {
-    padding: 12px 24px;  
+    padding: 8px 24px;  
     font-size: 1.2rem;  
     border-radius: 5px; 
     border: none;  

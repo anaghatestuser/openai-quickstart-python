@@ -89,4 +89,12 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
+
+    // Initialize DataTable with sorting enabled on all columns
+    $('#feedbackTable').DataTable({
+        "order": [],
+        "columnDefs": [
+            { "orderable": true, "targets": [0, 1, 2, 3, 4] }
+        ]
+    });
 });

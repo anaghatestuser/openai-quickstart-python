@@ -1,71 +1,24 @@
 import logging
-from flask import render_template, abort, flash, redirect, url_for, request, current_app as app
+from flask import Blueprint, render_template, abort, flash, redirect, url_for, request, current_app as app
 from functools import wraps
 from flask_login import current_user, login_required
 from flask_mail import Message
 from datetime import datetime, timedelta
 from models.log import ActivityLog
 from models.user import User
+from models.feedback import Feedback  # Import Feedback model
 from config import db, mail
 from utils.logging_config import log_activity
 
 logger = logging.getLogger(__name__)
 
+# Create the admin blueprint
+admin_bp = Blueprint('admin', __name__, url_prefix='/admin')
+
 def init_app(app):
+    app.register_blueprint(admin_bp)
 
-    @app.route('/admin/', methods=['GET', 'POST'])
-    @login_required  
-    def admin_dashboard():
-        ensure_admin()
-        logs = ActivityLog.query.order_by(ActivityLog.timestamp.desc()).all()
-        return render_template('admin/admin.html', logs=logs)
-
-    @app.route('/admin/adjust_user', methods=['POST'])
-    @login_required  
-    def adjust_user():
-        ensure_admin()
-        return perform_user_adjustment()
-
-    @app.route('/admin/view_users', methods=['GET'])
-    @login_required  
-    def view_users():
-        ensure_admin()
-        users = User.query.all()
-        current_time = datetime.utcnow()  # Get the current time in UTC
-        return render_template('admin/view_users.html', users=users, current_time=current_time)
-
-    @app.route('/admin/approve_user/<int:user_id>', methods=['POST'])
-    @login_required  
-    def approve_user_by_id(user_id):
-        ensure_admin()
-        return toggle_user_approval(user_id, True)
-
-    @app.route('/admin/disallow_user/<int:user_id>', methods=['POST'])
-    @login_required  
-    def disallow_user(user_id):
-        ensure_admin()
-        return toggle_user_approval(user_id, False)
-
-    @app.route('/admin/delete_user/<int:user_id>', methods=['POST'])
-    @login_required  
-    def delete_user(user_id):
-        ensure_admin()
-        return perform_user_deletion(user_id)
-
-    @app.route('/admin/logs', methods=['GET'])
-    @login_required  
-    def view_logs():
-        ensure_admin()
-        logs = ActivityLog.query.order_by(ActivityLog.timestamp.desc()).all()
-        return render_template('admin/logs.html', logs=logs)
-
-    @app.route('/admin/approve_user_by_username/<username>', methods=['POST'])
-    @login_required
-    def approve_user_by_username(username):
-        ensure_admin()
-        return approve_user_with_username(username)
-
-
+# Define admin_required decorator before using it
 def admin_required(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
@@ -78,6 +31,65 @@ def ensure_admin():
     if not current_user.is_admin:
         abort(403)
 
+@admin_bp.route('/', methods=['GET', 'POST'])
+@login_required
+def admin_dashboard():
+    ensure_admin()
+    logs = ActivityLog.query.order_by(ActivityLog.timestamp.desc()).all()
+    return render_template('admin/admin.html', logs=logs)
+
+@admin_bp.route('/adjust_user', methods=['POST'])
+@login_required
+def adjust_user():
+    ensure_admin()
+    return perform_user_adjustment()
+
+@admin_bp.route('/view_users', methods=['GET'])
+@login_required
+def view_users():
+    ensure_admin()
+    users = User.query.all()
+    current_time = datetime.utcnow()  # Get the current time in UTC
+    return render_template('admin/view_users.html', users=users, current_time=current_time)
+
+@admin_bp.route('/approve_user/<int:user_id>', methods=['POST'])
+@login_required
+def approve_user_by_id(user_id):
+    ensure_admin()
+    return toggle_user_approval(user_id, True)
+
+@admin_bp.route('/disallow_user/<int:user_id>', methods=['POST'])
+@login_required
+def disallow_user(user_id):
+    ensure_admin()
+    return toggle_user_approval(user_id, False)
+
+@admin_bp.route('/delete_user/<int:user_id>', methods=['POST'])
+@login_required
+def delete_user(user_id):
+    ensure_admin()
+    return perform_user_deletion(user_id)
+
+@admin_bp.route('/logs', methods=['GET'])
+@login_required
+def view_logs():
+    ensure_admin()
+    logs = ActivityLog.query.order_by(ActivityLog.timestamp.desc()).all()
+    return render_template('admin/logs.html', logs=logs)
+
+@admin_bp.route('/approve_user_by_username/<username>', methods=['POST'])
+@login_required
+def approve_user_by_username(username):
+    ensure_admin()
+    return approve_user_with_username(username)
+
+# Add the new route to view feedback
+@admin_bp.route('/view_feedback', methods=['GET'])
+@login_required
+@admin_required
+def view_feedback():
+    feedback_list = Feedback.query.all()
+    return render_template('admin/view_feedback.html', feedback_list=feedback_list)
 
 def perform_user_adjustment():
     username = request.form.get('username')
@@ -87,7 +99,7 @@ def perform_user_adjustment():
     user = User.query.filter_by(username=username).first()
     if not user:
         flash('User not found', 'danger')
-        return redirect(url_for('admin_dashboard'))
+        return redirect(url_for('admin.admin_dashboard'))
 
     try:
         if tokens:
@@ -100,8 +112,7 @@ def perform_user_adjustment():
         db.session.rollback()
         flash(f"An error occurred: {str(e)}", 'danger')
     
-    return redirect(url_for('admin_dashboard'))
-
+    return redirect(url_for('admin.admin_dashboard'))
 
 def toggle_user_approval(user_id, approve=True):
     user = User.query.get(user_id)
@@ -126,7 +137,6 @@ def toggle_user_approval(user_id, approve=True):
 
     return redirect(url_for('view_users'))
 
-
 def perform_user_deletion(user_id):
     user = User.query.get(user_id)
     if not user:
@@ -144,7 +154,6 @@ def perform_user_deletion(user_id):
 
     return redirect(url_for('view_users'))
 
-
 def approve_user_with_username(username):
     user_to_approve = User.query.filter_by(username=username).first()
     
@@ -159,7 +168,6 @@ def approve_user_with_username(username):
     
     flash(f'User {username} has been approved and notified!', 'success')
     return redirect(url_for('view_users'))
-
 
 def send_approval_email(recipient):
     msg = Message(app.config['MAIL_SUBJECT'], 

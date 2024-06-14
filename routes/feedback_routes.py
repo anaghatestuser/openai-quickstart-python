@@ -36,6 +36,12 @@ def init_app(app):
     
         flash('Thank you for your feedback!', 'success')
         return jsonify(status="success", message="Thank you for your feedback!", redirect_url=url_for('home'))
+
+    @app.route('/view_feedback', methods=['GET'])
+    @login_required
+    def view_feedback():
+        feedback_list = Feedback.query.all()
+        return render_template('view_feedback.html', feedback_list=feedback_list)
 @app.route('/view_feedback', methods=['GET'])
 @login_required
 def view_feedback():

@@ -10,35 +10,11 @@ K.I.S.S. IELTS A.I. Assistant - View Feedback
     <table id="feedbackTable" class="table table-hover table-bordered display">
         <thead class="table-light thead-clickable">
             <tr>
-                <th>
-                    ID 
-                    <select class="form-select" id="sort-id">
-                        <option value="asc">Ascending</option>
-                        <option value="desc">Descending</option>
-                    </select>
-                </th>
-                <th>
-                    User 
-                    <select class="form-select" id="sort-user">
-                        <option value="asc">Ascending</option>
-                        <option value="desc">Descending</option>
-                    </select>
-                </th>
+                <th>ID</th>
+                <th>User</th>
                 <th>Feedback</th>
-                <th>
-                    Rating 
-                    <select class="form-select" id="sort-rating">
-                        <option value="asc">Ascending</option>
-                        <option value="desc">Descending</option>
-                    </select>
-                </th>
-                <th>
-                    Timestamp 
-                    <select class="form-select" id="sort-timestamp">
-                        <option value="asc">Ascending</option>
-                        <option value="desc">Descending</option>
-                    </select>
-                </th>
+                <th>Rating</th>
+                <th>Timestamp</th>
             </tr>
         </thead>
         <tbody>
@@ -57,9 +33,12 @@ K.I.S.S. IELTS A.I. Assistant - View Feedback
 
 <script>
     $(document).ready(function() {
-        // Initialize DataTable with sorting enabled
+        // Initialize DataTable with sorting enabled on all columns
         $('#feedbackTable').DataTable({
-            "order": []
+            "order": [],
+            "columnDefs": [
+                { "orderable": true, "targets": [0, 1, 2, 3, 4] }
+            ]
         });
     });
 </script>

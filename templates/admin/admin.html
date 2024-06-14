@@ -28,6 +28,39 @@ K.I.S.S. IELTS A.I. Assistant - Admin Panel
     <a href="{{ url_for('view_users') }}" class="btn btn-primary">View All Users</a>
     <br><br>
     <a href="{{ url_for('view_logs') }}" class="btn btn-primary">View Logs</a>
-    </div>
+    <br>
+    <h2 class="mb-4">Admin Activity Logs</h2>
+    <table class="table table-hover table-bordered">
+        <thead class="table-light">
+            <tr>
+                <th>Timestamp</th>
+                <th>Username</th>
+                <th>Action</th>
+                <th>Details</th>
+                <th>Duration</th>
+                <th>IP Address</th>
+                <th>User Agent</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for log in logs %}
+            <tr>
+                <td>{{ log.timestamp.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+                <td>{{ log.user.username }}</td>
+                <td>{{ log.action }}</td>
+                <td>{{ log.details }}</td>
+                <td>
+                    {% if log.duration %}
+                    {{ log.duration.total_seconds() // 3600 }}h {{ (log.duration.total_seconds() // 60) % 60 }}m
+                    {% else %}
+                    N/A
+                    {% endif %}
+                </td>
+                <td>{{ log.ip_address }}</td>
+                <td>{{ log.user_agent }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 </div>
 {% endblock %}

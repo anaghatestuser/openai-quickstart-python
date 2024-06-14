@@ -16,7 +16,8 @@ def init_app(app):
     @login_required  
     def admin_dashboard():
         ensure_admin()
-        return render_template('admin/admin.html')
+        logs = ActivityLog.query.order_by(ActivityLog.timestamp.desc()).all()
+        return render_template('admin/admin.html', logs=logs)
 
     @app.route('/admin/adjust_user', methods=['POST'])
     @login_required  

@@ -1,6 +1,6 @@
 import logging
 from flask import request, redirect, url_for, flash, current_app, jsonify, render_template
-from routes.admin_routes import admin_required
+from routes.admin_routes import admin_required, ensure_admin
 from flask_login import login_required, current_user
 from models.feedback import Feedback
 from config import db
@@ -39,6 +39,7 @@ def init_app(app):
         return jsonify(status="success", message="Thank you for your feedback!", redirect_url=url_for('home'))
 
     @app.route('/view_feedback', methods=['GET'])
+    @login_required
     @login_required
     @admin_required
     def view_feedback():

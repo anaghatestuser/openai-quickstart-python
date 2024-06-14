@@ -8,7 +8,6 @@ from config import db
 def init_app(app):
 
     @app.route('/submit_feedback', methods=['POST'])
-    @login_required
     def submit_feedback():
         rating = request.form.get('rating', type=int)
         feedback_text = request.form.get('feedback')
@@ -40,8 +39,7 @@ def init_app(app):
 
     @app.route('/view_feedback', methods=['GET'])
     @login_required
-    @login_required
     @admin_required
     def view_feedback():
         feedback_list = Feedback.query.all()
-        return render_template('admin/view_feedback.html', feedback_list=feedback_list)
+        return render_template('admin/view_feedback.html', feedback_list=feedback_list, Feedback=Feedback)

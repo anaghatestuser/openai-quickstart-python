@@ -6,7 +6,7 @@ class Feedback(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)  # Assuming user is required for feedback
-    feedback_text = db.Column(db.String(1000))  # Adjust the max length as needed
+    feedback_text = db.Column(db.String(1000), nullable=False)  # Ensure feedback_text is not nullable
     rating = db.Column(db.Integer)
     timestamp = db.Column(db.DateTime, default=datetime.utcnow)
 

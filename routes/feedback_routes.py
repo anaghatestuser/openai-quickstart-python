@@ -42,4 +42,4 @@ def init_app(app):
     @admin_required
     def view_feedback():
         feedback_list = Feedback.query.all()
-        return render_template('admin/view_feedback.html', feedback_list=feedback_list, Feedback=Feedback)
+        return render_template('admin/view_feedback.html', feedback_list=feedback_list)

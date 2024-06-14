@@ -7,13 +7,38 @@ K.I.S.S. IELTS A.I. Assistant - View Feedback
 {% block content %}
 <div class="container p-3">
     <h2 class="mb-4">Feedback Entries</h2>
-    <table class="table table-hover table-bordered">
+    <table id="feedbackTable" class="table table-hover table-bordered">
         <thead class="table-light">
             <tr>
-                <th>ID</th>
-                <th>User</th>
+                <th>
+                    ID 
+                    <select class="form-select" id="sort-id">
+                        <option value="asc">Ascending</option>
+                        <option value="desc">Descending</option>
+                    </select>
+                </th>
+                <th>
+                    User 
+                    <select class="form-select" id="sort-user">
+                        <option value="asc">Ascending</option>
+                        <option value="desc">Descending</option>
+                    </select>
+                </th>
                 <th>Feedback</th>
-                <th>Timestamp</th>
+                <th>
+                    Rating 
+                    <select class="form-select" id="sort-rating">
+                        <option value="asc">Ascending</option>
+                        <option value="desc">Descending</option>
+                    </select>
+                </th>
+                <th>
+                    Timestamp 
+                    <select class="form-select" id="sort-timestamp">
+                        <option value="asc">Ascending</option>
+                        <option value="desc">Descending</option>
+                    </select>
+                </th>
             </tr>
         </thead>
         <tbody>
@@ -21,11 +46,40 @@ K.I.S.S. IELTS A.I. Assistant - View Feedback
             <tr>
                 <td>{{ feedback.id }}</td>
                 <td>{{ feedback.user.username }}</td>
-                <td>{{ feedback.content }}</td>
+                <td>{{ feedback.feedback_text }}</td>
+                <td>{{ feedback.rating }}</td>
                 <td>{{ feedback.timestamp.strftime('%Y-%m-%d %H:%M:%S') }}</td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
 </div>
+
+<script>
+    $(document).ready(function() {
+        // Initialize DataTable
+        var table = $('#feedbackTable').DataTable();
+
+        // Apply the sorting when dropdown values change
+        $('#sort-id').on('change', function() {
+            var order = $(this).val();
+            table.order([0, order]).draw();
+        });
+
+        $('#sort-user').on('change', function() {
+            var order = $(this).val();
+            table.order([1, order]).draw();
+        });
+
+        $('#sort-rating').on('change', function() {
+            var order = $(this).val();
+            table.order([3, order]).draw();
+        });
+
+        $('#sort-timestamp').on('change', function() {
+            var order = $(this).val();
+            table.order([4, order]).draw();
+        });
+    });
+</script>
 {% endblock %}

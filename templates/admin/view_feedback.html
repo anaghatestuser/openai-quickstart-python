@@ -7,8 +7,8 @@ K.I.S.S. IELTS A.I. Assistant - View Feedback
 {% block content %}
 <div class="container p-3">
     <h2 class="mb-4">Feedback Entries</h2>
-    <table id="feedbackTable" class="table table-hover table-bordered">
-        <thead class="table-light">
+    <table id="feedbackTable" class="table table-hover table-bordered display">
+        <thead class="table-light thead-clickable">
             <tr>
                 <th>
                     ID 
@@ -57,28 +57,9 @@ K.I.S.S. IELTS A.I. Assistant - View Feedback
 
 <script>
     $(document).ready(function() {
-        // Initialize DataTable
-        var table = $('#feedbackTable').DataTable();
-
-        // Apply the sorting when dropdown values change
-        $('#sort-id').on('change', function() {
-            var order = $(this).val();
-            table.order([0, order]).draw();
-        });
-
-        $('#sort-user').on('change', function() {
-            var order = $(this).val();
-            table.order([1, order]).draw();
-        });
-
-        $('#sort-rating').on('change', function() {
-            var order = $(this).val();
-            table.order([3, order]).draw();
-        });
-
-        $('#sort-timestamp').on('change', function() {
-            var order = $(this).val();
-            table.order([4, order]).draw();
+        // Initialize DataTable with sorting enabled
+        $('#feedbackTable').DataTable({
+            "order": []
         });
     });
 </script>

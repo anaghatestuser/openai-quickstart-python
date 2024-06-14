@@ -1,5 +1,6 @@
 import logging
 from flask import render_template, abort, flash, redirect, url_for, request, current_app as app
+from functools import wraps
 from flask_login import current_user, login_required
 from flask_mail import Message
 from datetime import datetime, timedelta
@@ -64,6 +65,14 @@ def init_app(app):
         ensure_admin()
         return approve_user_with_username(username)
 
+
+def admin_required(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if not current_user.is_admin:
+            abort(403)
+        return f(*args, **kwargs)
+    return decorated_function
 
 def ensure_admin():
     if not current_user.is_admin:

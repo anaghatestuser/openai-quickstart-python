@@ -39,7 +39,7 @@ def init_app(app):
         if not current_user.is_admin:
             logger.warning(f"Unauthorized access attempt to make {username} an admin")
             abort(403)  # Only admin can make another user an admin
-        user = User.query.filter_by(username=username).first()
+        user = User.query.filter_by(username=username.lower()).first()
         if not user:
             logger.error(f"User {username} not found for admin creation")
             return "User not found"
@@ -58,8 +58,8 @@ def init_app(app):
     
     @app.route('/bootstrap_admin')
     def bootstrap_admin():
-        admin_username = 'Ulysses'  # Replace with your admin's username
-        user = User.query.filter_by(username=admin_username).first()
+        admin_username = 'ulysses'  # Replace with your admin's username
+        user = User.query.filter_by(username=admin_username.lower()).first()
         if user:
             user.is_approved = True
             db.session.commit()
@@ -69,7 +69,7 @@ def init_app(app):
     @app.route('/forgot_password', methods=['GET', 'POST'])
     def forgot_password():
         if request.method == 'POST':
-            email = request.form.get('email')
+            email = request.form.get('email').lower()
             user = User.query.filter_by(email=email).first()
             if user:
                 send_reset_email(user)
@@ -98,7 +98,7 @@ def init_app(app):
     @app.route('/login', methods=['GET', 'POST'])
     def login():
         if request.method == 'POST':
-            username = request.form.get('username')
+            username = request.form.get('username').lower()  # Convert to lowercase
             password = request.form.get('password')
 
             if not username or not password:
@@ -160,9 +160,9 @@ def init_app(app):
     @app.route('/register', methods=['GET', 'POST'])
     def register():
         if request.method == 'POST':
-            username = request.form['username']
+            username = request.form['username'].lower()  # Convert to lowercase
             password = request.form['password']
-            email = request.form['email']
+            email = request.form['email'].lower()  # Convert to lowercase
 
             if not username or not password or not email:
                 flash('Please fill in all the fields.')

@@ -52,3 +52,8 @@ class User(UserMixin, db.Model):
             print(f"Error in verify_reset_token: {e}")
             return None
         return User.query.get(user_id)
+    
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.username = self.username.lower()
+        self.email = self.email.lower()

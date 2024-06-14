@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}
+K.I.S.S. IELTS A.I. Assistant - View Feedback
+{% endblock %}
+
+{% block content %}
+<div class="container p-3">
+    <h2 class="mb-4">Feedback Entries</h2>
+    <table class="table table-hover table-bordered">
+        <thead class="table-light">
+            <tr>
+                <th>ID</th>
+                <th>User</th>
+                <th>Feedback</th>
+                <th>Timestamp</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for feedback in feedback_list %}
+            <tr>
+                <td>{{ feedback.id }}</td>
+                <td>{{ feedback.user.username }}</td>
+                <td>{{ feedback.content }}</td>
+                <td>{{ feedback.timestamp.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

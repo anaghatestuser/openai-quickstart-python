@@ -41,4 +41,4 @@ def init_app(app):
     @login_required
     def view_feedback():
         feedback_list = Feedback.query.all()
-        return render_template('view_feedback.html', feedback_list=feedback_list)
+        return render_template('admin/view_feedback.html', feedback_list=feedback_list)
